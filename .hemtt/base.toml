@@ -1,0 +1,14 @@
+name = "War Room"
+prefix = "wr"
+author = "y0014984"
+template = "cba"
+mainprefix = "y"
+folder_optionals = true
+sig_version = 3
+files = [
+    "mod.cpp",
+    "README.md",
+    "AUTHORS.txt",
+    "LICENSE.md",
+    "meta.cpp"
+]
