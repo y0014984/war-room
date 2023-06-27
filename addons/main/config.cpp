@@ -17,5 +17,8 @@ class CfgPatches
 // Grid Macros and Styles
 #include "defines.inc"
 
-// Various Event Handlers
+// Dialogs
+#include "CfgDialogs.hpp"
+
+// Event Handlers
 #include "CfgEventHandlers.hpp"
