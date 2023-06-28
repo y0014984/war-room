@@ -22,3 +22,9 @@ class CfgPatches
 
 // Event Handlers
 #include "CfgEventHandlers.hpp"
+
+// Module categories
+#include "CfgFactionClasses.hpp"
+
+// Modules and other Assets
+#include "CfgVehicles.hpp"

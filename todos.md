@@ -1,18 +1,31 @@
 
 # Todos
 
+- distinguish between:
+  - players/units that are allowed to use War Room
+  - assets (Monitors and so on) that provide War Room
+  - targets (drones, players, maps) that are loadable into the assets
 - increase headline font size and change background color to green?
+- add config to classes, like
+  - monitors count and indexes
+  - screen size
+  - screen orientation
+  - default screen
+- add ACE3 dynamic interactions
 - add dialog templetes for all resolutions
   - 16:9
   - 16:10
   - 4:3
   - portrait modes?
-- add module "War Room"
-  - parameter: all assets / only linked assets
-  - parameter: all players / only linked players
-  - parameter: all sides / only blufar/opfar/independence/civilian
 - model fixes
   - evtl. bei den Whiteboards
+
+# Later Enhancements
+
+- enable module for placing and manipulation in Zeus (Changing settings and syncing live)
+- localization
+- icon für mod und module
+- mission creator can use a folder in it's mission called 'images' for example, that is scanned; Found images can be used in this mod
 
 # Links
 
