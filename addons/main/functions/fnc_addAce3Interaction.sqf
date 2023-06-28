@@ -15,7 +15,8 @@ private _action =
             // true means, display is currently enabled, so the display will be disabled
             private _hiddenSelectionIndex = (_target getVariable ["WR_displayHiddenSelections", -1]) select 0;
             [_target, nil] call WR_main_fnc_removeEventHandler;
-            _target setObjectTexture [_hiddenSelectionIndex, "#(rgb,1,1,1)color(0,0,0,1)"]; // site 1x1 with 1 mimap; black with no transparency
+            //_target setObjectTexture [_hiddenSelectionIndex, "#(rgb,1,1,1)color(0,0,0,1)"]; // site 1x1 with 1 mimap; black with no transparency
+            _target setObjectTexture [_hiddenSelectionIndex, "\y\wr\addons\main\ui\WarRoom_DefaultDisplay_1024x1024.paa"];
             _target setVariable ["WR_mutex", false, true];
 
             hint "War Room Display disabled";

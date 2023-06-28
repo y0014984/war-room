@@ -15,7 +15,7 @@ if (_unitsScope isEqualTo "GLOBAL") then
     // if units scope global then add class event handler to all units
     private _className = "Man";
     private _eventName = "init";
-    private _eventFunc = { (_this select 0) setVariable ["WR_interactionAllowedGlobal", true, true]; };
+    private _eventFunc = { params ["_entity"]; _entity setVariable ["WR_interactionAllowedGlobal", true, true]; };
     private _allowInheritance = true;
     private _excludedClasses = [];
     private _applyInitRetroactively = true;
@@ -34,7 +34,14 @@ if (_assetsScope isEqualTo "GLOBAL") then
     {
         private _className = _x;
         private _eventName = "init";
-        private _eventFunc = { (_this select 0) setVariable ["WR_interactionAllowedGlobal", true, true]; };
+        private _eventFunc =
+        {
+            params ["_entity"];
+
+            _entity setVariable ["WR_interactionAllowedGlobal", true, true];
+            private _hiddenSelectionIndex = (_entity getVariable ["WR_displayHiddenSelections", -1]) select 0;
+            _entity setObjectTexture [_hiddenSelectionIndex, "\y\wr\addons\main\ui\WarRoom_DefaultDisplay_1024x1024.paa"];
+        };
         private _allowInheritance = true;
         private _excludedClasses = [];
         private _applyInitRetroactively = true;

@@ -1,6 +1,9 @@
 
 # Todos
 
+- initDevice funktion anstatt in der module funktion für z.B. Variablen und Texturen setzen
+- was passiert mit setObjectTextureGlobal anstatt setObjectTexture?
+- Sicherstellen, dass allgemeine Update-Funktionen auf dem Server laufen
 - set every supported display to a default screen, saying "Please interact with me"
 - add function to disable screen (oposite of init function), see ACE3 toggle interaction
 - add CBA and ACE to the mod dependencies
