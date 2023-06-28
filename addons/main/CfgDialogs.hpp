@@ -55,7 +55,7 @@ class WarRoom16x9x3xMUU
             h = 3 * GUI_GRID_H;
 
             colorBackground[] = {0.2, 0.2, 0.2, 1}; // opaque dark grey
-
+            sizeEx = 1.5 * GUI_GRID_H;
             text = "War Room"; //--- ToDo: Localize;
         };
 
@@ -113,7 +113,6 @@ class WarRoom16x9x3xMUU
 			h = 1 * GUI_GRID_H;
 
             colorBackground[] = {0.2, 0.2, 0.2, 0.5}; // translucent grey
-
 			text = "UAV 1";
 		};
 
@@ -127,7 +126,6 @@ class WarRoom16x9x3xMUU
 			h = 1 * GUI_GRID_H;
 			
             colorBackground[] = {0.2, 0.2, 0.2, 0.5}; // translucent grey
-
 			text = "UAV 2";
 		};
 
@@ -141,7 +139,6 @@ class WarRoom16x9x3xMUU
             h = 2 * GUI_GRID_H;
 
             colorBackground[] = {0.2, 0.2, 0.2, 1}; // opaque dark grey
-
             text = "Mod v0.1.0 by y0014984"; //--- ToDo: Localize;
         };
 

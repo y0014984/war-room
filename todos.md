@@ -10,7 +10,6 @@
   - players/units that are allowed to use War Room
   - assets (Monitors and so on) that provide War Room
   - targets (drones, players, maps) that are loadable into the assets
-- increase headline font size and change background color to green?
 - add ACE3 dynamic interactions for maipulating the screens content
 - add dialog templetes for all resolutions
   - 16:9
