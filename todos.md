@@ -1,6 +1,9 @@
 
 # Todos
 
+- set every supported display to a default screen, saying "Please interact with me"
+- add function to disable screen (oposite of init function), see ACE3 toggle interaction
+- add CBA and ACE to the mod dependencies
 - define _supportedAssetClasses only once and global (perhaps parsing all assets and filling in an array)
 - change mod name (see asset browser; not @wr but real mod name)
 - distinguish between:
@@ -8,12 +11,7 @@
   - assets (Monitors and so on) that provide War Room
   - targets (drones, players, maps) that are loadable into the assets
 - increase headline font size and change background color to green?
-- add config to classes, like
-  - monitors count and indexes
-  - screen size
-  - screen orientation
-  - default screen
-- add ACE3 dynamic interactions
+- add ACE3 dynamic interactions for maipulating the screens content
 - add dialog templetes for all resolutions
   - 16:9
   - 16:10
