@@ -99,4 +99,16 @@ class CfgVehicles
 	};
 
 	/* ================================================================================ */
+
+    class Land_TripodScreen_01_large_F;
+    class Land_TripodScreen_01_large_sand_F: Land_TripodScreen_01_large_F
+    {
+        class War_Room 
+        {
+            WR_supported = 1; // 1 == true; 0 == false
+            WR_displayHiddenSelections[] = {1};
+        };
+    };
+
+    /* ================================================================================ */
 };

@@ -1,6 +1,8 @@
 
 # Todos
 
+- define _supportedAssetClasses only once and global (perhaps parsing all assets and filling in an array)
+- change mod name (see asset browser; not @wr but real mod name)
 - distinguish between:
   - players/units that are allowed to use War Room
   - assets (Monitors and so on) that provide War Room
