@@ -1,19 +1,13 @@
 /* ================================================================================ */
 
 	// size safezone 40x25
-
-    // aspect ratios:
-    // 4:3 display 40x30
-    // 16:9 display 48x27
-    // 16:10 display 48x30
-
-    // subsections:
-    // 1 means only 1 big section
-    // 2 means 2 sections, splitted left/right
-    // 3 means 3 subsections, splitted left/right, right side splitted top/bottom
-    // 4 means 4 subsections, splitted left/right and top/bottom
-
-    // 16x9x3xMUU means an aspect ratio of 16x9 with 3 subsections and map on the left and 2 UAVs on the right side
+    // we can't change that
+    
+    // War Room 1 --> 1x 4x4
+    // War Room 2 --> 2x 2x2
+    // War Room 3 --> 1x 2x2 and 4x 1x1
+    // War Room 4 --> 8x 1x1
+    // War Room 5 --> 1x 3x2 and 2x 1x1
 
 /* ================================================================================ */
 
@@ -23,7 +17,7 @@ class RscPicture;
 
 /* ================================================================================ */
 
-class WarRoom16x9x3xMUU
+class WarRoom5
 {
 	idd = 14642;
 	enableSimulation = true;
@@ -59,7 +53,37 @@ class WarRoom16x9x3xMUU
             text = "War Room"; //--- ToDo: Localize;
         };
 
-		class Map: RscMapControl
+		//class Map: RscMapControl
+		//{
+		//	idc = 3001;
+//
+		//	x = 0 * GUI_GRID_W + GUI_GRID_X;
+		//	y = 3 * GUI_GRID_H + GUI_GRID_Y;
+		//	w = 30 * GUI_GRID_W;
+		//	h = 20 * GUI_GRID_H;
+		//};
+
+		//class UAV1: RscPicture
+		//{
+		//	idc = 3002;
+//
+		//	x = 30 * GUI_GRID_W + GUI_GRID_X;
+		//	y = 3 * GUI_GRID_H + GUI_GRID_Y;
+		//	w = 10 * GUI_GRID_W;
+		//	h = 10 * GUI_GRID_H;
+		//};
+
+		//class UAV2: RscPicture
+		//{
+		//	idc = 3003;
+//
+		//	x = 30 * GUI_GRID_W + GUI_GRID_X;
+		//	y = 13 * GUI_GRID_H + GUI_GRID_Y;
+		//	w = 10 * GUI_GRID_W;
+		//	h = 10 * GUI_GRID_H;
+		//};
+
+		class Placeholder1: RscPicture
 		{
 			idc = 3001;
 
@@ -67,9 +91,11 @@ class WarRoom16x9x3xMUU
 			y = 3 * GUI_GRID_H + GUI_GRID_Y;
 			w = 30 * GUI_GRID_W;
 			h = 20 * GUI_GRID_H;
+
+            text = "\y\wr\addons\main\ui\WarRoom_Placeholder_1024x1024.paa";
 		};
 
-		class UAV1: RscPicture
+		class Placeholder2: RscPicture
 		{
 			idc = 3002;
 
@@ -77,9 +103,11 @@ class WarRoom16x9x3xMUU
 			y = 3 * GUI_GRID_H + GUI_GRID_Y;
 			w = 10 * GUI_GRID_W;
 			h = 10 * GUI_GRID_H;
+
+            text = "\y\wr\addons\main\ui\WarRoom_Placeholder_1024x1024.paa";
 		};
 
-		class UAV2: RscPicture
+		class Placeholder3: RscPicture
 		{
 			idc = 3003;
 
@@ -87,7 +115,11 @@ class WarRoom16x9x3xMUU
 			y = 13 * GUI_GRID_H + GUI_GRID_Y;
 			w = 10 * GUI_GRID_W;
 			h = 10 * GUI_GRID_H;
+
+            text = "\y\wr\addons\main\ui\WarRoom_Placeholder_1024x1024.paa";
 		};
+
+
 
 		//class MapHeadline: RscText
 		//{
