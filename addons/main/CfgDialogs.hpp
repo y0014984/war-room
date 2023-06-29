@@ -92,7 +92,7 @@ class WarRoom5
 			w = 30 * GUI_GRID_W;
 			h = 20 * GUI_GRID_H;
 
-            text = "\y\wr\addons\main\ui\WarRoom_Placeholder_1024x1024.paa";
+            text = "\y\wr\addons\main\ui\WarRoom_Placeholder1_1024x1024.paa";
 		};
 
 		class Placeholder2: RscPicture
@@ -104,7 +104,7 @@ class WarRoom5
 			w = 10 * GUI_GRID_W;
 			h = 10 * GUI_GRID_H;
 
-            text = "\y\wr\addons\main\ui\WarRoom_Placeholder_1024x1024.paa";
+            text = "\y\wr\addons\main\ui\WarRoom_Placeholder2_1024x1024.paa";
 		};
 
 		class Placeholder3: RscPicture
@@ -116,7 +116,7 @@ class WarRoom5
 			w = 10 * GUI_GRID_W;
 			h = 10 * GUI_GRID_H;
 
-            text = "\y\wr\addons\main\ui\WarRoom_Placeholder_1024x1024.paa";
+            text = "\y\wr\addons\main\ui\WarRoom_Placeholder3_1024x1024.paa";
 		};
 
 

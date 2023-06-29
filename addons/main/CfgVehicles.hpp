@@ -109,6 +109,7 @@ class CfgVehicles
             WR_displayHiddenSelections[] = {0}; // index of hidden selections
             WR_resolution = 1024;
             WR_uiClass = "WarRoom5";
+			WR_uiPlaceholderCount = 3;
         };
     };
 

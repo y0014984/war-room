@@ -1,6 +1,7 @@
 
 # Todos
 
+- set color of WarRoom Head and Subhead to Background Color of Placeholder and Dummy Display
 - initDevice funktion anstatt in der module funktion für z.B. Variablen und Texturen setzen
 - was passiert mit setObjectTextureGlobal anstatt setObjectTexture?
 - Sicherstellen, dass allgemeine Update-Funktionen auf dem Server laufen
