@@ -13,7 +13,7 @@
   - players/units that are allowed to use War Room
   - assets (Monitors and so on) that provide War Room
   - targets (drones, players, maps) that are loadable into the assets
-- add ACE3 dynamic interactions for maipulating the screens content
+- add ACE3 dynamic interactions for manipulating the screens content
 - add dialog templetes for all resolutions
   - 16:9
   - 16:10
@@ -43,3 +43,4 @@
 
 - only 40x25 Displays are possible; Can't react to different aspect ratios; everything outside of this will be cut off; everything smaller will be left blank
 - can't place UI elements on Top of RscMapControl
+- perhaps map does not show all textures; Workaround is to open the map manually and completely zoom out; This will fix the issue with the map on war room display
