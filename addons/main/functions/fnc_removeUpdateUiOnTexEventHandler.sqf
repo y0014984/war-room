@@ -1,4 +1,4 @@
-params ["_entity", "_uav"];
+params ["_entity"];
 
 private  _updateUiOnTexHandle = _entity getVariable ["WR_updateUiOnTexHandle", -1];
 [_updateUiOnTexHandle] call CBA_fnc_removePerFrameHandler;
@@ -12,5 +12,7 @@ removeMissionEventHandler ["Draw3D", _drone1DirAdjustHandle];
 
 private _drone2DirAdjustHandle = uiNamespace getVariable ["drone2DirAdjustHandle", -1];
 removeMissionEventHandler ["Draw3D", _drone2DirAdjustHandle]; */
+
+systemChat "removed 'update ui on texture' event handler";
 
 true;

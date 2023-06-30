@@ -123,7 +123,7 @@ class WarRoom5
 
 		//class MapHeadline: RscText
 		//{
-		//	idc = 4001;
+		//	idc = 5001;
         //
 		//	x = 0 * GUI_GRID_W + GUI_GRID_X;
 		//	y = 1.5 * GUI_GRID_H + GUI_GRID_Y;
@@ -137,7 +137,7 @@ class WarRoom5
 
 		class UAV1Headline: RscText
 		{
-			idc = 4002;
+			idc = 5002;
 
 			x = 30 * GUI_GRID_W + GUI_GRID_X;
 			y = 3 * GUI_GRID_H + GUI_GRID_Y;
@@ -150,7 +150,7 @@ class WarRoom5
 
 		class UAV2Headline: RscText
 		{
-			idc = 4003;
+			idc = 5003;
 
 			x = 30 * GUI_GRID_W + GUI_GRID_X;
 			y = 13 * GUI_GRID_H + GUI_GRID_Y;
@@ -163,7 +163,7 @@ class WarRoom5
 
         class Subheadline: RscText
         {
-            idc = 5001;
+            idc = 6001;
 
             x = 0 * GUI_GRID_W + GUI_GRID_X;
             y = 23 * GUI_GRID_H + GUI_GRID_Y;

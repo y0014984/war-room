@@ -15,14 +15,9 @@ private _statement =
         [_target, nil] call WR_main_fnc_removeEventHandler;
         //_target setObjectTexture [_hiddenSelectionIndex, "#(rgb,1,1,1)color(0,0,0,1)"]; // site 1x1 with 1 mimap; black with no transparency
         _target setObjectTexture [_hiddenSelectionIndex, "\y\wr\addons\main\ui\WarRoom_DefaultDisplay_1024x1024.paa"];
+        [_target] call WR_main_fnc_removeUpdateUiOnTexEventHandler;
+        [_target] call WR_main_fnc_terminateUiOnTex;
         _target setVariable ["WR_mutex", false, true];
-
-        // delete placeholder variables
-        private _uiPlaceholderCount = _target getVariable ["WR_uiPlaceholderCount", false];
-        for "_i" from 1 to _uiPlaceholderCount do
-        {
-            _target setVariable [format ["WR_placeholder%1Mutex", _i], nil, true];
-        };
 
         hint "War Room Display disabled";
     }
@@ -33,6 +28,7 @@ private _statement =
         private _resolution = _target getVariable ["WR_resolution", 256];
         private _uiClass = _target getVariable ["WR_uiClass", "WarRoomDefault"];
         [_target, _hiddenSelectionIndex, _resolution, _uiClass] call WR_main_fnc_initUiOnTex;
+        [_target] call WR_main_fnc_addUpdateUiOnTexEventHandler;
         _target setVariable ["WR_mutex", true, true];
 
         hint "War Room Display enabled";
@@ -88,12 +84,14 @@ private _insertChildren =
             {
                 // true means, placeholder is currently enabled, so the placeholder will be disabled
                 systemChat format ["reset %1", _placeholderIndex];
+                [_target, _placeholderIndex] call WR_main_fnc_removeNewControlOnPlaceholder;
                 _target setVariable [format ["WR_placeholder%1Mutex", _placeholderIndex], false, true];
             }
             else
             {
-                // false means, placeholder is currently disabled, so the placeholder will be ensabled
+                // false means, placeholder is currently disabled, so the placeholder will be enabled
                 systemChat format ["setup %1", _placeholderIndex];
+                [_target, _placeholderIndex] call WR_main_fnc_setupNewControlOnPlaceholder;
                 _target setVariable [format ["WR_placeholder%1Mutex", _placeholderIndex], true, true];
             };
         };
