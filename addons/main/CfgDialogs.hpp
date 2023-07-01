@@ -12,14 +12,164 @@
 /* ================================================================================ */
 
 class RscText;
+class RscCombo;
 class RscMapControl;
 class RscPicture;
 
 /* ================================================================================ */
 
+class ChangeScreenResolutionDialog
+{
+	idd = 14631;
+	enableSimulation = true;
+
+	class controlsBackground
+	{
+        class Background: RscText
+        {
+            idc = 1001;
+
+            x = 0 * GUI_GRID_W + GUI_GRID_X;
+            y = 0 * GUI_GRID_H + GUI_GRID_Y;
+            w = 40 * GUI_GRID_W;
+            h = 23 * GUI_GRID_H;
+
+            colorBackground[] = {0.3, 0.3, 0.3, 1}; // opaque dark grey
+        };
+	};
+
+	class controls
+	{
+        class Headline: RscText
+        {
+            idc = 2001;
+
+            x = 0 * GUI_GRID_W + GUI_GRID_X;
+            y = 0 * GUI_GRID_H + GUI_GRID_Y;
+            w = 40 * GUI_GRID_W;
+            h = 1.5 * GUI_GRID_H;
+
+            colorBackground[] = {0, 0, 0, 1}; // opaque black
+            text = "Change Screen Resolution"; //--- ToDo: Localize;
+        };
+
+		class VerticalResolutionLabel: RscText
+		{
+			idc = 3001;
+        
+			x = 0 * GUI_GRID_W + GUI_GRID_X;
+			y = 2 * GUI_GRID_H + GUI_GRID_Y;
+			w = 10 * GUI_GRID_W;
+			h = 1 * GUI_GRID_H;
+        
+			text = "Vertical Resolution"; //--- ToDo: Localize;
+            style = ST_RIGHT;
+		};
+
+		class HorizontalResolutionLabel: RscText
+		{
+			idc = 3002;
+        
+			x = 0 * GUI_GRID_W + GUI_GRID_X;
+			y = 3.5 * GUI_GRID_H + GUI_GRID_Y;
+			w = 10 * GUI_GRID_W;
+			h = 1 * GUI_GRID_H;
+        
+			text = "Horizontal Resolution"; //--- ToDo: Localize;
+            style = ST_RIGHT;
+		};
+
+        class VerticalResolution: RscCombo
+        {
+            idc = 4001;
+            x = 11 * GUI_GRID_W + GUI_GRID_X;
+            y = 2 * GUI_GRID_H + GUI_GRID_Y;
+            w = 8 * GUI_GRID_W;
+            h = 1 * GUI_GRID_H;
+
+            class Items
+            {
+                class 256
+                {
+                    text = "256";
+                };
+                class 512
+                {
+                    text = "512";
+                };
+                class 1024
+                {
+                    text = "1024";
+                    default = 1;
+                };
+                class 2048
+                {
+                    text = "2048";
+                };
+                class 4096
+                {
+                    text = "4096";
+                };
+            };
+        };
+
+        class HorizontalResolution: RscCombo
+        {
+            idc = 4002;
+            x = 11 * GUI_GRID_W + GUI_GRID_X;
+            y = 3.5 * GUI_GRID_H + GUI_GRID_Y;
+            w = 8 * GUI_GRID_W;
+            h = 1 * GUI_GRID_H;
+
+            class Items
+            {
+                class 256
+                {
+                    text = "256";
+                };
+                class 512
+                {
+                    text = "512";
+                };
+                class 1024
+                {
+                    text = "1024";
+                    default = 1;
+                };
+                class 2048
+                {
+                    text = "2048";
+                };
+                class 4096
+                {
+                    text = "4096";
+                };
+            };
+        };
+
+        class MyOk: RscButtonMenuOK
+        {
+            x = 37 * GUI_GRID_W + GUI_GRID_X;
+            y = 23.5 * GUI_GRID_H + GUI_GRID_Y;
+            w = 3 * GUI_GRID_W;
+            h = 1.5 * GUI_GRID_H;
+        };
+
+        class MyCancel: RscButtonMenuCancel
+        {
+            x = 31 * GUI_GRID_W + GUI_GRID_X;
+            y = 23.5 * GUI_GRID_H + GUI_GRID_Y;
+            w = 5 * GUI_GRID_W;
+            h = 1.5 * GUI_GRID_H;
+        };
+	};
+};
+
+/* ================================================================================ */
+
 class WarRoom1
 {
-	idd = 14642;
+	idd = 14641;
 	enableSimulation = true;
 
 	WR_uiPlaceholderCount = 1;
@@ -148,7 +298,7 @@ class WarRoom1
 
 class WarRoom5
 {
-	idd = 14642;
+	idd = 14645;
 	enableSimulation = true;
 
 	WR_uiPlaceholderCount = 3;

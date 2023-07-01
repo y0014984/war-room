@@ -140,6 +140,22 @@ private _screenHiddenSelections = _entity getVariable ["WR_screenHiddenSelection
         _screenLayoutAction // Action <ARRAY>
     ] call ace_interact_menu_fnc_addActionToObject;
 
+    /* ---------------------------------------- */
+
+    // create screen placeholders action
+    private _screenPlaceholdersAction = [_forEachIndex] call WR_main_fnc_createScreenPlaceholdersAction;
+
+    /* ---------------------------------------- */
+
+    // add screen placeholders actions to entity
+    private _screenPlaceholdersActionPath =
+    [
+        _entity, // Object the action should be assigned to <OBJECT>
+        0, // Type of action, 0 for actions, 1 for self-actions <NUMBER>
+        _screenActionPath, // Parent path of the new action <ARRAY> (Example: `["ACE_SelfActions", "ACE_Equipment"]`)
+        _screenPlaceholdersAction // Action <ARRAY>
+    ] call ace_interact_menu_fnc_addActionToObject;
+
 } forEach _screenHiddenSelections;
 
 /* ================================================================================ */
