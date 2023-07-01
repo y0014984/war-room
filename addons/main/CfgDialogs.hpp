@@ -15,6 +15,8 @@ class RscText;
 class RscCombo;
 class RscMapControl;
 class RscPicture;
+class RscButtonMenuOK;
+class RscButtonMenuCancel;
 
 /* ================================================================================ */
 
