@@ -106,12 +106,39 @@ class CfgVehicles
         class War_Room 
         {
             WR_supported = 1; // 1 == true; 0 == false
-            WR_displayHiddenSelections[] = {0}; // index of hidden selections
+            WR_screenHiddenSelections[] = {0}; // index of hidden selections
             WR_resolution = 1024;
-            WR_uiClass = "WarRoom5";
-			WR_uiPlaceholderCount = 3;
+            WR_uiClasses[] = {"WarRoom5"};
         };
     };
 
     /* ================================================================================ */
+
+	class Land_TripodScreen_01_dual_v2_F;
+	class Land_TripodScreen_01_dual_v2_sand_F: Land_TripodScreen_01_dual_v2_F
+	{
+        class War_Room 
+        {
+            WR_supported = 1; // 1 == true; 0 == false
+            WR_screenHiddenSelections[] = {0,1}; // index of hidden selections
+            WR_resolution = 1024;
+            WR_uiClasses[] = {"WarRoom1", "WarRoom1"};
+        };
+	};
+
+    /* ================================================================================ */
+
+	class Land_MultiScreenComputer_01_base_F;
+	class Land_MultiScreenComputer_01_sand_F: Land_MultiScreenComputer_01_base_F
+	{
+        class War_Room 
+        {
+            WR_supported = 1; // 1 == true; 0 == false
+            WR_screenHiddenSelections[] = {1,2,3}; // index of hidden selections
+            WR_resolution = 1024;
+            WR_uiClasses[] = {"WarRoom1", "WarRoom1", "WarRoom1"};
+        };
+	};
+
+	/* ================================================================================ */
 };

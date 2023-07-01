@@ -1,6 +1,6 @@
-params ["_entity"];
+params ["_entity", "_screenIndex"];
 
-private  _updateUiOnTexHandle = _entity getVariable ["WR_updateUiOnTexHandle", -1];
+private  _updateUiOnTexHandle = _entity getVariable [format ["WR_updateUiOnTexScreen%1Handle", _screenIndex], -1];
 [_updateUiOnTexHandle] call CBA_fnc_removePerFrameHandler;
 
 //private _uavDirAdjustHandle = _uav getVariable ["WR_uavDirAdjustHandle", -1];

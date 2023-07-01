@@ -11,7 +11,13 @@ PREP(removeNewControlOnPlaceholder);
 PREP(addUpdateRender2TexEventHandler);
 PREP(addLeadingZerosToDateTime);
 
-PREP(addAce3Interaction);
-
 // Server
 PREP(module_enableWarRoom);
+PREP(initSupportedAssetClasses);
+PREP(addAce3Interactions);
+PREP(createWarRoomAction);
+PREP(createScreenAction);
+PREP(createScreenToggleAction);
+PREP(createScreenResolutionAction);
+PREP(createScreenLayoutAction);
+PREP(createScreenPlaceholdersAction);

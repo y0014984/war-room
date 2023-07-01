@@ -22,10 +22,7 @@ if (_unitsScope isEqualTo "GLOBAL") then
     [_className, _eventName, _eventFunc, _allowInheritance, _excludedClasses, _applyInitRetroactively] call CBA_fnc_addClassEventHandler;
 };
 
-private _supportedAssetClasses = 
-    [
-        "Land_TripodScreen_01_large_sand_F"
-    ];
+private _supportedAssetClasses = missionNamespace getVariable ["WR_supportedAssetClasses", []];
 
 if (_assetsScope isEqualTo "GLOBAL") then
 {
@@ -39,8 +36,10 @@ if (_assetsScope isEqualTo "GLOBAL") then
             params ["_entity"];
 
             _entity setVariable ["WR_interactionAllowedGlobal", true, true];
-            private _hiddenSelectionIndex = (_entity getVariable ["WR_displayHiddenSelections", -1]) select 0;
-            _entity setObjectTexture [_hiddenSelectionIndex, "\y\wr\addons\main\ui\WarRoom_DefaultDisplay_1024x1024.paa"];
+            private _screenHiddenSelections = _entity getVariable ["WR_screenHiddenSelections", []];
+            {
+                _entity setObjectTexture [_x, "\y\wr\addons\main\ui\WarRoom_DefaultDisplay_1024x1024.paa"];
+            } forEach _screenHiddenSelections;
         };
         private _allowInheritance = true;
         private _excludedClasses = [];

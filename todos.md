@@ -1,6 +1,21 @@
+# Nomenklatur
+
+Eine "Entity" hat ein oder mehrere "Screens". Ein Screen is einer "Hidden Selection" zugewiesen. Eine "Hidden Selection" als Nummer ist nicht identisch mit dem "Screen Index", der stets mit
+1 beginnt. Die "Textur" des "Screens" wird mit setObjectTexture gesetzt. Ein "Display" ist das UI eines "Screens", dass aus einem oder mehreren "Placeholdern" besteht. "Screens" können einzeln 
+über die ACE3 Interactions gesteuert werden. Daher werden sie im Menüpunkt "War Room" zusammengefasst.
+
+# ACE3 Interactions
+
+Interaction --> War Room --> Screen 1
+                         --> Screen 2
+                         --> Screen 3 --> enable/disable (Toggle)
+                                      --> change layout
+                                      --> change resolution
+                                      --> configure Placeholders
 
 # Todos
 
+- introduce "supportedUIClasses" config instead of defined ui classes per screen; 1st supported is the default one
 - in GRAD Mod umwandeln?
 - set color of WarRoom Head and Subhead to Background Color of Placeholder and Dummy Display
 - initDevice funktion anstatt in der module funktion für z.B. Variablen und Texturen setzen
@@ -31,6 +46,7 @@
 - localization
 - icon für mod und module
 - mission creator can use a folder in it's mission called 'images' for example, that is scanned; Found images can be used in this mod
+- set interaction points to the center of each screen
 
 # Links
 

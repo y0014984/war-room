@@ -6,7 +6,7 @@ class Extended_PreInit_EventHandlers
                 init = "call compile preprocessFileLineNumbers '\y\wr\addons\main\XEH_preInit.sqf';";
 
                 // This code will be executed once and only on the server
-                serverInit = "";
+                serverInit = "call compile preprocessFileLineNumbers '\y\wr\addons\main\XEH_preInitServer.sqf';";
 
                 // This snippet runs once and only on client machines
                 clientInit = "";
