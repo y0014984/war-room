@@ -21,3 +21,8 @@ PREP(createScreenToggleAction);
 PREP(createScreenResolutionAction);
 PREP(createScreenLayoutAction);
 PREP(createScreenPlaceholdersAction);
+
+
+
+// Unknown
+PREP(setScreenResolution);

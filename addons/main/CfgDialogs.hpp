@@ -25,6 +25,9 @@ class ChangeScreenResolutionDialog
 	idd = 14631;
 	enableSimulation = true;
 
+    onUnload = "params ['_display', '_exitCode']; if (_exitCode == 2) exitWith {}; private _vertResCtrl = _display displayCtrl 4001; private _horiResCtrl = _display displayCtrl 4002; [lbCurSel _horiResCtrl, lbCurSel _vertResCtrl] call WR_main_fnc_setScreenResolution;";
+    // ok = 1, cancel = 2
+
 	class controlsBackground
 	{
         class Background: RscText
