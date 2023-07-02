@@ -18,6 +18,8 @@ params ["_entity", "_hiddenSelection", "_screenIndex", "_resolution", "_uiClass"
 	_entity setVariable [format ["WR_uiOnTextureDisplayNameScreen%1", _screenIndex], _uiOnTextureDisplayName];
 	_entity setVariable [format ["WR_uiClassScreen%1", _screenIndex], _uiClass];
 	_entity setVariable [format ["WR_hiddenSelectionScreen%1", _screenIndex], _hiddenSelection];
+
+	systemChat format ["'ui on texture' display for screen %1 initialized.", _screenIndex];
 };
 
 true;

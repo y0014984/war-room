@@ -25,7 +25,7 @@ class ConfigureScreenDialog
 	idd = 14631;
 	enableSimulation = true;
 
-    onUnload = "params ['_dialog', '_exitCode']; if (_exitCode == 2) exitWith {}; private _vertResCtrl = _dialog displayCtrl 4001; private _horiResCtrl = _dialog displayCtrl 4002; [_dialog, lbCurSel _horiResCtrl, lbCurSel _vertResCtrl] call WR_main_fnc_setScreenResolution;";
+    onUnload = "params ['_dialog', '_exitCode']; if (_exitCode == 2) exitWith {}; private _horiResCtrl = _dialog displayCtrl 4001; private _vertResCtrl = _dialog displayCtrl 4002; [_dialog, lbCurSel _horiResCtrl, lbCurSel _vertResCtrl] call WR_main_fnc_setScreenResolution;";
     // ok = 1, cancel = 2
 
 	class controlsBackground
@@ -67,13 +67,14 @@ class ConfigureScreenDialog
 			w = 10 * GUI_GRID_W;
 			h = 1 * GUI_GRID_H;
         
-			text = "Screen Resolution"; //--- ToDo: Localize;
+			text = "Resolution"; //--- ToDo: Localize;
             style = ST_RIGHT;
 		};
 
-        class VerticalResolution: RscCombo
+        class HorizontalResolution: RscCombo
         {
             idc = 4001;
+
             x = 11 * GUI_GRID_W + GUI_GRID_X;
             y = 2 * GUI_GRID_H + GUI_GRID_Y;
             w = 8 * GUI_GRID_W;
@@ -118,9 +119,10 @@ class ConfigureScreenDialog
             style = ST_RIGHT;
 		};
 
-        class HorizontalResolution: RscCombo
+        class VerticalResolution: RscCombo
         {
             idc = 4002;
+
             x = 21 * GUI_GRID_W + GUI_GRID_X;
             y = 2 * GUI_GRID_H + GUI_GRID_Y;
             w = 8 * GUI_GRID_W;
@@ -151,6 +153,54 @@ class ConfigureScreenDialog
                 };
             };
         };
+
+		class LayoutLabel: RscText
+		{
+			idc = 3003;
+        
+			x = 0 * GUI_GRID_W + GUI_GRID_X;
+			y = 3.5 * GUI_GRID_H + GUI_GRID_Y;
+			w = 10 * GUI_GRID_W;
+			h = 1 * GUI_GRID_H;
+        
+			text = "Layout"; //--- ToDo: Localize;
+            style = ST_RIGHT;
+		};
+
+        class Layout: RscCombo
+        {
+            idc = 4003;
+
+            x = 11 * GUI_GRID_W + GUI_GRID_X;
+            y = 3.5 * GUI_GRID_H + GUI_GRID_Y;
+            w = 8 * GUI_GRID_W;
+            h = 1 * GUI_GRID_H;
+
+            class Items
+            {
+                class WarRoom1Item
+                {
+                    text = "War Room 1";
+                };
+                class WarRoom5Item
+                {
+                    text = "War Room 5";
+                    default = 1;
+                };
+            };
+        };
+
+		class LayoutDemo: RscPicture
+		{
+			idc = 5001;
+
+            x = 21 * GUI_GRID_W + GUI_GRID_X;
+            y = 3.5 * GUI_GRID_H + GUI_GRID_Y;
+            w = 16 * GUI_GRID_W;
+            h = 10 * GUI_GRID_H;
+
+            text = "\y\wr\addons\main\ui\WarRoom_Layouts_WarRoom5_1024x1024.paa";
+		};
 
         class MyOk: RscButtonMenuOK
         {
@@ -206,7 +256,7 @@ class WarRoom1
             h = 3 * GUI_GRID_H;
 
             colorBackground[] = {0.2, 0.2, 0.2, 1}; // opaque dark grey
-            sizeEx = 1.5 * GUI_GRID_H;
+            sizeEx = 1.2 * GUI_GRID_H;
             text = "War Room"; //--- ToDo: Localize;
         };
 
@@ -335,7 +385,7 @@ class WarRoom5
             h = 3 * GUI_GRID_H;
 
             colorBackground[] = {0.2, 0.2, 0.2, 1}; // opaque dark grey
-            sizeEx = 1.5 * GUI_GRID_H;
+            sizeEx = 1.2 * GUI_GRID_H;
             text = "War Room"; //--- ToDo: Localize;
         };
 
