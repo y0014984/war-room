@@ -20,12 +20,12 @@ class RscButtonMenuCancel;
 
 /* ================================================================================ */
 
-class ChangeScreenResolutionDialog
+class ConfigureScreenDialog
 {
 	idd = 14631;
 	enableSimulation = true;
 
-    onUnload = "params ['_display', '_exitCode']; if (_exitCode == 2) exitWith {}; private _vertResCtrl = _display displayCtrl 4001; private _horiResCtrl = _display displayCtrl 4002; [lbCurSel _horiResCtrl, lbCurSel _vertResCtrl] call WR_main_fnc_setScreenResolution;";
+    onUnload = "params ['_dialog', '_exitCode']; if (_exitCode == 2) exitWith {}; private _vertResCtrl = _dialog displayCtrl 4001; private _horiResCtrl = _dialog displayCtrl 4002; [_dialog, lbCurSel _horiResCtrl, lbCurSel _vertResCtrl] call WR_main_fnc_setScreenResolution;";
     // ok = 1, cancel = 2
 
 	class controlsBackground
@@ -55,10 +55,10 @@ class ChangeScreenResolutionDialog
             h = 1.5 * GUI_GRID_H;
 
             colorBackground[] = {0, 0, 0, 1}; // opaque black
-            text = "Change Screen Resolution"; //--- ToDo: Localize;
+            text = "Configure Screen"; //--- ToDo: Localize;
         };
 
-		class VerticalResolutionLabel: RscText
+		class ResolutionLabel: RscText
 		{
 			idc = 3001;
         
@@ -67,20 +67,7 @@ class ChangeScreenResolutionDialog
 			w = 10 * GUI_GRID_W;
 			h = 1 * GUI_GRID_H;
         
-			text = "Vertical Resolution"; //--- ToDo: Localize;
-            style = ST_RIGHT;
-		};
-
-		class HorizontalResolutionLabel: RscText
-		{
-			idc = 3002;
-        
-			x = 0 * GUI_GRID_W + GUI_GRID_X;
-			y = 3.5 * GUI_GRID_H + GUI_GRID_Y;
-			w = 10 * GUI_GRID_W;
-			h = 1 * GUI_GRID_H;
-        
-			text = "Horizontal Resolution"; //--- ToDo: Localize;
+			text = "Screen Resolution"; //--- ToDo: Localize;
             style = ST_RIGHT;
 		};
 
@@ -118,11 +105,24 @@ class ChangeScreenResolutionDialog
             };
         };
 
+		class xLabel: RscText
+		{
+			idc = 3002;
+        
+			x = 19.5 * GUI_GRID_W + GUI_GRID_X;
+			y = 2 * GUI_GRID_H + GUI_GRID_Y;
+			w = 1 * GUI_GRID_W;
+			h = 1 * GUI_GRID_H;
+        
+			text = "x"; //--- ToDo: Localize;
+            style = ST_RIGHT;
+		};
+
         class HorizontalResolution: RscCombo
         {
             idc = 4002;
-            x = 11 * GUI_GRID_W + GUI_GRID_X;
-            y = 3.5 * GUI_GRID_H + GUI_GRID_Y;
+            x = 21 * GUI_GRID_W + GUI_GRID_X;
+            y = 2 * GUI_GRID_H + GUI_GRID_Y;
             w = 8 * GUI_GRID_W;
             h = 1 * GUI_GRID_H;
 

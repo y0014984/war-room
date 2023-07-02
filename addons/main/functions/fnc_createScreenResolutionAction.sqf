@@ -9,7 +9,9 @@ private _statement =
     params ["_target", "_player", "_params"];
     _params params ["_screenIndex"];
 
-    private _ok = createDialog "ChangeScreenResolutionDialog";
+    private _dialog = createDialog ["ConfigureScreenDialog"];
+    _dialog setVariable ["WR_screenIndex", _screenIndex];
+    _dialog setVariable ["WR_target", _target];
 
     systemChat format ["Open Dialog to change resolution for Screen %1", _screenIndex];
 };
