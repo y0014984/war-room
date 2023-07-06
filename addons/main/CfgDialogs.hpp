@@ -25,8 +25,7 @@ class ConfigureScreenDialog
 	idd = 14631;
 	enableSimulation = true;
 
-    onUnload = "params ['_dialog', '_exitCode']; if (_exitCode == 2) exitWith {}; private _horiResCtrl = _dialog displayCtrl 4001; private _vertResCtrl = _dialog displayCtrl 4002; [_dialog, lbCurSel _horiResCtrl, lbCurSel _vertResCtrl] call WR_main_fnc_setScreenResolution;";
-    // ok = 1, cancel = 2
+    onUnload = "['onUnloadDisplay', _this] call WR_main_fnc_ui_configureScreen;";
 
 	class controlsBackground
 	{
@@ -84,24 +83,29 @@ class ConfigureScreenDialog
             {
                 class 256
                 {
-                    text = "256";
+                    text = "256px";
+                    value = 256;
                 };
                 class 512
                 {
-                    text = "512";
+                    text = "512px";
+                    value = 512;
                 };
                 class 1024
                 {
-                    text = "1024";
+                    text = "1024px";
+                    value = 1024;
                     default = 1;
                 };
                 class 2048
                 {
-                    text = "2048";
+                    text = "2048px";
+                    value = 2048;
                 };
                 class 4096
                 {
-                    text = "4096";
+                    text = "4096px";
+                    value = 4096;
                 };
             };
         };
@@ -132,24 +136,29 @@ class ConfigureScreenDialog
             {
                 class 256
                 {
-                    text = "256";
+                    text = "256px";
+                    value = 256;
                 };
                 class 512
                 {
-                    text = "512";
+                    text = "512px";
+                    value = 512;
                 };
                 class 1024
                 {
-                    text = "1024";
+                    text = "1024px";
+                    value = 1024;
                     default = 1;
                 };
                 class 2048
                 {
-                    text = "2048";
+                    text = "2048px";
+                    value = 2048;
                 };
                 class 4096
                 {
-                    text = "4096";
+                    text = "4096px";
+                    value = 4096;
                 };
             };
         };
@@ -181,13 +190,17 @@ class ConfigureScreenDialog
                 class WarRoom1Item
                 {
                     text = "War Room 1";
+                    data = "WarRoom1";
+                    default = 1;
                 };
                 class WarRoom5Item
                 {
                     text = "War Room 5";
-                    default = 1;
+                    data = "WarRoom5";
                 };
             };
+
+            onLBSelChanged = "['onLBSelChangedLayout', _this] call WR_main_fnc_ui_configureScreen;";
         };
 
 		class LayoutDemo: RscPicture
@@ -199,7 +212,7 @@ class ConfigureScreenDialog
             w = 16 * GUI_GRID_W;
             h = 10 * GUI_GRID_H;
 
-            text = "\y\wr\addons\main\ui\WarRoom_Layouts_WarRoom5_1024x1024.paa";
+            text = "\y\wr\addons\main\ui\WarRoom_Layouts_WarRoom1_1024x1024.paa";
 		};
 
         class MyOk: RscButtonMenuOK

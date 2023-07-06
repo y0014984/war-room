@@ -11,6 +11,8 @@ PREP(removeNewControlOnPlaceholder);
 PREP(addUpdateRender2TexEventHandler);
 PREP(addLeadingZerosToDateTime);
 
+PREP(ui_configureScreen);
+
 // Server
 PREP(module_enableWarRoom);
 PREP(initSupportedAssetClasses);
@@ -22,7 +24,5 @@ PREP(createScreenResolutionAction);
 PREP(createScreenLayoutAction);
 PREP(createScreenPlaceholdersAction);
 
-
-
 // Unknown
-PREP(setScreenResolution);
+PREP(updateScreen);

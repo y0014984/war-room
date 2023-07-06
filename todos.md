@@ -15,6 +15,7 @@ Interaction --> War Room --> Screen 1
 
 # Todos
 
+- read uiClasses from config before populating the ui
 - introduce "supportedUIClasses" config instead of defined ui classes per screen; 1st supported is the default one
 - in GRAD Mod umwandeln?
 - set color of WarRoom Head and Subhead to Background Color of Placeholder and Dummy Display
@@ -38,9 +39,11 @@ Interaction --> War Room --> Screen 1
   - portrait modes?
 - model fixes
   - evtl. bei den Whiteboards
+- Schriftgröße etc. für die Map anpassen
 
 # Later Enhancements
 
+- add virtual pointer (real device in inventory) showing with mouse on a separate display
 - hin- und herschwenkende Überwachungskamera aus Tutorial
 - enable module for placing and manipulation in Zeus (Changing settings and syncing live)
 - localization
