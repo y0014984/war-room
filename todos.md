@@ -1,20 +1,27 @@
-# Nomenklatur
+# TODOS
+
+## Continue next time
+
+Zudem sollte ich die spawns aus init und terminate rausnehmen und dafür eine prüfung einbauen, dass die function canSuspend hat. Dann muss halt von außen
+in einem spawn scope ausgeführt werden.
+
+## Nomenklatur
 
 Eine "Entity" hat ein oder mehrere "Screens". Ein Screen is einer "Hidden Selection" zugewiesen. Eine "Hidden Selection" als Nummer ist nicht identisch mit dem "Screen Index", der stets mit
-1 beginnt. Die "Textur" des "Screens" wird mit setObjectTexture gesetzt. Ein "Display" ist das UI eines "Screens", dass aus einem oder mehreren "Placeholdern" besteht. "Screens" können einzeln 
+1 beginnt. Die "Textur" des "Screens" wird mit setObjectTexture gesetzt. Ein "Display" ist das UI eines "Screens", dass aus einem oder mehreren "Placeholdern" besteht. "Screens" können einzeln
 über die ACE3 Interactions gesteuert werden. Daher werden sie im Menüpunkt "War Room" zusammengefasst.
 
-# ACE3 Interactions
+## ACE3 Interactions
 
 Interaction --> War Room --> Screen 1
                          --> Screen 2
                          --> Screen 3 --> enable/disable (Toggle)
-                                      --> change layout
-                                      --> change resolution
-                                      --> configure Placeholders
+                                      --> configure
+                                      --> start presentation mode
 
-# Todos
+## Todos
 
+- in UI trennen zwischen localEffect (Auflösung und FPS) und globalEffekt (Layout und Placeholders/Slots)
 - read uiClasses from config before populating the ui
 - introduce "supportedUIClasses" config instead of defined ui classes per screen; 1st supported is the default one
 - in GRAD Mod umwandeln?
@@ -41,7 +48,7 @@ Interaction --> War Room --> Screen 1
   - evtl. bei den Whiteboards
 - Schriftgröße etc. für die Map anpassen
 
-# Later Enhancements
+## Later Enhancements
 
 - add virtual pointer (real device in inventory) showing with mouse on a separate display
 - hin- und herschwenkende Überwachungskamera aus Tutorial
@@ -51,7 +58,7 @@ Interaction --> War Room --> Screen 1
 - mission creator can use a folder in it's mission called 'images' for example, that is scanned; Found images can be used in this mod
 - set interaction points to the center of each screen
 
-# Links
+## Links
 
 - <https://community.bistudio.com/wiki/CT_MAP_MAIN>
 - <https://community.bistudio.com/wiki/Camera_Tutorial>
@@ -61,8 +68,10 @@ Interaction --> War Room --> Screen 1
 - <http://killzonekid.com/arma-scripting-tutorials-uav-r2t-and-pip/>
 - <https://community.bistudio.com/wiki/Arma_3:_Mission_Event_Handlers>
 
-# Annotations
+## Annotations
 
+- the UIonTexture displays are not closeable, but if the texture changes, the resulting display is also changing and is not identical with the first display
+- but I also can't overwrite the existing one, because with changed layout the event handler for updating the content wont work
 - only 40x25 Displays are possible; Can't react to different aspect ratios; everything outside of this will be cut off; everything smaller will be left blank
 - can't place UI elements on Top of RscMapControl
 - perhaps map does not show all textures; Workaround is to open the map manually and completely zoom out; This will fix the issue with the map on war room display

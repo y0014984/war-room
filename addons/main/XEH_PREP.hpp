@@ -20,7 +20,7 @@ PREP(addAce3Interactions);
 PREP(createWarRoomAction);
 PREP(createScreenAction);
 PREP(createScreenToggleAction);
-PREP(createScreenResolutionAction);
+PREP(createScreenConfigurationAction);
 PREP(createScreenLayoutAction);
 PREP(createScreenPlaceholdersAction);
 

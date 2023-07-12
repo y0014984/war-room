@@ -108,7 +108,7 @@ class CfgVehicles
             WR_supported = 1; // 1 == true; 0 == false
             WR_screenHiddenSelections[] = {0}; // index of hidden selections
             WR_resolution = 1024;
-            WR_uiClasses[] = {"WarRoom5"};
+            WR_uiClasses[] = {"WarRoom1"};
         };
     };
 

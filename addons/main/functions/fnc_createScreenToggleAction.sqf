@@ -14,8 +14,7 @@ private _statement =
     if (_screenMutex) then
     {
         // true means, display is currently enabled, so the display will be disabled
-        [_target, _screenIndex] call WR_main_fnc_removeUpdateUiOnTexEventHandler;
-        [_target, _hiddenSelection, _screenIndex] call WR_main_fnc_terminateUiOnTex;
+        [_target, _hiddenSelection, _screenIndex] spawn WR_main_fnc_terminateUiOnTex;
         _target setVariable [format ["WR_screen%1Mutex", _screenIndex], false, true];
 
         systemChat format ["Screen %1 disabled", _screenIndex];
@@ -25,8 +24,7 @@ private _statement =
         // false means, display is currently disabled, so the display will be enabled
         private _resolution = _target getVariable ["WR_resolution", 256];
         private _uiClasses = _target getVariable ["WR_uiClasses", []];
-        [_target, _hiddenSelection, _screenIndex, _resolution, _uiClasses select _screenIndex] call WR_main_fnc_initUiOnTex;
-        [_target, _screenIndex] call WR_main_fnc_addUpdateUiOnTexEventHandler;
+        [_target, _hiddenSelection, _screenIndex, _resolution, _resolution, _uiClasses select _screenIndex] spawn WR_main_fnc_initUiOnTex;
         _target setVariable [format ["WR_screen%1Mutex", _screenIndex], true, true];
 
         systemChat format ["Screen %1 enabled", _screenIndex];

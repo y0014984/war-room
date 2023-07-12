@@ -110,18 +110,18 @@ private _screenHiddenSelections = _entity getVariable ["WR_screenHiddenSelection
 
     /* ---------------------------------------- */
 
-    // create screen resolution action
-    private _screenResolutionAction = [_forEachIndex] call WR_main_fnc_createScreenResolutionAction;
+    // create screen configuration action
+    private _screenConfigurationAction = [_forEachIndex] call WR_main_fnc_createScreenConfigurationAction;
 
     /* ---------------------------------------- */
 
-    // add screen resolution actions to entity
-    private _screenResolutionActionPath =
+    // add screen configuration actions to entity
+    private _screenConfigurationActionPath =
     [
         _entity, // Object the action should be assigned to <OBJECT>
         0, // Type of action, 0 for actions, 1 for self-actions <NUMBER>
         _screenActionPath, // Parent path of the new action <ARRAY> (Example: `["ACE_SelfActions", "ACE_Equipment"]`)
-        _screenResolutionAction // Action <ARRAY>
+        _screenConfigurationAction // Action <ARRAY>
     ] call ace_interact_menu_fnc_addActionToObject;
 
     /* ---------------------------------------- */

@@ -62,8 +62,8 @@ if (_event isEqualTo "onUnloadDisplay") exitWith
     _target setVariable ["WR_layoutScreen%1", _layoutIndex];
 
     private _layout = _layoutCtrl lbData _layoutIndex;
-    
-    [_dialog, _horizontalResolution, _verticalResolution, _layout] call WR_main_fnc_updateScreen;
+
+    [_target, _screenIndex, _horizontalResolution, _verticalResolution, _layout] spawn WR_main_fnc_updateScreen;
 
     [_screenIndex, _exitCode] call _messageFnc;
 };
