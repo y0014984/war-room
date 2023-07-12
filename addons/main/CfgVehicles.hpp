@@ -106,9 +106,14 @@ class CfgVehicles
         class War_Room 
         {
             WR_supported = 1; // 1 == true; 0 == false
-            WR_screenHiddenSelections[] = {0}; // index of hidden selections
-            WR_resolution = 1024;
-            WR_uiClasses[] = {"WarRoom1"};
+			WR_screenCount = 1;
+
+			class Screen0
+			{
+				WR_hiddenSelection = 0;
+				WR_allowedUiClasses[] = {"WarRoom1", "WarRoom5"};
+				WR_defaultUiClass = 1;
+			};
         };
     };
 
@@ -120,9 +125,21 @@ class CfgVehicles
         class War_Room 
         {
             WR_supported = 1; // 1 == true; 0 == false
-            WR_screenHiddenSelections[] = {0,1}; // index of hidden selections
-            WR_resolution = 1024;
-            WR_uiClasses[] = {"WarRoom1", "WarRoom1"};
+			WR_screenCount = 2;
+
+			class Screen0
+			{
+				WR_hiddenSelection = 0;
+				WR_allowedUiClasses[] = {"WarRoom1", "WarRoom5"};
+				WR_defaultUiClass = 0;
+			};
+
+			class Screen1
+			{
+				WR_hiddenSelection = 1;
+				WR_allowedUiClasses[] = {"WarRoom1"};
+				WR_defaultUiClass = 0;
+			};
         };
 	};
 
@@ -134,9 +151,28 @@ class CfgVehicles
         class War_Room 
         {
             WR_supported = 1; // 1 == true; 0 == false
-            WR_screenHiddenSelections[] = {1,2,3}; // index of hidden selections
-            WR_resolution = 1024;
-            WR_uiClasses[] = {"WarRoom1", "WarRoom1", "WarRoom1"};
+			WR_screenCount = 3;
+
+			class Screen0
+			{
+				WR_hiddenSelection = 1;
+				WR_allowedUiClasses[] = {"WarRoom1", "WarRoom5"};
+				WR_defaultUiClass = 0;
+			};
+
+			class Screen1
+			{
+				WR_hiddenSelection = 2;
+				WR_allowedUiClasses[] = {"WarRoom1", "WarRoom5"};
+				WR_defaultUiClass = 0;
+			};
+
+			class Screen2
+			{
+				WR_hiddenSelection = 3;
+				WR_allowedUiClasses[] = {"WarRoom1", "WarRoom5"};
+				WR_defaultUiClass = 0;
+			};
         };
 	};
 

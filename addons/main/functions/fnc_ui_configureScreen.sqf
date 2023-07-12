@@ -11,8 +11,11 @@ if (_event isEqualTo "onInitDisplay") exitWith
     _dialog setVariable ["WR_target", _target];
     _dialog setVariable ["WR_screenIndex", _screenIndex];
 
-    private _horiResIndex = _target getVariable ["WR_horiResScreen%1", 2]; // 2 = 1024
-    private _vertResIndex = _target getVariable ["WR_vertResScreen%1", 2]; // 2 = 1024
+    private _horizontalResolution = _target getVariable [format ["WR_horizontalResolutionScreen%1", _screenIndex], WR_defaultScreenResolution];
+    private _verticalResolution = _target getVariable [format ["WR_verticalResolutionScreen%1", _screenIndex], WR_defaultScreenResolution];
+    private _resolutionToIndex = createHashMapFromArray [["256", 0], ["512", 1], ["1024", 2], ["2048", 3], ["4096", 4]];
+    private _horiResIndex = _resolutionToIndex get (str _horizontalResolution);
+    private _vertResIndex = _resolutionToIndex get (str _verticalResolution);
 
     private _horiResCtrl = _dialog displayCtrl 4001;
     private _vertResCtrl = _dialog displayCtrl 4002;
@@ -20,7 +23,9 @@ if (_event isEqualTo "onInitDisplay") exitWith
     _horiResCtrl lbSetCurSel _horiResIndex;
     _vertResCtrl lbSetCurSel _vertResIndex;
 
-    private _layoutIndex = _target getVariable ["WR_layoutScreen%1", 0];
+    private _layout = _target getVariable [format ["WR_uiClassScreen%1", _screenIndex], 1];
+    private _layoutToIndex = createHashMapFromArray [["WarRoom1", 0], ["WarRoom5", 1]];
+    private _layoutIndex = _layoutToIndex get _layout;
 
     private _layoutCtrl = _dialog displayCtrl 4003;
 
@@ -49,19 +54,19 @@ if (_event isEqualTo "onUnloadDisplay") exitWith
     private _horiResIndex = lbCurSel _horiResCtrl;
     private _vertResIndex = lbCurSel _vertResCtrl;
 
-    _target setVariable ["WR_horiResScreen%1", _horiResIndex];
-    _target setVariable ["WR_vertResScreen%1", _vertResIndex];
-
-    private _horizontalResolution = _horiResCtrl lbValue _horiResIndex;
-    private _verticalResolution = _vertResCtrl lbValue _vertResIndex;
+    private _indexToResolution = createHashMapFromArray [["0", 256], ["1", 512], ["2", 1024], ["3", 2048], ["4", 4096]];
+    private _horizontalResolution = _indexToResolution get (str _horiResIndex);
+    private _verticalResolution = _indexToResolution get (str _vertResIndex);
+    _target setVariable [format ["WR_horizontalResolutionScreen%1", _screenIndex], _horizontalResolution];
+    _target setVariable [format ["WR_verticalResolutionScreen%1", _screenIndex], _verticalResolution];
 
     private _layoutCtrl = _dialog displayCtrl 4003;
 
     private _layoutIndex = lbCurSel _layoutCtrl;
 
-    _target setVariable ["WR_layoutScreen%1", _layoutIndex];
-
-    private _layout = _layoutCtrl lbData _layoutIndex;
+    private _indexToLayout = createHashMapFromArray [["0", "WarRoom1"], ["1", "WarRoom5"]];
+    private _layout = _indexToLayout get (str _layoutIndex);
+    _target setVariable [format ["WR_uiClassScreen%1", _screenIndex], _layout];
 
     [_target, _screenIndex, _horizontalResolution, _verticalResolution, _layout] spawn WR_main_fnc_updateScreen;
 

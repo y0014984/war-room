@@ -84,28 +84,23 @@ class ConfigureScreenDialog
                 class 256
                 {
                     text = "256px";
-                    value = 256;
                 };
                 class 512
                 {
                     text = "512px";
-                    value = 512;
                 };
                 class 1024
                 {
                     text = "1024px";
-                    value = 1024;
                     default = 1;
                 };
                 class 2048
                 {
                     text = "2048px";
-                    value = 2048;
                 };
                 class 4096
                 {
                     text = "4096px";
-                    value = 4096;
                 };
             };
         };
@@ -137,28 +132,23 @@ class ConfigureScreenDialog
                 class 256
                 {
                     text = "256px";
-                    value = 256;
                 };
                 class 512
                 {
                     text = "512px";
-                    value = 512;
                 };
                 class 1024
                 {
                     text = "1024px";
-                    value = 1024;
                     default = 1;
                 };
                 class 2048
                 {
                     text = "2048px";
-                    value = 2048;
                 };
                 class 4096
                 {
                     text = "4096px";
-                    value = 4096;
                 };
             };
         };

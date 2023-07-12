@@ -76,9 +76,11 @@ private _warRoomActionPath =
 
 /* ================================================================================ */
 
-private _screenHiddenSelections = _entity getVariable ["WR_screenHiddenSelections", []];
+private _screens = _entity getVariable ["WR_screens", []];
 {
-    // create screen actions based on screen hidden selections count
+    private _hiddenSelection = _x select 0;
+
+    // create screen actions for every screen
     private _screenAction = [_forEachIndex] call WR_main_fnc_createScreenAction;
     
     /* ---------------------------------------- */
@@ -95,7 +97,7 @@ private _screenHiddenSelections = _entity getVariable ["WR_screenHiddenSelection
     /* ---------------------------------------- */
 
     // create screen toggle action
-    private _screenToggleAction = [_x, _forEachIndex] call WR_main_fnc_createScreenToggleAction;
+    private _screenToggleAction = [_hiddenSelection, _forEachIndex] call WR_main_fnc_createScreenToggleAction;
 
     /* ---------------------------------------- */
 
@@ -156,7 +158,7 @@ private _screenHiddenSelections = _entity getVariable ["WR_screenHiddenSelection
         _screenPlaceholdersAction // Action <ARRAY>
     ] call ace_interact_menu_fnc_addActionToObject;
 
-} forEach _screenHiddenSelections;
+} forEach _screens;
 
 /* ================================================================================ */
 
