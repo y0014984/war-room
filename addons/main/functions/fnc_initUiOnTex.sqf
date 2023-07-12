@@ -20,6 +20,8 @@ _entity setVariable [format ["WR_uiOnTextureDisplayNameScreen%1", _screenIndex],
 _entity setVariable [format ["WR_uiOnTextureDisplayCounterScreen%1", _screenIndex], _uiOnTextureDisplayCounter];
 _entity setVariable [format ["WR_uiClassScreen%1", _screenIndex], _uiClass];
 _entity setVariable [format ["WR_hiddenSelectionScreen%1", _screenIndex], _hiddenSelection];
+_entity setVariable [format ["WR_horizontalResolutionScreen%1", _screenIndex], _horizontalResolution];
+_entity setVariable [format ["WR_verticalResolutionScreen%1", _screenIndex], _verticalResolution];
 
 [_entity, _screenIndex] call WR_main_fnc_addUpdateUiOnTexEventHandler;
 

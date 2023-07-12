@@ -22,9 +22,10 @@ private _statement =
     else 
     {
         // false means, display is currently disabled, so the display will be enabled
-        private _resolution = _target getVariable ["WR_resolution", 256];
+        private _horizontalResolution = _target getVariable [format ["WR_horizontalResolutionScreen%1", _screenIndex], WR_defaultScreenResolution];
+        private _verticalResolution = _target getVariable [format ["WR_verticalResolutionScreen%1", _screenIndex], WR_defaultScreenResolution];
         private _uiClasses = _target getVariable ["WR_uiClasses", []];
-        [_target, _hiddenSelection, _screenIndex, _resolution, _resolution, _uiClasses select _screenIndex] spawn WR_main_fnc_initUiOnTex;
+        [_target, _hiddenSelection, _screenIndex, _horizontalResolution, _verticalResolution, _uiClasses select _screenIndex] spawn WR_main_fnc_initUiOnTex;
         _target setVariable [format ["WR_screen%1Mutex", _screenIndex], true, true];
 
         systemChat format ["Screen %1 enabled", _screenIndex];

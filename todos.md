@@ -21,6 +21,7 @@ Interaction --> War Room --> Screen 1
 
 ## Todos
 
+- add fps to the configure dialog
 - in UI trennen zwischen localEffect (Auflösung und FPS) und globalEffekt (Layout und Placeholders/Slots)
 - read uiClasses from config before populating the ui
 - introduce "supportedUIClasses" config instead of defined ui classes per screen; 1st supported is the default one

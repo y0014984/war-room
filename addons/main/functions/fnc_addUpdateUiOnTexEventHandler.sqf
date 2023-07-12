@@ -1,6 +1,8 @@
 params ["_entity", "_screenIndex"];
 
-private _updateInterval = 0.05;
+private _fps = _entity getVariable [format ["WR_fpsScreen%1", _screenIndex], WR_defaultScreenFps];
+_entity setVariable [format ["WR_fpsScreen%1", _screenIndex], _fps];
+private _updateInterval = 1 / _fps;
 
 private _updateUiOnTexHandle = 
 [
