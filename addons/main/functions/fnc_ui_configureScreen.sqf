@@ -64,6 +64,25 @@ if (_event isEqualTo "onInitDialog") exitWith
         _itemResultCtrl ctrlShow _state;
     };
 
+    /* ---------------------------------------- */
+
+    for [{ private _i = 0 }, { _i < 7 }, { _i = _i + 1 }] do
+    {
+        private _screenItemType = _target getVariable [format ["WR_screen%1Item%2Type", _screenIndex, _i], ""];
+        private _screenItemContent = _target getVariable [format ["WR_screen%1Item%2Content", _screenIndex, _i], nil];
+
+        private _itemCtrl = _dialog displayCtrl (4005 + _i);
+        private _itemResultCtrl = _dialog displayCtrl (5005 + _i);
+
+        if (_screenItemType isEqualTo "IMAGE") then
+        {
+            _itemCtrl lbSetCurSel 1;
+            _itemResultCtrl ctrlSetText format ["%1: %2", _screenItemType, _screenItemContent];
+        };
+
+        _itemCtrl setVariable ["WR_ctrlInitialised", true];
+    };
+
     systemChat format ["Opened Dialog to configure Screen %1", _screenIndex];
 };
 
@@ -183,7 +202,9 @@ if (_event isEqualTo "onLBSelChangedItem") exitWith
         _resultCtrl ctrlSetText "";
     };
 
-    if (_lbCurSel == 1) then { ["onInitDialog", [_target, _screenIndex, _screenItemIndex, _control, _resultCtrl]] call WR_main_fnc_ui_configureScreenImageItem; };
+    private _ctrlInitialised = _control getVariable ["WR_ctrlInitialised", false];
+
+    if (_ctrlInitialised && (_lbCurSel == 1)) then { ["onInitDialog", [_target, _screenIndex, _screenItemIndex, _control, _resultCtrl]] call WR_main_fnc_ui_configureScreenImageItem; };
 
     systemChat format ["Changed item %1 to item type: %2", _screenItemIndex, _lbCurSel];
 };

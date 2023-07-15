@@ -653,9 +653,9 @@ class WarRoom1
             text = "War Room"; //--- ToDo: Localize;
         };
 
-		class ScreenItem1: RscPicture
+		class ScreenItem0: RscPicture
 		{
-			idc = 3001;
+			idc = 3000;
 
 			x = 0 * GUI_GRID_W + GUI_GRID_X;
 			y = 3 * GUI_GRID_H + GUI_GRID_Y;
@@ -676,7 +676,7 @@ class WarRoom1
         
         	colorBackground[] = {0.2, 0.2, 0.2, 0.5}; // translucent grey
         
-			text = "ScreenItem 1";
+			text = "ScreenItem 0";
 		};
 
         class Subheadline: RscText
@@ -782,9 +782,9 @@ class WarRoom5
             text = "War Room"; //--- ToDo: Localize;
         };
 
-		class ScreenItem1: RscPicture
+		class ScreenItem0: RscPicture
 		{
-			idc = 3001;
+			idc = 3000;
 
 			x = 0 * GUI_GRID_W + GUI_GRID_X;
 			y = 3 * GUI_GRID_H + GUI_GRID_Y;
@@ -794,9 +794,9 @@ class WarRoom5
             text = "\y\wr\addons\main\ui\WarRoom_ScreenItem1_1024x1024.paa";
 		};
 
-		class ScreenItem2: RscPicture
+		class ScreenItem1: RscPicture
 		{
-			idc = 3002;
+			idc = 3001;
 
 			x = 30 * GUI_GRID_W + GUI_GRID_X;
 			y = 3 * GUI_GRID_H + GUI_GRID_Y;
@@ -806,9 +806,9 @@ class WarRoom5
             text = "\y\wr\addons\main\ui\WarRoom_ScreenItem2_1024x1024.paa";
 		};
 
-		class ScreenItem3: RscPicture
+		class ScreenItem2: RscPicture
 		{
-			idc = 3003;
+			idc = 3002;
 
 			x = 30 * GUI_GRID_W + GUI_GRID_X;
 			y = 13 * GUI_GRID_H + GUI_GRID_Y;
@@ -818,9 +818,9 @@ class WarRoom5
             text = "\y\wr\addons\main\ui\WarRoom_ScreenItem3_1024x1024.paa";
 		};
 
-		class ScreenItem1Headline: RscText
+		class ScreenItem0Headline: RscText
 		{
-			idc = 5001;
+			idc = 5000;
         
 			x = 0 * GUI_GRID_W + GUI_GRID_X;
 			y = 3 * GUI_GRID_H + GUI_GRID_Y;
@@ -829,6 +829,19 @@ class WarRoom5
         
         	colorBackground[] = {0.2, 0.2, 0.2, 0.5}; // translucent grey
         
+			text = "ScreenItem 0";
+		};
+
+		class ScreenItem1Headline: RscText
+		{
+			idc = 5001;
+
+			x = 30 * GUI_GRID_W + GUI_GRID_X;
+			y = 3 * GUI_GRID_H + GUI_GRID_Y;
+			w = 10 * GUI_GRID_W;
+			h = 1 * GUI_GRID_H;
+
+            colorBackground[] = {0.2, 0.2, 0.2, 0.5}; // translucent grey
 			text = "ScreenItem 1";
 		};
 
@@ -837,25 +850,12 @@ class WarRoom5
 			idc = 5002;
 
 			x = 30 * GUI_GRID_W + GUI_GRID_X;
-			y = 3 * GUI_GRID_H + GUI_GRID_Y;
-			w = 10 * GUI_GRID_W;
-			h = 1 * GUI_GRID_H;
-
-            colorBackground[] = {0.2, 0.2, 0.2, 0.5}; // translucent grey
-			text = "ScreenItem 2";
-		};
-
-		class ScreenItem3Headline: RscText
-		{
-			idc = 5003;
-
-			x = 30 * GUI_GRID_W + GUI_GRID_X;
 			y = 13 * GUI_GRID_H + GUI_GRID_Y;
 			w = 10 * GUI_GRID_W;
 			h = 1 * GUI_GRID_H;
 			
             colorBackground[] = {0.2, 0.2, 0.2, 0.5}; // translucent grey
-			text = "ScreenItem 3";
+			text = "ScreenItem 2";
 		};
 
         class Subheadline: RscText

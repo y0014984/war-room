@@ -2,6 +2,8 @@
 
 ## Continue next time
 
+- Screen erinnert sich beim ausschalten nicht an das letzte Layout
+
 - Dragon wegen der Extension mit bei den Autoren nennen
 
 - Check for correct count of screen items
