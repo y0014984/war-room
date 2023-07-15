@@ -23,11 +23,19 @@ if (_event isEqualTo "onInitDisplay") exitWith
     _horiResCtrl lbSetCurSel _horiResIndex;
     _vertResCtrl lbSetCurSel _vertResIndex;
 
+    private _fps = _target getVariable [format ["WR_fpsScreen%1", _screenIndex], WR_defaultScreenFps];
+    private _fpsToIndex = createHashMapFromArray [["1", 0], ["2", 1], ["3", 2], ["4", 3], ["5", 4], ["10", 5], ["20", 6], ["30", 7], ["45", 8], ["60", 9]];
+    private _fpsIndex = _fpsToIndex get (str _fps);
+
+    private _fpsCtrl = _dialog displayCtrl 4003;
+
+    _fpsCtrl lbSetCurSel _fpsIndex;
+
     private _layout = _target getVariable [format ["WR_uiClassScreen%1", _screenIndex], 1];
     private _layoutToIndex = createHashMapFromArray [["WarRoom1", 0], ["WarRoom5", 1]];
     private _layoutIndex = _layoutToIndex get _layout;
 
-    private _layoutCtrl = _dialog displayCtrl 4003;
+    private _layoutCtrl = _dialog displayCtrl 4004;
 
     _layoutCtrl lbSetCurSel _layoutIndex;
 
@@ -60,7 +68,15 @@ if (_event isEqualTo "onUnloadDisplay") exitWith
     _target setVariable [format ["WR_horizontalResolutionScreen%1", _screenIndex], _horizontalResolution];
     _target setVariable [format ["WR_verticalResolutionScreen%1", _screenIndex], _verticalResolution];
 
-    private _layoutCtrl = _dialog displayCtrl 4003;
+    private _fpsCtrl = _dialog displayCtrl 4003;
+
+    private _fpsIndex = lbCurSel _fpsCtrl;
+
+    private _indexToFps = createHashMapFromArray [["0", 1], ["1", 2], ["2", 3], ["3", 4], ["4", 5], ["5", 10], ["6", 20], ["7", 30], ["8", 45], ["9", 60]];
+    private _fps = _indexToFps get (str _fpsIndex);
+    _target setVariable [format ["WR_fpsScreen%1", _screenIndex], _fps];
+
+    private _layoutCtrl = _dialog displayCtrl 4004;
 
     private _layoutIndex = lbCurSel _layoutCtrl;
 
@@ -68,7 +84,7 @@ if (_event isEqualTo "onUnloadDisplay") exitWith
     private _layout = _indexToLayout get (str _layoutIndex);
     _target setVariable [format ["WR_uiClassScreen%1", _screenIndex], _layout];
 
-    [_target, _screenIndex, _horizontalResolution, _verticalResolution, _layout] spawn WR_main_fnc_updateScreen;
+    [_target, _screenIndex, _horizontalResolution, _verticalResolution, _fps, _layout] spawn WR_main_fnc_updateScreen;
 
     [_screenIndex, _exitCode] call _messageFnc;
 };
@@ -90,6 +106,20 @@ if (_event isEqualTo "onLBSelChangedLayout") exitWith
     _layoutImageCtrl ctrlSetText _imagePath;
 
     systemChat format ["Changed Layout to image path: %1", _imagePath];
+};
+
+/* ================================================================================ */
+
+if (_event isEqualTo "onLBSelChangedItem") exitWith
+{
+    _params params ["_control", "_lbCurSel", "_lbSelection"];
+
+    private _itemCfg = configFile >> "ConfigureScreenDialog" >> "controls" >> ctrlClassName _control;
+    if (!isClass _itemCfg) exitWith {};
+
+    private _itemIndex = (_itemCfg >> "WR_itemIndex") call BIS_fnc_getCfgData;
+
+    systemChat format ["Changed item %1 to item type: %2", _itemIndex, _lbCurSel];
 };
 
 /* ================================================================================ */

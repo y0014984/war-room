@@ -1,4 +1,4 @@
-params ["_entity", "_hiddenSelection", "_screenIndex", "_horizontalResolution", "_verticalResolution", "_uiClass"];
+params ["_entity", "_hiddenSelection", "_screenIndex", "_horizontalResolution", "_verticalResolution", "_fps", "_uiClass"];
 
 if (!canSuspend) exitWith { systemChat "calling 'initUiOnTex' unscheduled is forbidden" };
 
@@ -23,6 +23,6 @@ _entity setVariable [format ["WR_hiddenSelectionScreen%1", _screenIndex], _hidde
 _entity setVariable [format ["WR_horizontalResolutionScreen%1", _screenIndex], _horizontalResolution];
 _entity setVariable [format ["WR_verticalResolutionScreen%1", _screenIndex], _verticalResolution];
 
-[_entity, _screenIndex] call WR_main_fnc_addUpdateUiOnTexEventHandler;
+[_entity, _screenIndex, _fps] call WR_main_fnc_addUpdateUiOnTexEventHandler;
 
 systemChat format ["'ui on texture' display for screen %1 initialized.", _screenIndex];

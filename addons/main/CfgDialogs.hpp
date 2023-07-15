@@ -20,6 +20,62 @@ class RscButtonMenuCancel;
 
 /* ================================================================================ */
 
+// TEMPLATES
+
+class ItemXLabel: RscText
+{
+    idc = -1;
+
+    x = 0 * GUI_GRID_W + GUI_GRID_X;
+    y = 14 * GUI_GRID_H + GUI_GRID_Y;
+    w = 10 * GUI_GRID_W;
+    h = 1 * GUI_GRID_H;
+
+    text = "Item X"; //--- ToDo: Localize;
+    style = ST_RIGHT;
+};
+
+class ItemX: RscCombo
+{
+    idc = -1;
+
+    x = 11 * GUI_GRID_W + GUI_GRID_X;
+    y = 14 * GUI_GRID_H + GUI_GRID_Y;
+    w = 8 * GUI_GRID_W;
+    h = 1 * GUI_GRID_H;
+
+    WR_itemIndex = -1;
+
+    class Items
+    {
+        class PlaceholderItem
+        {
+            text = "Placeholder";
+            default = 1;
+        };
+        class ImageItem
+        {
+            text = "Image";
+        };
+        class MapItem
+        {
+            text = "Map";
+        };
+        class DroneCamItem
+        {
+            text = "DroneCam";
+        };
+        class InfantryCamItem
+        {
+            text = "InfantryCam";
+        };
+    };
+
+    onLBSelChanged = "['onLBSelChangedItem', _this] call WR_main_fnc_ui_configureScreen;";
+};
+
+/* ================================================================================ */
+
 class ConfigureScreenDialog
 {
 	idd = 14631;
@@ -105,7 +161,7 @@ class ConfigureScreenDialog
             };
         };
 
-		class xLabel: RscText
+		class timesLabel: RscText
 		{
 			idc = 3002;
         
@@ -153,9 +209,77 @@ class ConfigureScreenDialog
             };
         };
 
-		class LayoutLabel: RscText
+		class atLabel: RscText
 		{
 			idc = 3003;
+        
+			x = 29.5 * GUI_GRID_W + GUI_GRID_X;
+			y = 2 * GUI_GRID_H + GUI_GRID_Y;
+			w = 1 * GUI_GRID_W;
+			h = 1 * GUI_GRID_H;
+        
+			text = "@"; //--- ToDo: Localize;
+            style = ST_RIGHT;
+		};
+
+        class FramesPerSecond: RscCombo
+        {
+            idc = 4003;
+
+            x = 31 * GUI_GRID_W + GUI_GRID_X;
+            y = 2 * GUI_GRID_H + GUI_GRID_Y;
+            w = 6 * GUI_GRID_W;
+            h = 1 * GUI_GRID_H;
+
+            class Items
+            {
+                class 1
+                {
+                    text = "1 FPS";
+                };
+                class 2
+                {
+                    text = "2 FPS";
+                };
+                class 3
+                {
+                    text = "3 FPS";
+                };
+                class 4
+                {
+                    text = "4 FPS";
+                };
+                class 5
+                {
+                    text = "5 FPS";
+                };
+                class 10
+                {
+                    text = "10 FPS";
+                    default = 1;
+                };
+                class 20
+                {
+                    text = "20 FPS";
+                };
+                class 30
+                {
+                    text = "30 FPS";
+                };
+                class 45
+                {
+                    text = "45 FPS";
+                };
+                class 60
+                {
+                    text = "60 FPS";
+                };
+            };
+        };
+
+		class LayoutLabel: RscText
+		{
+			idc = 3004;
         
 			x = 0 * GUI_GRID_W + GUI_GRID_X;
 			y = 3.5 * GUI_GRID_H + GUI_GRID_Y;
@@ -168,7 +292,7 @@ class ConfigureScreenDialog
 
         class Layout: RscCombo
         {
-            idc = 4003;
+            idc = 4004;
 
             x = 11 * GUI_GRID_W + GUI_GRID_X;
             y = 3.5 * GUI_GRID_H + GUI_GRID_Y;
@@ -204,6 +328,60 @@ class ConfigureScreenDialog
 
             text = "\y\wr\addons\main\ui\WarRoom_Layouts_WarRoom1_1024x1024.paa";
 		};
+
+		class Item0Label: ItemXLabel
+		{
+			idc = 3005;
+
+			y = 14 * GUI_GRID_H + GUI_GRID_Y;     
+
+			text = "Item 0"; //--- ToDo: Localize;
+		};
+
+        class Item0: ItemX
+        {
+            idc = 4005;
+
+            y = 14 * GUI_GRID_H + GUI_GRID_Y;
+
+            WR_itemIndex = 0;
+        };
+
+		class Item1Label: ItemXLabel
+		{
+			idc = 3006;
+
+			y = 15.5 * GUI_GRID_H + GUI_GRID_Y;     
+
+			text = "Item 1"; //--- ToDo: Localize;
+		};
+
+        class Item1: ItemX
+        {
+            idc = 4006;
+
+            y = 15.5 * GUI_GRID_H + GUI_GRID_Y;
+
+            WR_itemIndex = 1;
+        };
+
+		class Item2Label: ItemXLabel
+		{
+			idc = 3006;
+
+			y = 17 * GUI_GRID_H + GUI_GRID_Y;     
+
+			text = "Item 2"; //--- ToDo: Localize;
+		};
+
+        class Item2: ItemX
+        {
+            idc = 4006;
+
+            y = 17 * GUI_GRID_H + GUI_GRID_Y;
+
+            WR_itemIndex = 2;
+        };
 
         class MyOk: RscButtonMenuOK
         {

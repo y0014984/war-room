@@ -2,6 +2,8 @@
 
 ## Continue next time
 
+- Check for correct count of items/placeholders
+
 Zudem sollte ich die spawns aus init und terminate rausnehmen und dafür eine prüfung einbauen, dass die function canSuspend hat. Dann muss halt von außen
 in einem spawn scope ausgeführt werden.
 
