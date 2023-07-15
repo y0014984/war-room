@@ -9,10 +9,10 @@ private _uiOnTextureDisplay = _entity getVariable [format ["WR_uiOnTextureDispla
 if (isNull _uiOnTextureDisplay) exitWith {};
 
 /* // delete all new controls
-private _uiPlaceholderCount = _entity getVariable ["WR_uiPlaceholderCount", false];
-for "_i" from 1 to _uiPlaceholderCount do
+private _uiScreenItemCount = _entity getVariable ["WR_uiScreenItemCount", false];
+for "_i" from 1 to _uiScreenItemCount do
 {
-    [_entity, _i] call WR_main_fnc_removeNewControlOnPlaceholder;
+    [_entity, _i] call WR_main_fnc_removeNewControlOnScreenItem;
 }; */
 
 //_target setObjectTexture [_x, "#(rgb,1,1,1)color(0,0,0,1)"]; // site 1x1 with 1 mimap; black with no transparency

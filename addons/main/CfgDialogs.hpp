@@ -22,7 +22,7 @@ class RscButtonMenuCancel;
 
 // TEMPLATES
 
-class ItemXLabel: RscText
+class ScreenItemXLabel: RscText
 {
     idc = -1;
 
@@ -35,7 +35,7 @@ class ItemXLabel: RscText
     style = ST_RIGHT;
 };
 
-class ItemX: RscCombo
+class ScreenItemX: RscCombo
 {
     idc = -1;
 
@@ -44,7 +44,7 @@ class ItemX: RscCombo
     w = 8 * GUI_GRID_W;
     h = 1 * GUI_GRID_H;
 
-    WR_itemIndex = -1;
+    WR_screenItemIndex = -1;
 
     class Items
     {
@@ -74,6 +74,16 @@ class ItemX: RscCombo
     onLBSelChanged = "['onLBSelChangedItem', _this] call WR_main_fnc_ui_configureScreen;";
 };
 
+class ScreenItemXResult: RscText
+{
+    idc = -1;
+
+    x = 21 * GUI_GRID_W + GUI_GRID_X;
+    y = 14 * GUI_GRID_H + GUI_GRID_Y;
+    w = 16 * GUI_GRID_W;
+    h = 1 * GUI_GRID_H;
+};
+
 /* ================================================================================ */
 
 class ConfigureScreenDialog
@@ -81,7 +91,7 @@ class ConfigureScreenDialog
 	idd = 14631;
 	enableSimulation = true;
 
-    onUnload = "['onUnloadDisplay', _this] call WR_main_fnc_ui_configureScreen;";
+    onUnload = "['onUnloadDialog', _this] call WR_main_fnc_ui_configureScreen;";
 
 	class controlsBackground
 	{
@@ -329,61 +339,263 @@ class ConfigureScreenDialog
             text = "\y\wr\addons\main\ui\WarRoom_Layouts_WarRoom1_1024x1024.paa";
 		};
 
-		class Item0Label: ItemXLabel
+        /* ---------------------------------------- */
+
+		class ScreenItem0Label: ScreenItemXLabel
 		{
 			idc = 3005;
 
 			y = 14 * GUI_GRID_H + GUI_GRID_Y;     
 
-			text = "Item 0"; //--- ToDo: Localize;
+			text = "Screen Item 0"; //--- ToDo: Localize;
 		};
 
-        class Item0: ItemX
+        class ScreenItem0: ScreenItemX
         {
             idc = 4005;
 
             y = 14 * GUI_GRID_H + GUI_GRID_Y;
 
-            WR_itemIndex = 0;
+            WR_screenItemIndex = 0;
         };
 
-		class Item1Label: ItemXLabel
+        class ScreenItem0Result: ScreenItemXResult
+        {
+            idc = 5005;
+
+            y = 14 * GUI_GRID_H + GUI_GRID_Y;
+        };
+
+        /* ---------------------------------------- */
+
+		class ScreenItem1Label: ScreenItemXLabel
 		{
 			idc = 3006;
 
 			y = 15.5 * GUI_GRID_H + GUI_GRID_Y;     
 
-			text = "Item 1"; //--- ToDo: Localize;
+			text = "Screen Item 1"; //--- ToDo: Localize;
 		};
 
-        class Item1: ItemX
+        class ScreenItem1: ScreenItemX
         {
             idc = 4006;
 
             y = 15.5 * GUI_GRID_H + GUI_GRID_Y;
 
-            WR_itemIndex = 1;
+            WR_screenItemIndex = 1;
         };
 
-		class Item2Label: ItemXLabel
+        class ScreenItem1Result: ScreenItemXResult
+        {
+            idc = 5006;
+
+            y = 15.5 * GUI_GRID_H + GUI_GRID_Y;
+        };
+
+        /* ---------------------------------------- */
+
+		class ScreenItem2Label: ScreenItemXLabel
 		{
-			idc = 3006;
+			idc = 3007;
 
 			y = 17 * GUI_GRID_H + GUI_GRID_Y;     
 
-			text = "Item 2"; //--- ToDo: Localize;
+			text = "Screen Item 2"; //--- ToDo: Localize;
 		};
 
-        class Item2: ItemX
+        class ScreenItem2: ScreenItemX
         {
-            idc = 4006;
+            idc = 4007;
 
             y = 17 * GUI_GRID_H + GUI_GRID_Y;
 
-            WR_itemIndex = 2;
+            WR_screenItemIndex = 2;
         };
 
+        class ScreenItem2Result: ScreenItemXResult
+        {
+            idc = 5007;
+
+            y = 17 * GUI_GRID_H + GUI_GRID_Y;
+        };
+
+        /* ---------------------------------------- */
+
+		class ScreenItem3Label: ScreenItemXLabel
+		{
+			idc = 3008;
+
+			y = 18.5 * GUI_GRID_H + GUI_GRID_Y;     
+
+			text = "Screen Item 3"; //--- ToDo: Localize;
+		};
+
+        class ScreenItem3: ScreenItemX
+        {
+            idc = 4008;
+
+            y = 18.5 * GUI_GRID_H + GUI_GRID_Y;
+
+            WR_screenItemIndex = 3;
+        };
+
+        class ScreenItem3Result: ScreenItemXResult
+        {
+            idc = 5008;
+
+            y = 18.5 * GUI_GRID_H + GUI_GRID_Y;
+        };
+
+        /* ---------------------------------------- */
+
+		class ScreenItem4Label: ScreenItemXLabel
+		{
+			idc = 3009;
+
+			y = 20 * GUI_GRID_H + GUI_GRID_Y;     
+
+			text = "Screen Item 4"; //--- ToDo: Localize;
+		};
+
+        class ScreenItem4: ScreenItemX
+        {
+            idc = 4009;
+
+            y = 20 * GUI_GRID_H + GUI_GRID_Y;
+
+            WR_screenItemIndex = 4;
+        };
+
+        class ScreenItem4Result: ScreenItemXResult
+        {
+            idc = 5009;
+
+            y = 20 * GUI_GRID_H + GUI_GRID_Y;
+        };
+        
+        /* ---------------------------------------- */
+
+		class ScreenItem5Label: ScreenItemXLabel
+		{
+			idc = 3010;
+
+			y = 21.5 * GUI_GRID_H + GUI_GRID_Y;     
+
+			text = "Screen Item 5"; //--- ToDo: Localize;
+		};
+
+        class ScreenItem5: ScreenItemX
+        {
+            idc = 4010;
+
+            y = 21.5 * GUI_GRID_H + GUI_GRID_Y;
+
+            WR_screenItemIndex = 5;
+        };
+
+        class ScreenItem5Result: ScreenItemXResult
+        {
+            idc = 5010;
+
+            y = 21.5 * GUI_GRID_H + GUI_GRID_Y;
+        };
+        
+        /* ---------------------------------------- */
+
         class MyOk: RscButtonMenuOK
+        {
+            x = 37 * GUI_GRID_W + GUI_GRID_X;
+            y = 23.5 * GUI_GRID_H + GUI_GRID_Y;
+            w = 3 * GUI_GRID_W;
+            h = 1.5 * GUI_GRID_H;
+        };
+
+        class MyCancel: RscButtonMenuCancel
+        {
+            x = 31 * GUI_GRID_W + GUI_GRID_X;
+            y = 23.5 * GUI_GRID_H + GUI_GRID_Y;
+            w = 5 * GUI_GRID_W;
+            h = 1.5 * GUI_GRID_H;
+        };
+	};
+};
+
+/* ================================================================================ */
+
+class ConfigureScreenImageItemDialog
+{
+	idd = 14632;
+	enableSimulation = true;
+
+    onUnload = "['onUnloadDialog', _this] call WR_main_fnc_ui_configureScreenImageItem;";
+
+	class controlsBackground
+	{
+        class Background: RscText
+        {
+            idc = 1001;
+
+            x = 0 * GUI_GRID_W + GUI_GRID_X;
+            y = 0 * GUI_GRID_H + GUI_GRID_Y;
+            w = 40 * GUI_GRID_W;
+            h = 23 * GUI_GRID_H;
+
+            colorBackground[] = {0.3, 0.3, 0.3, 1}; // opaque dark grey
+        };
+	};
+
+	class controls
+	{
+        class Headline: RscText
+        {
+            idc = 2001;
+
+            x = 0 * GUI_GRID_W + GUI_GRID_X;
+            y = 0 * GUI_GRID_H + GUI_GRID_Y;
+            w = 40 * GUI_GRID_W;
+            h = 1.5 * GUI_GRID_H;
+
+            colorBackground[] = {0, 0, 0, 1}; // opaque black
+            text = "Configure Image Item"; //--- ToDo: Localize;
+        };
+
+		class ImageLabel: RscText
+		{
+			idc = 3001;
+        
+			x = 0 * GUI_GRID_W + GUI_GRID_X;
+			y = 2 * GUI_GRID_H + GUI_GRID_Y;
+			w = 10 * GUI_GRID_W;
+			h = 1 * GUI_GRID_H;
+        
+			text = "Image"; //--- ToDo: Localize;
+            style = ST_RIGHT;
+		};
+
+        class Image: RscCombo
+        {
+            idc = 4001;
+
+            x = 11 * GUI_GRID_W + GUI_GRID_X;
+            y = 2 * GUI_GRID_H + GUI_GRID_Y;
+            w = 28.5 * GUI_GRID_W;
+            h = 1 * GUI_GRID_H;
+
+            onLBSelChanged = "['onLBSelChangedImage', _this] call WR_main_fnc_ui_configureScreenImageItem;";
+        };
+
+		class LayoutDemo: RscPicture
+		{
+			idc = 5001;
+
+            x = 11 * GUI_GRID_W + GUI_GRID_X;
+            y = 3.5 * GUI_GRID_H + GUI_GRID_Y;
+            w = 28.5 * GUI_GRID_W;
+            h = 19 * GUI_GRID_H;
+		};
+
+       class MyOk: RscButtonMenuOK
         {
             x = 37 * GUI_GRID_W + GUI_GRID_X;
             y = 23.5 * GUI_GRID_H + GUI_GRID_Y;
@@ -408,7 +620,7 @@ class WarRoom1
 	idd = 14641;
 	enableSimulation = true;
 
-	WR_uiPlaceholderCount = 1;
+	WR_uiScreenItemCount = 1;
 
 	class controlsBackground
 	{
@@ -441,7 +653,7 @@ class WarRoom1
             text = "War Room"; //--- ToDo: Localize;
         };
 
-		class Placeholder1: RscPicture
+		class ScreenItem1: RscPicture
 		{
 			idc = 3001;
 
@@ -450,10 +662,10 @@ class WarRoom1
 			w = 40 * GUI_GRID_W;
 			h = 20 * GUI_GRID_H;
 
-            text = "\y\wr\addons\main\ui\WarRoom_Placeholder1_1024x1024.paa";
+            text = "\y\wr\addons\main\ui\WarRoom_ScreenItem1_1024x1024.paa";
 		};
 
-		class Placeholder1Headline: RscText
+		class ScreenItem1Headline: RscText
 		{
 			idc = 5001;
         
@@ -464,7 +676,7 @@ class WarRoom1
         
         	colorBackground[] = {0.2, 0.2, 0.2, 0.5}; // translucent grey
         
-			text = "Placeholder 1";
+			text = "ScreenItem 1";
 		};
 
         class Subheadline: RscText
@@ -537,7 +749,7 @@ class WarRoom5
 	idd = 14645;
 	enableSimulation = true;
 
-	WR_uiPlaceholderCount = 3;
+	WR_uiScreenItemCount = 3;
 
 	class controlsBackground
 	{
@@ -570,7 +782,7 @@ class WarRoom5
             text = "War Room"; //--- ToDo: Localize;
         };
 
-		class Placeholder1: RscPicture
+		class ScreenItem1: RscPicture
 		{
 			idc = 3001;
 
@@ -579,10 +791,10 @@ class WarRoom5
 			w = 30 * GUI_GRID_W;
 			h = 20 * GUI_GRID_H;
 
-            text = "\y\wr\addons\main\ui\WarRoom_Placeholder1_1024x1024.paa";
+            text = "\y\wr\addons\main\ui\WarRoom_ScreenItem1_1024x1024.paa";
 		};
 
-		class Placeholder2: RscPicture
+		class ScreenItem2: RscPicture
 		{
 			idc = 3002;
 
@@ -591,10 +803,10 @@ class WarRoom5
 			w = 10 * GUI_GRID_W;
 			h = 10 * GUI_GRID_H;
 
-            text = "\y\wr\addons\main\ui\WarRoom_Placeholder2_1024x1024.paa";
+            text = "\y\wr\addons\main\ui\WarRoom_ScreenItem2_1024x1024.paa";
 		};
 
-		class Placeholder3: RscPicture
+		class ScreenItem3: RscPicture
 		{
 			idc = 3003;
 
@@ -603,10 +815,10 @@ class WarRoom5
 			w = 10 * GUI_GRID_W;
 			h = 10 * GUI_GRID_H;
 
-            text = "\y\wr\addons\main\ui\WarRoom_Placeholder3_1024x1024.paa";
+            text = "\y\wr\addons\main\ui\WarRoom_ScreenItem3_1024x1024.paa";
 		};
 
-		class Placeholder1Headline: RscText
+		class ScreenItem1Headline: RscText
 		{
 			idc = 5001;
         
@@ -617,10 +829,10 @@ class WarRoom5
         
         	colorBackground[] = {0.2, 0.2, 0.2, 0.5}; // translucent grey
         
-			text = "Placeholder 1";
+			text = "ScreenItem 1";
 		};
 
-		class Placeholder2Headline: RscText
+		class ScreenItem2Headline: RscText
 		{
 			idc = 5002;
 
@@ -630,10 +842,10 @@ class WarRoom5
 			h = 1 * GUI_GRID_H;
 
             colorBackground[] = {0.2, 0.2, 0.2, 0.5}; // translucent grey
-			text = "Placeholder 2";
+			text = "ScreenItem 2";
 		};
 
-		class Placeholder3Headline: RscText
+		class ScreenItem3Headline: RscText
 		{
 			idc = 5003;
 
@@ -643,7 +855,7 @@ class WarRoom5
 			h = 1 * GUI_GRID_H;
 			
             colorBackground[] = {0.2, 0.2, 0.2, 0.5}; // translucent grey
-			text = "Placeholder 3";
+			text = "ScreenItem 3";
 		};
 
         class Subheadline: RscText

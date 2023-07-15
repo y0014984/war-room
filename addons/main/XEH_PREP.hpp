@@ -5,13 +5,14 @@ PREP(terminateUiOnTex);
 PREP(addUpdateUiOnTexEventHandler);
 PREP(removeUpdateUiOnTexEventHandler);
 
-PREP(setupNewControlOnPlaceholder);
-PREP(removeNewControlOnPlaceholder);
+PREP(setupNewControlOnScreenItem);
+PREP(removeNewControlOnScreenItem);
 
 PREP(addUpdateRender2TexEventHandler);
 PREP(addLeadingZerosToDateTime);
 
 PREP(ui_configureScreen);
+PREP(ui_configureScreenImageItem);
 
 // Server
 PREP(module_enableWarRoom);

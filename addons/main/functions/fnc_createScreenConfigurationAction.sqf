@@ -9,7 +9,7 @@ private _statement =
     params ["_target", "_player", "_params"];
     _params params ["_screenIndex"];
 
-    ["onInitDisplay", [_target, _screenIndex]] call WR_main_fnc_ui_configureScreen;
+    ["onInitDialog", [_target, _screenIndex]] call WR_main_fnc_ui_configureScreen;
 };
 
 /* ---------------------------------------- */

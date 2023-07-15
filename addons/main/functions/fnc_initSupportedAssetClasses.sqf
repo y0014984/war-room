@@ -29,9 +29,9 @@ params ["_supportedAssetClasses"];
                 private _defaultUiClass = (_screenCfg >> "WR_defaultUiClass") call BIS_fnc_getCfgData;
 
                 private _uiClassCfg = configFile >> _allowedUiClasses select _defaultUiClass;
-                private _uiPlaceholderCount = (_uiClassCfg >> "WR_uiPlaceholderCount") call BIS_fnc_getCfgData;
+                private _uiScreenItemCount = (_uiClassCfg >> "WR_uiScreenItemCount") call BIS_fnc_getCfgData;
 
-                _screens pushBack [_hiddenSelection, _allowedUiClasses, _defaultUiClass, _uiPlaceholderCount];
+                _screens pushBack [_hiddenSelection, _allowedUiClasses, _defaultUiClass, _uiScreenItemCount];
             };
 
             _entity setVariable ["WR_screens", _screens, true];

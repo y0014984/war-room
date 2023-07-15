@@ -1,20 +1,20 @@
-params ["_entity", "_placeholderIndex"];
+params ["_entity", "_ScreenItemIndex"];
 
 // get the display for the ui on texture feature
 private _uiOnTextureDisplay = _entity getVariable ["WR_uiOnTextureDisplay", displayNull];
 if (isNull _uiOnTextureDisplay) exitWith {};
 
-// all placeholders have an id in the 3000 range; 1st placeholder is always 3001, 2nd is 3002 and so on
-private _placeholderCtrl = _uiOnTextureDisplay displayCtrl (3000 + _placeholderIndex);
+// all ScreenItems have an id in the 3000 range; 1st ScreenItem is always 3001, 2nd is 3002 and so on
+private _screenItemCtrl = _uiOnTextureDisplay displayCtrl (3000 + _screenItemIndex);
 
-// get the position of the placeholder control
-private _ctrlPos = ctrlPosition _placeholderCtrl;
+// get the position of the screen item control
+private _ctrlPos = ctrlPosition _screenItemCtrl;
 
 // add a new control
-// all new controls will be placed on top of the placeholders and will be in the 4000 range, which is always free
-private _newControl = _uiOnTextureDisplay ctrlCreate ["RscMapControl", (4000 + _placeholderIndex)];
+// all new controls will be placed on top of the screen items and will be in the 4000 range, which is always free
+private _newControl = _uiOnTextureDisplay ctrlCreate ["RscMapControl", (4000 + _screenItemIndex)];
 
-// set position of new control to placeholder's position
+// set position of new control to screen items position
 // ctrlSetPosition for all ctrl except maps
 _newControl ctrlMapSetPosition _ctrlPos;
 _newControl ctrlCommit 0;

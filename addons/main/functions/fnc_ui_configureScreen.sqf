@@ -2,7 +2,7 @@ params ["_event", "_params"];
 
 /* ================================================================================ */
 
-if (_event isEqualTo "onInitDisplay") exitWith
+if (_event isEqualTo "onInitDialog") exitWith
 {
     _params params ["_target", "_screenIndex"];
 
@@ -10,6 +10,8 @@ if (_event isEqualTo "onInitDisplay") exitWith
 
     _dialog setVariable ["WR_target", _target];
     _dialog setVariable ["WR_screenIndex", _screenIndex];
+
+    /* ---------------------------------------- */
 
     private _horizontalResolution = _target getVariable [format ["WR_horizontalResolutionScreen%1", _screenIndex], WR_defaultScreenResolution];
     private _verticalResolution = _target getVariable [format ["WR_verticalResolutionScreen%1", _screenIndex], WR_defaultScreenResolution];
@@ -23,6 +25,8 @@ if (_event isEqualTo "onInitDisplay") exitWith
     _horiResCtrl lbSetCurSel _horiResIndex;
     _vertResCtrl lbSetCurSel _vertResIndex;
 
+    /* ---------------------------------------- */
+
     private _fps = _target getVariable [format ["WR_fpsScreen%1", _screenIndex], WR_defaultScreenFps];
     private _fpsToIndex = createHashMapFromArray [["1", 0], ["2", 1], ["3", 2], ["4", 3], ["5", 4], ["10", 5], ["20", 6], ["30", 7], ["45", 8], ["60", 9]];
     private _fpsIndex = _fpsToIndex get (str _fps);
@@ -30,6 +34,8 @@ if (_event isEqualTo "onInitDisplay") exitWith
     private _fpsCtrl = _dialog displayCtrl 4003;
 
     _fpsCtrl lbSetCurSel _fpsIndex;
+
+    /* ---------------------------------------- */
 
     private _layout = _target getVariable [format ["WR_uiClassScreen%1", _screenIndex], 1];
     private _layoutToIndex = createHashMapFromArray [["WarRoom1", 0], ["WarRoom5", 1]];
@@ -39,12 +45,31 @@ if (_event isEqualTo "onInitDisplay") exitWith
 
     _layoutCtrl lbSetCurSel _layoutIndex;
 
+    /* ---------------------------------------- */
+
+    private _uiClassCfg = configFile >> _layout;
+    private _uiScreenItemCount = (_uiClassCfg >> "WR_uiScreenItemCount") call BIS_fnc_getCfgData;
+
+    for [{ private _i = 0 }, { _i < 7 }, { _i = _i + 1 }] do
+    {
+        private _itemLabelCtrl = _dialog displayCtrl (3005 + _i);
+        private _itemCtrl = _dialog displayCtrl (4005 + _i);
+        private _itemResultCtrl = _dialog displayCtrl (5005 + _i);
+
+        private _state = false;
+        if (_i < _uiScreenItemCount) then { _state = true; } else { _state = false; };
+
+        _itemLabelCtrl ctrlShow _state;
+        _itemCtrl ctrlShow _state;
+        _itemResultCtrl ctrlShow _state;
+    };
+
     systemChat format ["Opened Dialog to configure Screen %1", _screenIndex];
 };
 
 /* ================================================================================ */
 
-if (_event isEqualTo "onUnloadDisplay") exitWith
+if (_event isEqualTo "onUnloadDialog") exitWith
 {
     _params params ["_dialog", "_exitCode"];
     // ok = 1, cancel = 2
@@ -55,6 +80,8 @@ if (_event isEqualTo "onUnloadDisplay") exitWith
 
     private _target = _dialog getVariable ["WR_target", objNull];
     private _screenIndex = _dialog getVariable ["WR_screenIndex", 0];
+
+    /* ---------------------------------------- */
 
     private _horiResCtrl = _dialog displayCtrl 4001;
     private _vertResCtrl = _dialog displayCtrl 4002;
@@ -68,6 +95,8 @@ if (_event isEqualTo "onUnloadDisplay") exitWith
     _target setVariable [format ["WR_horizontalResolutionScreen%1", _screenIndex], _horizontalResolution];
     _target setVariable [format ["WR_verticalResolutionScreen%1", _screenIndex], _verticalResolution];
 
+    /* ---------------------------------------- */
+
     private _fpsCtrl = _dialog displayCtrl 4003;
 
     private _fpsIndex = lbCurSel _fpsCtrl;
@@ -76,6 +105,8 @@ if (_event isEqualTo "onUnloadDisplay") exitWith
     private _fps = _indexToFps get (str _fpsIndex);
     _target setVariable [format ["WR_fpsScreen%1", _screenIndex], _fps];
 
+    /* ---------------------------------------- */
+
     private _layoutCtrl = _dialog displayCtrl 4004;
 
     private _layoutIndex = lbCurSel _layoutCtrl;
@@ -83,6 +114,8 @@ if (_event isEqualTo "onUnloadDisplay") exitWith
     private _indexToLayout = createHashMapFromArray [["0", "WarRoom1"], ["1", "WarRoom5"]];
     private _layout = _indexToLayout get (str _layoutIndex);
     _target setVariable [format ["WR_uiClassScreen%1", _screenIndex], _layout];
+
+    /* ---------------------------------------- */
 
     [_target, _screenIndex, _horizontalResolution, _verticalResolution, _fps, _layout] spawn WR_main_fnc_updateScreen;
 
@@ -105,6 +138,23 @@ if (_event isEqualTo "onLBSelChangedLayout") exitWith
 
     _layoutImageCtrl ctrlSetText _imagePath;
 
+    private _uiClassCfg = configFile >> _layout;
+    private _uiScreenItemCount = (_uiClassCfg >> "WR_uiScreenItemCount") call BIS_fnc_getCfgData;
+
+    for [{ private _i = 0 }, { _i < 7 }, { _i = _i + 1 }] do
+    {
+        private _itemLabelCtrl = _dialog displayCtrl (3005 + _i);
+        private _itemCtrl = _dialog displayCtrl (4005 + _i);
+        private _itemResultCtrl = _dialog displayCtrl (5005 + _i);
+
+        private _state = false;
+        if (_i < _uiScreenItemCount) then { _state = true; } else { _state = false; };
+
+        _itemLabelCtrl ctrlShow _state;
+        _itemCtrl ctrlShow _state;
+        _itemResultCtrl ctrlShow _state;
+    };
+
     systemChat format ["Changed Layout to image path: %1", _imagePath];
 };
 
@@ -114,12 +164,28 @@ if (_event isEqualTo "onLBSelChangedItem") exitWith
 {
     _params params ["_control", "_lbCurSel", "_lbSelection"];
 
-    private _itemCfg = configFile >> "ConfigureScreenDialog" >> "controls" >> ctrlClassName _control;
-    if (!isClass _itemCfg) exitWith {};
+    private _screenItemCfg = configFile >> "ConfigureScreenDialog" >> "controls" >> ctrlClassName _control;
+    if (!isClass _screenItemCfg) exitWith {};
 
-    private _itemIndex = (_itemCfg >> "WR_itemIndex") call BIS_fnc_getCfgData;
+    private _dialog = ctrlParent _control;
 
-    systemChat format ["Changed item %1 to item type: %2", _itemIndex, _lbCurSel];
+    private _target = _dialog getVariable ["WR_target", objNull];
+    private _screenIndex = _dialog getVariable ["WR_screenIndex", 0];
+
+    private _screenItemIndex = (_screenItemCfg >> "WR_screenItemIndex") call BIS_fnc_getCfgData;
+
+    private _resultCtrl = _dialog displayCtrl ((ctrlIDC _control) + 1000);
+
+    if (_lbCurSel == 0) then 
+    {
+        _target setVariable [format ["WR_screen%1Item%2Type", _screenIndex, _screenItemIndex], nil];
+        _target setVariable [format ["WR_screen%1Item%2Content", _screenIndex, _screenItemIndex], nil];
+        _resultCtrl ctrlSetText "";
+    };
+
+    if (_lbCurSel == 1) then { ["onInitDialog", [_target, _screenIndex, _screenItemIndex, _control, _resultCtrl]] call WR_main_fnc_ui_configureScreenImageItem; };
+
+    systemChat format ["Changed item %1 to item type: %2", _screenItemIndex, _lbCurSel];
 };
 
 /* ================================================================================ */

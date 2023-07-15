@@ -8,30 +8,30 @@ params ["_entity"];
 {
     params ["_target", "_player", "_params"];
 
-    private _uiPlaceholderCount = _target getVariable ["WR_uiPlaceholderCount", false];
+    private _uiScreenItemCount = _target getVariable ["WR_uiScreenItemCount", false];
     // Add children to action
     private _actions = [];
-    for "_i" from 1 to _uiPlaceholderCount do
+    for "_i" from 1 to _uiScreenItemCount do
     { 
         private _statement =
         {
             params ["_target", "_player", "_params"];
-            _params params ["_placeholderIndex"];
+            _params params ["_screenItemIndex"];
 
-            private _placeholderMutex = _target getVariable [format ["WR_placeholder%1Mutex", _placeholderIndex], false];
-            if (_placeholderMutex) then
+            private _screenItemMutex = _target getVariable [format ["WR_ScreenItem%1Mutex", _screenItemIndex], false];
+            if (_ScreenItemMutex) then
             {
-                // true means, placeholder is currently enabled, so the placeholder will be disabled
-                systemChat format ["reset %1", _placeholderIndex];
-                [_target, _placeholderIndex] call WR_main_fnc_removeNewControlOnPlaceholder;
-                _target setVariable [format ["WR_placeholder%1Mutex", _placeholderIndex], false, true];
+                // true means, ScreenItem is currently enabled, so the ScreenItem will be disabled
+                systemChat format ["reset %1", _screenItemIndex];
+                [_target, _screenItemIndex] call WR_main_fnc_removeNewControlOnScreenItem;
+                _target setVariable [format ["WR_ScreenItem%1Mutex", _screenItemIndex], false, true];
             }
             else
             {
-                // false means, placeholder is currently disabled, so the placeholder will be enabled
-                systemChat format ["setup %1", _placeholderIndex];
-                [_target, _placeholderIndex] call WR_main_fnc_setupNewControlOnPlaceholder;
-                _target setVariable [format ["WR_placeholder%1Mutex", _placeholderIndex], true, true];
+                // false means, ScreenItem is currently disabled, so the ScreenItem will be enabled
+                systemChat format ["setup %1", _screenItemIndex];
+                [_target, _screenItemIndex] call WR_main_fnc_setupNewControlOnScreenItem;
+                _target setVariable [format ["WR_ScreenItem%1Mutex", _screenItemIndex], true, true];
             };
         };
         private _condition =
@@ -43,13 +43,13 @@ params ["_entity"];
         private _modifier =
         {
             params ["_target", "_player", "_params", "_actionData"];
-            _params params ["_placeholderIndex"];
+            _params params ["_ScreenItemIndex"];
 
-            private _placeholderMutex = _target getVariable [format ["WR_placeholder%1Mutex", _placeholderIndex], false];
+            private _screenItemMutex = _target getVariable [format ["WR_ScreenItem%1Mutex", _screenItemIndex], false];
             // Modify the action - index 1 is the display name, 2 is the icon...
-            if (_placeholderMutex) then { _actionData set [1, format ["reset Placeholder %1", _placeholderIndex]]; } else { _actionData set [1, format ["setup Placeholder %1", _placeholderIndex]]; };
+            if (_ScreenItemMutex) then { _actionData set [1, format ["reset ScreenItem %1", _screenItemIndex]]; } else { _actionData set [1, format ["setup ScreenItem %1", _screenItemIndex]]; };
         };
-        private _action = [format ["TogglePlaceholder%1", _i], format ["Toggle Placeholder %1", _i], "", _statement, _condition, nil, _i, nil, nil, nil, _modifier] call ace_interact_menu_fnc_createAction;
+        private _action = [format ["ToggleScreenItem%1", _i], format ["Toggle ScreenItem %1", _i], "", _statement, _condition, nil, _i, nil, nil, nil, _modifier] call ace_interact_menu_fnc_createAction;
         _actions pushBack [_action, [], _target]; // New action, it's children, and the action's target
     };
 

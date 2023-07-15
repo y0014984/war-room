@@ -4,17 +4,7 @@
 
 - Dragon wegen der Extension mit bei den Autoren nennen
 
-- Check for correct count of items/placeholders
-- Rename Items to ScreenItems
-
-```sqf
-private _path = getMissionPath "war-room";
-_result = "ArmaExtensionFolders" callExtension ["getFiles", [_path]];
-_result = _result select 0;
-_result = _result select [1, (count _result) - 6];
-_result = _result splitString ",";
-_result
-```
+- Check for correct count of screen items
 
 Zudem sollte ich die spawns aus init und terminate rausnehmen und dafür eine prüfung einbauen, dass die function canSuspend hat. Dann muss halt von außen
 in einem spawn scope ausgeführt werden.
@@ -22,7 +12,7 @@ in einem spawn scope ausgeführt werden.
 ## Nomenklatur
 
 Eine "Entity" hat ein oder mehrere "Screens". Ein Screen is einer "Hidden Selection" zugewiesen. Eine "Hidden Selection" als Nummer ist nicht identisch mit dem "Screen Index", der stets mit
-1 beginnt. Die "Textur" des "Screens" wird mit setObjectTexture gesetzt. Ein "Display" ist das UI eines "Screens", dass aus einem oder mehreren "Placeholdern" besteht. "Screens" können einzeln
+1 beginnt. Die "Textur" des "Screens" wird mit setObjectTexture gesetzt. Ein "Display" ist das UI eines "Screens", dass aus einem oder mehreren "Screen Items" besteht. "Screens" können einzeln
 über die ACE3 Interactions gesteuert werden. Daher werden sie im Menüpunkt "War Room" zusammengefasst.
 
 ## ACE3 Interactions
@@ -36,11 +26,11 @@ Interaction --> War Room --> Screen 1
 ## Todos
 
 - add fps to the configure dialog
-- in UI trennen zwischen localEffect (Auflösung und FPS) und globalEffekt (Layout und Placeholders/Slots)
+- in UI trennen zwischen localEffect (Auflösung und FPS) und globalEffekt (Layout und Screen Items)
 - read uiClasses from config before populating the ui
 - introduce "supportedUIClasses" config instead of defined ui classes per screen; 1st supported is the default one
 - in GRAD Mod umwandeln?
-- set color of WarRoom Head and Subhead to Background Color of Placeholder and Dummy Display
+- set color of WarRoom Head and Subhead to Background Color of ScreenItem and Dummy Display
 - initDevice funktion anstatt in der module funktion für z.B. Variablen und Texturen setzen
 - was passiert mit setObjectTextureGlobal anstatt setObjectTexture?
 - Sicherstellen, dass allgemeine Update-Funktionen auf dem Server laufen
