@@ -2,7 +2,19 @@
 
 ## Continue next time
 
+- Dragon wegen der Extension mit bei den Autoren nennen
+
 - Check for correct count of items/placeholders
+- Rename Items to ScreenItems
+
+```sqf
+private _path = getMissionPath "war-room";
+_result = "ArmaExtensionFolders" callExtension ["getFiles", [_path]];
+_result = _result select 0;
+_result = _result select [1, (count _result) - 6];
+_result = _result splitString ",";
+_result
+```
 
 Zudem sollte ich die spawns aus init und terminate rausnehmen und dafür eine prüfung einbauen, dass die function canSuspend hat. Dann muss halt von außen
 in einem spawn scope ausgeführt werden.

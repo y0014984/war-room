@@ -9,6 +9,7 @@ files = [
     "mod.cpp",
     "README.md",
     "AUTHORS.txt",
-    "LICENSE.md",
-    "meta.cpp"
+    "LICENSE",
+    "meta.cpp",
+    "ArmaExtensionFolders_x64.dll"
 ]
