@@ -21,8 +21,7 @@ PREP(createWarRoomAction);
 PREP(createScreenAction);
 PREP(createScreenToggleAction);
 PREP(createScreenConfigurationAction);
-PREP(createScreenLayoutAction);
-PREP(createScreenPlaceholdersAction);
+PREP(createScreenPresentationAction);
 
 // Unknown
 PREP(updateScreen);

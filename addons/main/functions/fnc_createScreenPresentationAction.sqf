@@ -9,7 +9,7 @@ private _statement =
     params ["_target", "_player", "_params"];
     _params params ["_screenIndex"];
 
-    systemChat format ["Open Dialog to change layout for Screen %1", _screenIndex];
+    systemChat format ["Enter presentation mode for Screen %1", _screenIndex];
 };
 
 /* ---------------------------------------- */
@@ -26,10 +26,10 @@ private _condition =
 
 /* ---------------------------------------- */
 
-private _screenLayoutAction = 
+private _screenPresentationAction = 
 [
-    format ["Screen%1Layout", _screenIndex], // Action name <STRING>
-    "change Layout", // Name of the action shown in the menu <STRING>
+    format ["Screen%1Presentation", _screenIndex], // Action name <STRING>
+    "present", // Name of the action shown in the menu <STRING>
     "", // Icon <STRING>
     _statement, // Statement <CODE>
     _condition, // Condition <CODE>
@@ -43,4 +43,4 @@ private _screenLayoutAction =
 
 /* ---------------------------------------- */
 
-_screenLayoutAction;
+_screenPresentationAction;

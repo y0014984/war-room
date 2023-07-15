@@ -24,10 +24,10 @@ private _condition =
 
 /* ---------------------------------------- */
 
-private _screenResolutionAction = 
+private _screenConfigurationAction = 
 [
-    format ["Screen%1Resolution", _screenIndex], // Action name <STRING>
-    "change Resolution", // Name of the action shown in the menu <STRING>
+    format ["Screen%1Configuration", _screenIndex], // Action name <STRING>
+    "configure", // Name of the action shown in the menu <STRING>
     "", // Icon <STRING>
     _statement, // Statement <CODE>
     _condition, // Condition <CODE>
@@ -41,4 +41,4 @@ private _screenResolutionAction =
 
 /* ---------------------------------------- */
 
-_screenResolutionAction;
+_screenConfigurationAction;

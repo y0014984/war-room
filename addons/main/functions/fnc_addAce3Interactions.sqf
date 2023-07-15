@@ -128,34 +128,18 @@ private _screens = _entity getVariable ["WR_screens", []];
 
     /* ---------------------------------------- */
 
-    // create screen layout action
-    private _screenLayoutAction = [_forEachIndex] call WR_main_fnc_createScreenLayoutAction;
+    // create screen presentation action
+    private _screenPresentationAction = [_forEachIndex] call WR_main_fnc_createScreenPresentationAction;
 
     /* ---------------------------------------- */
 
-    // add screen layout actions to entity
-    private _screenLayoutActionPath =
+    // add screen presentation actions to entity
+    private _screenPresentationActionPath =
     [
         _entity, // Object the action should be assigned to <OBJECT>
         0, // Type of action, 0 for actions, 1 for self-actions <NUMBER>
         _screenActionPath, // Parent path of the new action <ARRAY> (Example: `["ACE_SelfActions", "ACE_Equipment"]`)
-        _screenLayoutAction // Action <ARRAY>
-    ] call ace_interact_menu_fnc_addActionToObject;
-
-    /* ---------------------------------------- */
-
-    // create screen placeholders action
-    private _screenPlaceholdersAction = [_forEachIndex] call WR_main_fnc_createScreenPlaceholdersAction;
-
-    /* ---------------------------------------- */
-
-    // add screen placeholders actions to entity
-    private _screenPlaceholdersActionPath =
-    [
-        _entity, // Object the action should be assigned to <OBJECT>
-        0, // Type of action, 0 for actions, 1 for self-actions <NUMBER>
-        _screenActionPath, // Parent path of the new action <ARRAY> (Example: `["ACE_SelfActions", "ACE_Equipment"]`)
-        _screenPlaceholdersAction // Action <ARRAY>
+        _screenPresentationAction // Action <ARRAY>
     ] call ace_interact_menu_fnc_addActionToObject;
 
 } forEach _screens;
