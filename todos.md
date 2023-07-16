@@ -2,11 +2,9 @@
 
 ## Continue next time
 
-- Screen erinnert sich beim ausschalten nicht an das letzte Layout
-
-- Dragon wegen der Extension mit bei den Autoren nennen
-
-- Check for correct count of screen items
+- add map
+- add cam
+- add presentation mode
 
 Zudem sollte ich die spawns aus init und terminate rausnehmen und dafür eine prüfung einbauen, dass die function canSuspend hat. Dann muss halt von außen
 in einem spawn scope ausgeführt werden.
@@ -27,19 +25,15 @@ Interaction --> War Room --> Screen 1
 
 ## Todos
 
-- add fps to the configure dialog
+- Dragon wegen der Extension mit bei den Autoren nennen
+- find a way to add all 8 strean items to screen config ui, instead of only 7
 - in UI trennen zwischen localEffect (Auflösung und FPS) und globalEffekt (Layout und Screen Items)
-- read uiClasses from config before populating the ui
-- introduce "supportedUIClasses" config instead of defined ui classes per screen; 1st supported is the default one
 - in GRAD Mod umwandeln?
 - set color of WarRoom Head and Subhead to Background Color of ScreenItem and Dummy Display
 - initDevice funktion anstatt in der module funktion für z.B. Variablen und Texturen setzen
 - was passiert mit setObjectTextureGlobal anstatt setObjectTexture?
 - Sicherstellen, dass allgemeine Update-Funktionen auf dem Server laufen
-- set every supported display to a default screen, saying "Please interact with me"
-- add function to disable screen (oposite of init function), see ACE3 toggle interaction
 - add CBA and ACE to the mod dependencies
-- define _supportedAssetClasses only once and global (perhaps parsing all assets and filling in an array)
 - change mod name (see asset browser; not @wr but real mod name)
 - distinguish between:
   - players/units that are allowed to use War Room
@@ -62,7 +56,6 @@ Interaction --> War Room --> Screen 1
 - enable module for placing and manipulation in Zeus (Changing settings and syncing live)
 - localization
 - icon für mod und module
-- mission creator can use a folder in it's mission called 'images' for example, that is scanned; Found images can be used in this mod
 - set interaction points to the center of each screen
 
 ## Links
@@ -77,6 +70,7 @@ Interaction --> War Room --> Screen 1
 
 ## Annotations
 
+- möglicherweise stotterndes Bild wenn man sich um aktive Screens herum bewegt
 - the UIonTexture displays are not closeable, but if the texture changes, the resulting display is also changing and is not identical with the first display
 - but I also can't overwrite the existing one, because with changed layout the event handler for updating the content wont work
 - only 40x25 Displays are possible; Can't react to different aspect ratios; everything outside of this will be cut off; everything smaller will be left blank
