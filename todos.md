@@ -2,9 +2,11 @@
 
 ## Continue next time
 
+- fix position selection in map configuration
 - add map
 - add cam
 - add presentation mode
+- modify module with radio button options (allow diffent screen item types)
 
 Zudem sollte ich die spawns aus init und terminate rausnehmen und dafür eine prüfung einbauen, dass die function canSuspend hat. Dann muss halt von außen
 in einem spawn scope ausgeführt werden.
@@ -22,6 +24,16 @@ Interaction --> War Room --> Screen 1
                          --> Screen 3 --> enable/disable (Toggle)
                                       --> configure
                                       --> start presentation mode
+
+## Screen Item Types
+
+- static image (paa file in the "war-room" folder inside mission file)
+- static map (define map center and zoom level)
+- follow map (define object to follow and zoom level)
+- static cam (define cam object and view mode, like nightvision, normal, thermal and so on)
+- surveillance cam (define cam object, hor. & vert. angle, speed, movement direction)
+- friedly forces cam (define friedly unit)
+- drone cam (define drone)
 
 ## Todos
 

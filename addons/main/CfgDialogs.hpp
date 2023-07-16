@@ -12,9 +12,12 @@
 /* ================================================================================ */
 
 class RscText;
+class RscEdit;
+class RscButton;
 class RscCombo;
 class RscMapControl;
 class RscPicture;
+class RscXSliderH;
 class RscButtonMenuOK;
 class RscButtonMenuCancel;
 
@@ -593,6 +596,152 @@ class ConfigureScreenImageItemDialog
             y = 3.5 * GUI_GRID_H + GUI_GRID_Y;
             w = 28.5 * GUI_GRID_W;
             h = 19 * GUI_GRID_H;
+		};
+
+       class MyOk: RscButtonMenuOK
+        {
+            x = 37 * GUI_GRID_W + GUI_GRID_X;
+            y = 23.5 * GUI_GRID_H + GUI_GRID_Y;
+            w = 3 * GUI_GRID_W;
+            h = 1.5 * GUI_GRID_H;
+        };
+
+        class MyCancel: RscButtonMenuCancel
+        {
+            x = 31 * GUI_GRID_W + GUI_GRID_X;
+            y = 23.5 * GUI_GRID_H + GUI_GRID_Y;
+            w = 5 * GUI_GRID_W;
+            h = 1.5 * GUI_GRID_H;
+        };
+	};
+};
+
+/* ================================================================================ */
+
+
+class ConfigureScreenMapItemDialog
+{
+	idd = 14633;
+	enableSimulation = true;
+
+    onUnload = "['onUnloadDialog', _this] call WR_main_fnc_ui_configureScreenMapItem;";
+
+	class controlsBackground
+	{
+        class Background: RscText
+        {
+            idc = 1001;
+
+            x = 0 * GUI_GRID_W + GUI_GRID_X;
+            y = 0 * GUI_GRID_H + GUI_GRID_Y;
+            w = 40 * GUI_GRID_W;
+            h = 23 * GUI_GRID_H;
+
+            colorBackground[] = {0.3, 0.3, 0.3, 1}; // opaque dark grey
+        };
+	};
+
+	class controls
+	{
+        class Headline: RscText
+        {
+            idc = 2001;
+
+            x = 0 * GUI_GRID_W + GUI_GRID_X;
+            y = 0 * GUI_GRID_H + GUI_GRID_Y;
+            w = 40 * GUI_GRID_W;
+            h = 1.5 * GUI_GRID_H;
+
+            colorBackground[] = {0, 0, 0, 1}; // opaque black
+            text = "Configure Map Item"; //--- ToDo: Localize;
+        };
+
+		class MapCenterPositionLabel: RscText
+		{
+			idc = 3001;
+        
+			x = 0 * GUI_GRID_W + GUI_GRID_X;
+			y = 2 * GUI_GRID_H + GUI_GRID_Y;
+			w = 10 * GUI_GRID_W;
+			h = 1 * GUI_GRID_H;
+        
+			text = "Map Center Position"; //--- ToDo: Localize;
+            style = ST_RIGHT;
+		};
+
+        class MapCenterPosition: RscEdit
+        {
+            idc = 4001;
+
+            x = 11 * GUI_GRID_W + GUI_GRID_X;
+            y = 2 * GUI_GRID_H + GUI_GRID_Y;
+            w = 18 * GUI_GRID_W;
+            h = 1 * GUI_GRID_H;
+        };
+
+        class MapCenterChangePosition: RscButton
+        {
+            idc = 6001;
+
+            x = 29.5 * GUI_GRID_W + GUI_GRID_X;
+            y = 2 * GUI_GRID_H + GUI_GRID_Y;
+            w = 10 * GUI_GRID_W;
+            h = 1 * GUI_GRID_H;
+
+            text = "Change Position";
+
+            onButtonClick = "['onButtonClickMapPos', _this] call WR_main_fnc_ui_configureScreenMapItem;";
+        };
+
+		class MapZoomLabel: RscText
+		{
+			idc = 3002;
+        
+			x = 0 * GUI_GRID_W + GUI_GRID_X;
+			y = 3.5 * GUI_GRID_H + GUI_GRID_Y;
+			w = 10 * GUI_GRID_W;
+			h = 1 * GUI_GRID_H;
+        
+			text = "Map Zoom"; //--- ToDo: Localize;
+            style = ST_RIGHT;
+		};
+
+        class MapZoom: RscXSliderH
+        {
+            idc = 4002;
+            sliderPosition = 0;
+            sliderRange[] = {0.001,1};
+            sliderStep = 0.001;
+
+            x = 11 * GUI_GRID_W + GUI_GRID_X;
+            y = 3.5 * GUI_GRID_H + GUI_GRID_Y;
+            w = 28.5 * GUI_GRID_W;
+            h = 1 * GUI_GRID_H;
+
+            onSliderPosChanged = "['onSliderPosChangedMapZoom', _this] call WR_main_fnc_ui_configureScreenMapItem;";
+        };
+
+		class MapDemoLabel: RscText
+		{
+			idc = 3003;
+        
+			x = 0 * GUI_GRID_W + GUI_GRID_X;
+			y = 5 * GUI_GRID_H + GUI_GRID_Y;
+			w = 10 * GUI_GRID_W;
+			h = 1 * GUI_GRID_H;
+        
+			text = "Map Demo"; //--- ToDo: Localize;
+            style = ST_RIGHT;
+		};
+
+		class MapDemo: RscMapControl
+		{
+			idc = 5001;
+
+            x = 11 * GUI_GRID_W + GUI_GRID_X;
+            y = 5 * GUI_GRID_H + GUI_GRID_Y;
+            w = 28.5 * GUI_GRID_W;
+            h = 17.5 * GUI_GRID_H;
 		};
 
        class MyOk: RscButtonMenuOK

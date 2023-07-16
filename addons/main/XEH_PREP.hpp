@@ -13,6 +13,7 @@ PREP(addLeadingZerosToDateTime);
 
 PREP(ui_configureScreen);
 PREP(ui_configureScreenImageItem);
+PREP(ui_configureScreenMapItem);
 
 // Server
 PREP(module_enableWarRoom);
