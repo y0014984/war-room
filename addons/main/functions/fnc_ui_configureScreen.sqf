@@ -6,6 +6,8 @@ if (_event isEqualTo "onInitDialog") exitWith
 {
     _params params ["_target", "_screenIndex"];
 
+    /* ---------------------------------------- */
+
     private _dialog = createDialog ["ConfigureScreenDialog"];
 
     _dialog setVariable ["WR_target", _target];
@@ -74,14 +76,18 @@ if (_event isEqualTo "onInitDialog") exitWith
         private _itemCtrl = _dialog displayCtrl (4005 + _i);
         private _itemResultCtrl = _dialog displayCtrl (5005 + _i);
 
-        if (_screenItemType isEqualTo "IMAGE") then
+        if (!(_screenItemType isEqualTo "")) then
         {
-            _itemCtrl lbSetCurSel 1;
+            if (_screenItemType isEqualTo "IMAGE") then { _itemCtrl lbSetCurSel 1; };
+            if (_screenItemType isEqualTo "MAP") then { _itemCtrl lbSetCurSel 2; };
+
             _itemResultCtrl ctrlSetText format ["%1: %2", _screenItemType, _screenItemContent];
         };
 
         _itemCtrl setVariable ["WR_ctrlInitialised", true];
     };
+
+    /* ---------------------------------------- */
 
     systemChat format ["Opened Dialog to configure Screen %1", _screenIndex];
 };

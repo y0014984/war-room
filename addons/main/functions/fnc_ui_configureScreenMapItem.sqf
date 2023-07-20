@@ -85,8 +85,6 @@ if (_event isEqualTo "onSliderPosChangedMapZoom") exitWith
 
     _mapCtrl ctrlMapAnimAdd [0, _mapScale, _mapCenterWorldPos];
     ctrlMapAnimCommit _mapCtrl;
-
-    hintSilent format ["_mapCtrl: %1\n_mapScale: %2\n_mapCenterWorldPos: %3", _mapCtrl, _mapScale, _mapCenterWorldPos];
 };
 
 /* ================================================================================ */
