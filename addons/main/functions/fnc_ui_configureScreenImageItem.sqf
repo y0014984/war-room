@@ -18,9 +18,9 @@ if (_event isEqualTo "onInitDialog") exitWith
     private _result = "ArmaExtensionFolders" callExtension ["getFiles", [_path]];
     _result = _result select 0;
     _result = (_result select [0, _result find """]"]) + """]"; // remove some random bytes at the end
-    private _ImageFileNames = parseSimpleArray _result;
+    private _imageFileNames = parseSimpleArray _result;
 
-    private _ImageFileNamesFiltered = [];
+    private _imageFileNamesFiltered = [];
 
     private _allowedExtensions = ["paa"];
 
@@ -28,14 +28,14 @@ if (_event isEqualTo "onInitDialog") exitWith
         private _stringArray = (_x splitString ".");
         private _extension = _stringArray select ((count _stringArray) - 1);
 
-        if (_extension in _allowedExtensions) then { _ImageFileNamesFiltered pushBack _x; };
-    } forEach _ImageFileNames;
+        if (_extension in _allowedExtensions) then { _imageFileNamesFiltered pushBack _x; };
+    } forEach _imageFileNames;
 
     private _imageCtrl = _dialog displayCtrl 4001;
 
     {
         _imageCtrl lbAdd _x;
-    } forEach _ImageFileNamesFiltered;
+    } forEach _imageFileNamesFiltered;
 
     _imageCtrl lbSetCurSel 0;
 };
@@ -63,7 +63,7 @@ if (_event isEqualTo "onUnloadDialog") exitWith
     _target setVariable [format ["WR_screen%1Item%2Type", _screenIndex, _screenItemIndex], _screenItemType];
     _target setVariable [format ["WR_screen%1Item%2Content", _screenIndex, _screenItemIndex], _screenItemContent];
 
-    _resultCtrl ctrlSetText format ["%1: %2", _screenItemType, _screenItemContent];
+    _resultCtrl ctrlSetText format ["%1 - %2", _screenItemType, _screenItemContent];
 };
 
 /* ================================================================================ */
@@ -72,14 +72,14 @@ if (_event isEqualTo "onLBSelChangedImage") exitWith
 {
     _params params ["_control", "_lbCurSel", "_lbSelection"];
 
-    _imageName = _control lbText _lbCurSel;
-
-    // command fileExists only supports relative paths
-    private _path = format ["war-room\%1", _imageName];
-
     private _dialog = ctrlParent _control;
 
     private _imageCtrl = _dialog displayCtrl 5001;
+
+    private _imageName = _control lbText _lbCurSel;
+
+    // command fileExists only supports relative paths
+    private _path = format ["war-room\%1", _imageName];
 
     if (fileExists _path) then
     {

@@ -588,7 +588,7 @@ class ConfigureScreenImageItemDialog
             onLBSelChanged = "['onLBSelChangedImage', _this] call WR_main_fnc_ui_configureScreenImageItem;";
         };
 
-		class LayoutDemo: RscPicture
+		class ImageDemo: RscPicture
 		{
 			idc = 5001;
 
@@ -617,7 +617,6 @@ class ConfigureScreenImageItemDialog
 };
 
 /* ================================================================================ */
-
 
 class ConfigureScreenMapItemDialog
 {
@@ -731,6 +730,98 @@ class ConfigureScreenMapItemDialog
 
             onMouseButtonUp = "['onMouseButtonUpMap', _this] call WR_main_fnc_ui_configureScreenMapItem;";
             onMouseZChanged = "['onMouseZChangedMap', _this] call WR_main_fnc_ui_configureScreenMapItem;";
+		};
+
+       class MyOk: RscButtonMenuOK
+        {
+            x = 37 * GUI_GRID_W + GUI_GRID_X;
+            y = 23.5 * GUI_GRID_H + GUI_GRID_Y;
+            w = 3 * GUI_GRID_W;
+            h = 1.5 * GUI_GRID_H;
+        };
+
+        class MyCancel: RscButtonMenuCancel
+        {
+            x = 31 * GUI_GRID_W + GUI_GRID_X;
+            y = 23.5 * GUI_GRID_H + GUI_GRID_Y;
+            w = 5 * GUI_GRID_W;
+            h = 1.5 * GUI_GRID_H;
+        };
+	};
+};
+
+/* ================================================================================ */
+
+class ConfigureScreenCamItemDialog
+{
+	idd = 14634;
+	enableSimulation = true;
+
+    onUnload = "['onUnloadDialog', _this] call WR_main_fnc_ui_configureScreenCamItem;";
+
+	class controlsBackground
+	{
+        class Background: RscText
+        {
+            idc = 1001;
+
+            x = 0 * GUI_GRID_W + GUI_GRID_X;
+            y = 0 * GUI_GRID_H + GUI_GRID_Y;
+            w = 40 * GUI_GRID_W;
+            h = 23 * GUI_GRID_H;
+
+            colorBackground[] = {0.3, 0.3, 0.3, 1}; // opaque dark grey
+        };
+	};
+
+	class controls
+	{
+        class Headline: RscText
+        {
+            idc = 2001;
+
+            x = 0 * GUI_GRID_W + GUI_GRID_X;
+            y = 0 * GUI_GRID_H + GUI_GRID_Y;
+            w = 40 * GUI_GRID_W;
+            h = 1.5 * GUI_GRID_H;
+
+            colorBackground[] = {0, 0, 0, 1}; // opaque black
+            text = "Configure Cam Item"; //--- ToDo: Localize;
+        };
+
+		class CamLabel: RscText
+		{
+			idc = 3001;
+        
+			x = 0 * GUI_GRID_W + GUI_GRID_X;
+			y = 2 * GUI_GRID_H + GUI_GRID_Y;
+			w = 10 * GUI_GRID_W;
+			h = 1 * GUI_GRID_H;
+        
+			text = "Cam"; //--- ToDo: Localize;
+            style = ST_RIGHT;
+		};
+
+        class Cam: RscCombo
+        {
+            idc = 4001;
+
+            x = 11 * GUI_GRID_W + GUI_GRID_X;
+            y = 2 * GUI_GRID_H + GUI_GRID_Y;
+            w = 28.5 * GUI_GRID_W;
+            h = 1 * GUI_GRID_H;
+
+            onLBSelChanged = "['onLBSelChangedCam', _this] call WR_main_fnc_ui_configureScreenCamItem;";
+        };
+
+		class CamDemo: RscPicture
+		{
+			idc = 5001;
+
+            x = 11 * GUI_GRID_W + GUI_GRID_X;
+            y = 3.5 * GUI_GRID_H + GUI_GRID_Y;
+            w = 28.5 * GUI_GRID_W;
+            h = 19 * GUI_GRID_H;
 		};
 
        class MyOk: RscButtonMenuOK

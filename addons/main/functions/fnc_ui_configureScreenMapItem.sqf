@@ -65,7 +65,7 @@ if (_event isEqualTo "onUnloadDialog") exitWith
     _target setVariable [format ["WR_screen%1Item%2Type", _screenIndex, _screenItemIndex], _screenItemType];
     _target setVariable [format ["WR_screen%1Item%2Content", _screenIndex, _screenItemIndex], _screenItemContent];
 
-    _resultCtrl ctrlSetText format ["%1: %2", _screenItemType, _screenItemContent];
+    _resultCtrl ctrlSetText format ["%1 - %2", _screenItemType, _screenItemContent];
 };
 
 /* ================================================================================ */

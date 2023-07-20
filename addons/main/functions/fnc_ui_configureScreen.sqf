@@ -81,7 +81,7 @@ if (_event isEqualTo "onInitDialog") exitWith
             if (_screenItemType isEqualTo "IMAGE") then { _itemCtrl lbSetCurSel 1; };
             if (_screenItemType isEqualTo "MAP") then { _itemCtrl lbSetCurSel 2; };
 
-            _itemResultCtrl ctrlSetText format ["%1: %2", _screenItemType, _screenItemContent];
+            _itemResultCtrl ctrlSetText format ["%1 - %2", _screenItemType, _screenItemContent];
         };
 
         _itemCtrl setVariable ["WR_ctrlInitialised", true];
@@ -214,6 +214,8 @@ if (_event isEqualTo "onLBSelChangedItem") exitWith
     if (_ctrlInitialised && (_lbCurSel == 1)) then { ["onInitDialog", [_target, _screenIndex, _screenItemIndex, _control, _resultCtrl]] call WR_main_fnc_ui_configureScreenImageItem; };
     // 2 == map
     if (_ctrlInitialised && (_lbCurSel == 2)) then { ["onInitDialog", [_target, _screenIndex, _screenItemIndex, _control, _resultCtrl]] call WR_main_fnc_ui_configureScreenMapItem; };
+    // 3 == drone cam
+    if (_ctrlInitialised && (_lbCurSel == 3)) then { ["onInitDialog", [_target, _screenIndex, _screenItemIndex, _control, _resultCtrl]] call WR_main_fnc_ui_configureScreenCamItem; };
 
     systemChat format ["Changed item %1 to item type: %2", _screenItemIndex, _lbCurSel];
 };

@@ -2,9 +2,9 @@
 
 ## Continue next time
 
+- configure screen, indem der originalscreen angezeigt wird und man auf die einzelnen placeholder klickt
 - wenn item type ausgewählt aber dann dialog mit cancel abgebrochen, bleibt der item type stehen
 - alte settings in screen item detail ui laden, wenn man bereits konfiguriertes erneut öffnet
-- add map
 - add cam
 - add presentation mode
 - modify module with radio button options (allow diffent screen item types)
