@@ -47,10 +47,10 @@ if (_event isEqualTo "onUnloadDialog") exitWith
     _params params ["_dialog", "_exitCode"];
     // ok = 1, cancel = 2
 
+    if (_exitCode == 2) exitWith {};
+
     private _target = _dialog getVariable ["WR_target", objNull];
     private _selectCtrl = _dialog getVariable ["WR_selectCtrl", controlNull];
-
-    if (_exitCode == 2) exitWith { /*_selectCtrl lbSetCurSel 0;*/ };
 
     private _screenIndex = _dialog getVariable ["WR_screenIndex", -1];
     private _screenItemIndex = _dialog getVariable ["WR_screenItemIndex", -1];

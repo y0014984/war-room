@@ -2,14 +2,12 @@
 
 ## Continue next time
 
-- fix position selection in map configuration
+- wenn item type ausgewählt aber dann dialog mit cancel abgebrochen, bleibt der item type stehen
 - add map
 - add cam
 - add presentation mode
 - modify module with radio button options (allow diffent screen item types)
-
-Zudem sollte ich die spawns aus init und terminate rausnehmen und dafür eine prüfung einbauen, dass die function canSuspend hat. Dann muss halt von außen
-in einem spawn scope ausgeführt werden.
+- add multiplayer compatibility
 
 ## Nomenklatur
 

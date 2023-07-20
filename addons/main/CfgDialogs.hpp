@@ -669,28 +669,14 @@ class ConfigureScreenMapItemDialog
             style = ST_RIGHT;
 		};
 
-        class MapCenterPosition: RscEdit
+        class MapCenterPosition: RscText
         {
             idc = 4001;
 
             x = 11 * GUI_GRID_W + GUI_GRID_X;
             y = 2 * GUI_GRID_H + GUI_GRID_Y;
-            w = 18 * GUI_GRID_W;
+            w = 28.5 * GUI_GRID_W;
             h = 1 * GUI_GRID_H;
-        };
-
-        class MapCenterChangePosition: RscButton
-        {
-            idc = 6001;
-
-            x = 29.5 * GUI_GRID_W + GUI_GRID_X;
-            y = 2 * GUI_GRID_H + GUI_GRID_Y;
-            w = 10 * GUI_GRID_W;
-            h = 1 * GUI_GRID_H;
-
-            text = "Change Position";
-
-            onButtonClick = "['onButtonClickMapPos', _this] call WR_main_fnc_ui_configureScreenMapItem;";
         };
 
 		class MapZoomLabel: RscText
@@ -742,6 +728,9 @@ class ConfigureScreenMapItemDialog
             y = 5 * GUI_GRID_H + GUI_GRID_Y;
             w = 28.5 * GUI_GRID_W;
             h = 17.5 * GUI_GRID_H;
+
+            onMouseButtonUp = "['onMouseButtonUpMap', _this] call WR_main_fnc_ui_configureScreenMapItem;";
+            onMouseZChanged = "['onMouseZChangedMap', _this] call WR_main_fnc_ui_configureScreenMapItem;";
 		};
 
        class MyOk: RscButtonMenuOK
