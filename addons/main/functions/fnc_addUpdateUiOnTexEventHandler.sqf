@@ -10,21 +10,31 @@ private _updateUiOnTexHandle =
 		private _uiOnTextureDisplay = _entity getVariable [format ["WR_uiOnTextureDisplayScreen%1", _screenIndex], displayNull];
         if (isNull _uiOnTextureDisplay) exitWith {};
 
-		// output current date and time to headline of war room display
+		/* ---------------------------------------- */
+
+		private _warRoomName = _entity getVariable [format ["WR_warRoomName%1", _screenIndex], "Operation Unknown"];
+
+		/* ---------------------------------------- */
+
+		// output war room name, current date and time to headline of war room display
 		private _headlineCtrl = _uiOnTextureDisplay displayCtrl 2001;
         private _date = date;
         _date = [_date] call WR_main_fnc_addLeadingZerosToDateTime;
         _date params ["_year", "_month", "_day", "_hours", "_minutes"];
         private _dateString = format ["%1-%2-%3", _year, _month, _day];
 		private _dayTimeString = [dayTime, "HH:MM:SS"] call BIS_fnc_timeToString;
-        _headlineCtrl ctrlSetText format ["War Room - Screen %1 - Date %2 - Time %3", _screenIndex, _dateString, _dayTimeString];
+        _headlineCtrl ctrlSetText format ["Screen %1 (%2) - Date %3 - Time %4", _screenIndex, _warRoomName, _dateString, _dayTimeString];
+
+		/* ---------------------------------------- */
 
 		// output current resolution and FPS to subheadline of war room display
 		private _subHeadlineCtrl = _uiOnTextureDisplay displayCtrl 7001;
         private _horizontalResolution = _entity getVariable [format ["WR_horizontalResolutionScreen%1", _screenIndex], WR_defaultScreenResolution];
         private _verticalResolution = _entity getVariable [format ["WR_verticalResolutionScreen%1", _screenIndex], WR_defaultScreenResolution];
-		_subHeadlineCtrl ctrlSetText format ["Mod v0.1.0 by y0014984 - %1x%2@%3fps", _horizontalResolution, _verticalResolution, _fps];
-		
+		_subHeadlineCtrl ctrlSetText format ["War Room Mod v0.1.0 by y0014984 - %1x%2@%3fps", _horizontalResolution, _verticalResolution, _fps];
+
+		/* ---------------------------------------- */
+
 		// update ui on texture (re-render)
 		displayUpdate _uiOnTextureDisplay;
 	}, 

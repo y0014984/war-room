@@ -15,6 +15,15 @@ if (_event isEqualTo "onInitDialog") exitWith
 
     /* ---------------------------------------- */
 
+    private _warRoomName = _target getVariable [format ["WR_warRoomName%1", _screenIndex], "Operation Unknown"];
+
+    private _warRoomNameCtrl = _dialog displayCtrl 4000;
+
+    _warRoomNameCtrl ctrlSetText _warRoomName;
+
+    /* ---------------------------------------- */
+
+
     private _horizontalResolution = _target getVariable [format ["WR_horizontalResolutionScreen%1", _screenIndex], WR_defaultScreenResolution];
     private _verticalResolution = _target getVariable [format ["WR_verticalResolutionScreen%1", _screenIndex], WR_defaultScreenResolution];
     private _resolutionToIndex = createHashMapFromArray [["256", 0], ["512", 1], ["1024", 2], ["2048", 3], ["4096", 4]];
@@ -105,6 +114,14 @@ if (_event isEqualTo "onUnloadDialog") exitWith
 
     private _target = _dialog getVariable ["WR_target", objNull];
     private _screenIndex = _dialog getVariable ["WR_screenIndex", 0];
+
+    /* ---------------------------------------- */
+
+    private _warRoomNameCtrl = _dialog displayCtrl 4000;
+
+    private _warRoomName = ctrlText _warRoomNameCtrl;
+
+    _target setVariable [format ["WR_warRoomName%1", _screenIndex], _warRoomName];
 
     /* ---------------------------------------- */
 

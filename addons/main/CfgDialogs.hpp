@@ -126,12 +126,37 @@ class ConfigureScreenDialog
             text = "Configure Screen"; //--- ToDo: Localize;
         };
 
+		class WarRoomNameLabel: RscText
+		{
+			idc = 3000;
+        
+			x = 0 * GUI_GRID_W + GUI_GRID_X;
+			y = 2 * GUI_GRID_H + GUI_GRID_Y;
+			w = 10 * GUI_GRID_W;
+			h = 1 * GUI_GRID_H;
+        
+			text = "War Room Name"; //--- ToDo: Localize;
+            style = ST_RIGHT;
+		};
+
+		class WarRoomName: RscEdit
+		{
+			idc = 4000;
+        
+			x = 11 * GUI_GRID_W + GUI_GRID_X;
+			y = 2 * GUI_GRID_H + GUI_GRID_Y;
+			w = 26 * GUI_GRID_W;
+			h = 1 * GUI_GRID_H;
+        
+			text = "Operation Unknown"; //--- ToDo: Localize;
+		};
+
 		class ResolutionLabel: RscText
 		{
 			idc = 3001;
         
 			x = 0 * GUI_GRID_W + GUI_GRID_X;
-			y = 2 * GUI_GRID_H + GUI_GRID_Y;
+			y = 3.5 * GUI_GRID_H + GUI_GRID_Y;
 			w = 10 * GUI_GRID_W;
 			h = 1 * GUI_GRID_H;
         
@@ -144,7 +169,7 @@ class ConfigureScreenDialog
             idc = 4001;
 
             x = 11 * GUI_GRID_W + GUI_GRID_X;
-            y = 2 * GUI_GRID_H + GUI_GRID_Y;
+            y = 3.5 * GUI_GRID_H + GUI_GRID_Y;
             w = 8 * GUI_GRID_W;
             h = 1 * GUI_GRID_H;
 
@@ -179,7 +204,7 @@ class ConfigureScreenDialog
 			idc = 3002;
         
 			x = 19.5 * GUI_GRID_W + GUI_GRID_X;
-			y = 2 * GUI_GRID_H + GUI_GRID_Y;
+			y = 3.5 * GUI_GRID_H + GUI_GRID_Y;
 			w = 1 * GUI_GRID_W;
 			h = 1 * GUI_GRID_H;
         
@@ -192,7 +217,7 @@ class ConfigureScreenDialog
             idc = 4002;
 
             x = 21 * GUI_GRID_W + GUI_GRID_X;
-            y = 2 * GUI_GRID_H + GUI_GRID_Y;
+            y = 3.5 * GUI_GRID_H + GUI_GRID_Y;
             w = 8 * GUI_GRID_W;
             h = 1 * GUI_GRID_H;
 
@@ -227,7 +252,7 @@ class ConfigureScreenDialog
 			idc = 3003;
         
 			x = 29.5 * GUI_GRID_W + GUI_GRID_X;
-			y = 2 * GUI_GRID_H + GUI_GRID_Y;
+			y = 3.5 * GUI_GRID_H + GUI_GRID_Y;
 			w = 1 * GUI_GRID_W;
 			h = 1 * GUI_GRID_H;
         
@@ -240,7 +265,7 @@ class ConfigureScreenDialog
             idc = 4003;
 
             x = 31 * GUI_GRID_W + GUI_GRID_X;
-            y = 2 * GUI_GRID_H + GUI_GRID_Y;
+            y = 3.5 * GUI_GRID_H + GUI_GRID_Y;
             w = 6 * GUI_GRID_W;
             h = 1 * GUI_GRID_H;
 
@@ -295,7 +320,7 @@ class ConfigureScreenDialog
 			idc = 3004;
         
 			x = 0 * GUI_GRID_W + GUI_GRID_X;
-			y = 3.5 * GUI_GRID_H + GUI_GRID_Y;
+			y = 5 * GUI_GRID_H + GUI_GRID_Y;
 			w = 10 * GUI_GRID_W;
 			h = 1 * GUI_GRID_H;
         
@@ -308,7 +333,7 @@ class ConfigureScreenDialog
             idc = 4004;
 
             x = 11 * GUI_GRID_W + GUI_GRID_X;
-            y = 3.5 * GUI_GRID_H + GUI_GRID_Y;
+            y = 5 * GUI_GRID_H + GUI_GRID_Y;
             w = 8 * GUI_GRID_W;
             h = 1 * GUI_GRID_H;
 
@@ -335,7 +360,7 @@ class ConfigureScreenDialog
 			idc = 5001;
 
             x = 21 * GUI_GRID_W + GUI_GRID_X;
-            y = 3.5 * GUI_GRID_H + GUI_GRID_Y;
+            y = 5 * GUI_GRID_H + GUI_GRID_Y;
             w = 16 * GUI_GRID_W;
             h = 10 * GUI_GRID_H;
 
@@ -348,7 +373,7 @@ class ConfigureScreenDialog
 		{
 			idc = 3005;
 
-			y = 14 * GUI_GRID_H + GUI_GRID_Y;     
+			y = 15.5 * GUI_GRID_H + GUI_GRID_Y;     
 
 			text = "Screen Item 0"; //--- ToDo: Localize;
 		};
@@ -357,7 +382,7 @@ class ConfigureScreenDialog
         {
             idc = 4005;
 
-            y = 14 * GUI_GRID_H + GUI_GRID_Y;
+            y = 15.5 * GUI_GRID_H + GUI_GRID_Y;
 
             WR_screenItemIndex = 0;
         };
@@ -366,7 +391,7 @@ class ConfigureScreenDialog
         {
             idc = 5005;
 
-            y = 14 * GUI_GRID_H + GUI_GRID_Y;
+            y = 15.5 * GUI_GRID_H + GUI_GRID_Y;
         };
 
         /* ---------------------------------------- */
@@ -375,7 +400,7 @@ class ConfigureScreenDialog
 		{
 			idc = 3006;
 
-			y = 15.5 * GUI_GRID_H + GUI_GRID_Y;     
+			y = 17 * GUI_GRID_H + GUI_GRID_Y;     
 
 			text = "Screen Item 1"; //--- ToDo: Localize;
 		};
@@ -384,7 +409,7 @@ class ConfigureScreenDialog
         {
             idc = 4006;
 
-            y = 15.5 * GUI_GRID_H + GUI_GRID_Y;
+            y = 17 * GUI_GRID_H + GUI_GRID_Y;
 
             WR_screenItemIndex = 1;
         };
@@ -393,7 +418,7 @@ class ConfigureScreenDialog
         {
             idc = 5006;
 
-            y = 15.5 * GUI_GRID_H + GUI_GRID_Y;
+            y = 17 * GUI_GRID_H + GUI_GRID_Y;
         };
 
         /* ---------------------------------------- */
@@ -402,7 +427,7 @@ class ConfigureScreenDialog
 		{
 			idc = 3007;
 
-			y = 17 * GUI_GRID_H + GUI_GRID_Y;     
+			y = 18.5 * GUI_GRID_H + GUI_GRID_Y;     
 
 			text = "Screen Item 2"; //--- ToDo: Localize;
 		};
@@ -411,7 +436,7 @@ class ConfigureScreenDialog
         {
             idc = 4007;
 
-            y = 17 * GUI_GRID_H + GUI_GRID_Y;
+            y = 18.5 * GUI_GRID_H + GUI_GRID_Y;
 
             WR_screenItemIndex = 2;
         };
@@ -420,7 +445,7 @@ class ConfigureScreenDialog
         {
             idc = 5007;
 
-            y = 17 * GUI_GRID_H + GUI_GRID_Y;
+            y = 18.5 * GUI_GRID_H + GUI_GRID_Y;
         };
 
         /* ---------------------------------------- */
@@ -429,7 +454,7 @@ class ConfigureScreenDialog
 		{
 			idc = 3008;
 
-			y = 18.5 * GUI_GRID_H + GUI_GRID_Y;     
+			y = 20 * GUI_GRID_H + GUI_GRID_Y;     
 
 			text = "Screen Item 3"; //--- ToDo: Localize;
 		};
@@ -438,7 +463,7 @@ class ConfigureScreenDialog
         {
             idc = 4008;
 
-            y = 18.5 * GUI_GRID_H + GUI_GRID_Y;
+            y = 20 * GUI_GRID_H + GUI_GRID_Y;
 
             WR_screenItemIndex = 3;
         };
@@ -447,7 +472,7 @@ class ConfigureScreenDialog
         {
             idc = 5008;
 
-            y = 18.5 * GUI_GRID_H + GUI_GRID_Y;
+            y = 20 * GUI_GRID_H + GUI_GRID_Y;
         };
 
         /* ---------------------------------------- */
@@ -456,7 +481,7 @@ class ConfigureScreenDialog
 		{
 			idc = 3009;
 
-			y = 20 * GUI_GRID_H + GUI_GRID_Y;     
+			y = 21.5 * GUI_GRID_H + GUI_GRID_Y;     
 
 			text = "Screen Item 4"; //--- ToDo: Localize;
 		};
@@ -465,7 +490,7 @@ class ConfigureScreenDialog
         {
             idc = 4009;
 
-            y = 20 * GUI_GRID_H + GUI_GRID_Y;
+            y = 21.5 * GUI_GRID_H + GUI_GRID_Y;
 
             WR_screenItemIndex = 4;
         };
@@ -474,7 +499,7 @@ class ConfigureScreenDialog
         {
             idc = 5009;
 
-            y = 20 * GUI_GRID_H + GUI_GRID_Y;
+            y = 21.5 * GUI_GRID_H + GUI_GRID_Y;
         };
         
         /* ---------------------------------------- */
@@ -483,7 +508,7 @@ class ConfigureScreenDialog
 		{
 			idc = 3010;
 
-			y = 21.5 * GUI_GRID_H + GUI_GRID_Y;     
+			y = 23 * GUI_GRID_H + GUI_GRID_Y;     
 
 			text = "Screen Item 5"; //--- ToDo: Localize;
 		};
@@ -492,7 +517,7 @@ class ConfigureScreenDialog
         {
             idc = 4010;
 
-            y = 21.5 * GUI_GRID_H + GUI_GRID_Y;
+            y = 23 * GUI_GRID_H + GUI_GRID_Y;
 
             WR_screenItemIndex = 5;
         };
@@ -501,7 +526,7 @@ class ConfigureScreenDialog
         {
             idc = 5010;
 
-            y = 21.5 * GUI_GRID_H + GUI_GRID_Y;
+            y = 23 * GUI_GRID_H + GUI_GRID_Y;
         };
         
         /* ---------------------------------------- */

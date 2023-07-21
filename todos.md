@@ -9,7 +9,6 @@
 - add presentation mode
 - modify module with radio button options (allow diffent screen item types)
 - add multiplayer compatibility
-- settings: add war room or operation name / add watermark
 - platz in den screen item ui's besser ausnutzen (links unten)
 - support additional Uavs
 - allow setting up different camera modes for Uavs
@@ -87,6 +86,8 @@ Interaction --> War Room --> Screen 1
 
 - möglicherweise stotterndes Bild wenn man sich um aktive Screens herum bewegt
 - the UIonTexture displays are not closeable, but if the texture changes, the resulting display is also changing and is not identical with the first display
-- but I also can't overwrite the existing one, because with changed layout the event handler for updating the content wont work
+  - but I also can't overwrite the existing one, because with changed layout the event handler for updating the content wont work
 - only 40x25 Displays are possible; Can't react to different aspect ratios; everything outside of this will be cut off; everything smaller will be left blank
 - perhaps map does not show all textures; Workaround is to open the map manually and completely zoom out; This will fix the issue with the map on war room display
+- bei r2t (für z.B. dronen) kann auch aspect ratio angegeben werden; Könnte das Seitenverhältnis des Placeholders übergeben
+  - das führt leider auch, wie bei anderen versuchen dazu, dass ein ein paar r2t funktioneren, und dann dass system keine neuen mehr darstellt
