@@ -4,14 +4,13 @@ params ["_event", "_params"];
 
 if (_event isEqualTo "onInitDialog") exitWith
 {
-    _params params ["_target", "_screenIndex", "_screenItemIndex", "_selectCtrl", "_resultCtrl"];
+    _params params ["_target", "_screenIndex", "_screenItemIndex", "_resultCtrl"];
 
     private _dialog = createDialog ["ConfigureScreenImageItemDialog", true];
 
     _dialog setVariable ["WR_target", _target];
     _dialog setVariable ["WR_screenIndex", _screenIndex];
     _dialog setVariable ["WR_screenItemIndex", _screenItemIndex];
-    _dialog setVariable ["WR_selectCtrl", _selectCtrl];
     _dialog setVariable ["WR_resultCtrl", _resultCtrl];
 
     private _path = getMissionPath "war-room";
@@ -50,7 +49,6 @@ if (_event isEqualTo "onUnloadDialog") exitWith
     if (_exitCode == 2) exitWith {};
 
     private _target = _dialog getVariable ["WR_target", objNull];
-    private _selectCtrl = _dialog getVariable ["WR_selectCtrl", controlNull];
 
     private _screenIndex = _dialog getVariable ["WR_screenIndex", -1];
     private _screenItemIndex = _dialog getVariable ["WR_screenItemIndex", -1];
@@ -86,7 +84,7 @@ if (_event isEqualTo "onLBSelChangedImage") exitWith
         _imageCtrl ctrlSetText _path;
 
         _dialog setVariable ["WR_screenItemType", "IMAGE"];
-        _dialog setVariable ["WR_screenItemContent", _path];
+        _dialog setVariable ["WR_screenItemContent", [_imageName, _path]];
 
         systemChat format ["Changed image item to image: %1", _imageName];
     }

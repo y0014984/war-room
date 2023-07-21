@@ -20,7 +20,7 @@ private _updateUiOnTexHandle =
         _headlineCtrl ctrlSetText format ["War Room - Screen %1 - Date %2 - Time %3", _screenIndex, _dateString, _dayTimeString];
 
 		// output current resolution and FPS to subheadline of war room display
-		private _subHeadlineCtrl = _uiOnTextureDisplay displayCtrl 6001;
+		private _subHeadlineCtrl = _uiOnTextureDisplay displayCtrl 7001;
         private _horizontalResolution = _entity getVariable [format ["WR_horizontalResolutionScreen%1", _screenIndex], WR_defaultScreenResolution];
         private _verticalResolution = _entity getVariable [format ["WR_verticalResolutionScreen%1", _screenIndex], WR_defaultScreenResolution];
 		_subHeadlineCtrl ctrlSetText format ["Mod v0.1.0 by y0014984 - %1x%2@%3fps", _horizontalResolution, _verticalResolution, _fps];

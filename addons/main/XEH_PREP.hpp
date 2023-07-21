@@ -8,13 +8,14 @@ PREP(removeUpdateUiOnTexEventHandler);
 PREP(setupNewControlOnScreenItem);
 PREP(removeNewControlOnScreenItem);
 
-PREP(addUpdateRender2TexEventHandler);
 PREP(addLeadingZerosToDateTime);
 
 PREP(ui_configureScreen);
 PREP(ui_configureScreenImageItem);
 PREP(ui_configureScreenMapItem);
 PREP(ui_configureScreenCamItem);
+
+PREP(addUavCamToControl);
 
 // Server
 PREP(module_enableWarRoom);

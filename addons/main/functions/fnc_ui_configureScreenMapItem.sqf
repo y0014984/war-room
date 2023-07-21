@@ -29,14 +29,13 @@ private _updateMapValuesFnc =
 
 if (_event isEqualTo "onInitDialog") exitWith
 {
-    _params params ["_target", "_screenIndex", "_screenItemIndex", "_selectCtrl", "_resultCtrl"];
+    _params params ["_target", "_screenIndex", "_screenItemIndex", "_resultCtrl"];
 
     private _dialog = createDialog ["ConfigureScreenMapItemDialog", true];
 
     _dialog setVariable ["WR_target", _target];
     _dialog setVariable ["WR_screenIndex", _screenIndex];
     _dialog setVariable ["WR_screenItemIndex", _screenItemIndex];
-    _dialog setVariable ["WR_selectCtrl", _selectCtrl];
     _dialog setVariable ["WR_resultCtrl", _resultCtrl];
 
     [_dialog] call _updateMapValuesFnc;
@@ -52,7 +51,6 @@ if (_event isEqualTo "onUnloadDialog") exitWith
     if (_exitCode == 2) exitWith {};
 
     private _target = _dialog getVariable ["WR_target", objNull];
-    private _selectCtrl = _dialog getVariable ["WR_selectCtrl", controlNull];
 
     private _screenIndex = _dialog getVariable ["WR_screenIndex", -1];
     private _screenItemIndex = _dialog getVariable ["WR_screenItemIndex", -1];

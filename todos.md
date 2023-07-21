@@ -5,10 +5,14 @@
 - configure screen, indem der originalscreen angezeigt wird und man auf die einzelnen placeholder klickt
 - wenn item type ausgewählt aber dann dialog mit cancel abgebrochen, bleibt der item type stehen
 - alte settings in screen item detail ui laden, wenn man bereits konfiguriertes erneut öffnet
-- add cam
+- layout Auswahl auch über separate UI --> Platz für alle 8 Placeholder und Operation Name
 - add presentation mode
 - modify module with radio button options (allow diffent screen item types)
 - add multiplayer compatibility
+- settings: add war room or operation name / add watermark
+- platz in den screen item ui's besser ausnutzen (links unten)
+- support additional Uavs
+- allow setting up different camera modes for Uavs
 
 ## Nomenklatur
 
@@ -26,13 +30,13 @@ Interaction --> War Room --> Screen 1
 
 ## Screen Item Types
 
-- static image (paa file in the "war-room" folder inside mission file)
-- static map (define map center and zoom level)
+- static image (paa file in the "war-room" folder inside mission file) --> done
+- static map (define map center and zoom level) --> done
 - follow map (define object to follow and zoom level)
 - static cam (define cam object and view mode, like nightvision, normal, thermal and so on)
 - surveillance cam (define cam object, hor. & vert. angle, speed, movement direction)
 - friedly forces cam (define friedly unit)
-- drone cam (define drone)
+- drone cam (define drone) --> in progress
 
 ## Todos
 
@@ -85,5 +89,4 @@ Interaction --> War Room --> Screen 1
 - the UIonTexture displays are not closeable, but if the texture changes, the resulting display is also changing and is not identical with the first display
 - but I also can't overwrite the existing one, because with changed layout the event handler for updating the content wont work
 - only 40x25 Displays are possible; Can't react to different aspect ratios; everything outside of this will be cut off; everything smaller will be left blank
-- can't place UI elements on Top of RscMapControl
 - perhaps map does not show all textures; Workaround is to open the map manually and completely zoom out; This will fix the issue with the map on war room display

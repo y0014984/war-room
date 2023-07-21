@@ -211,11 +211,11 @@ if (_event isEqualTo "onLBSelChangedItem") exitWith
     private _ctrlInitialised = _control getVariable ["WR_ctrlInitialised", false];
 
     // 1 == image
-    if (_ctrlInitialised && (_lbCurSel == 1)) then { ["onInitDialog", [_target, _screenIndex, _screenItemIndex, _control, _resultCtrl]] call WR_main_fnc_ui_configureScreenImageItem; };
+    if (_ctrlInitialised && (_lbCurSel == 1)) then { ["onInitDialog", [_target, _screenIndex, _screenItemIndex, _resultCtrl]] call WR_main_fnc_ui_configureScreenImageItem; };
     // 2 == map
-    if (_ctrlInitialised && (_lbCurSel == 2)) then { ["onInitDialog", [_target, _screenIndex, _screenItemIndex, _control, _resultCtrl]] call WR_main_fnc_ui_configureScreenMapItem; };
+    if (_ctrlInitialised && (_lbCurSel == 2)) then { ["onInitDialog", [_target, _screenIndex, _screenItemIndex, _resultCtrl]] call WR_main_fnc_ui_configureScreenMapItem; };
     // 3 == drone cam
-    if (_ctrlInitialised && (_lbCurSel == 3)) then { ["onInitDialog", [_target, _screenIndex, _screenItemIndex, _control, _resultCtrl]] call WR_main_fnc_ui_configureScreenCamItem; };
+    if (_ctrlInitialised && (_lbCurSel == 3)) then { ["onInitDialog", [_target, _screenIndex, _screenItemIndex, _resultCtrl]] call WR_main_fnc_ui_configureScreenCamItem; };
 
     systemChat format ["Changed item %1 to item type: %2", _screenItemIndex, _lbCurSel];
 };

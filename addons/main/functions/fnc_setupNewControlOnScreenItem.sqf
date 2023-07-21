@@ -9,8 +9,12 @@ if (isNull _uiOnTextureDisplay) exitWith {};
 // all screen items have an id in the 3000 range; 1st screnn item is always 3000, 2nd is 3001 and so on
 private _screenItemCtrl = _uiOnTextureDisplay displayCtrl (3000 + _screenItemIndex);
 
-// get the position of the screen item control
-private _ctrlPos = ctrlPosition _screenItemCtrl;
+// all screen item info boxes have an id in the 5000 range; 1st screnn item info box is always 5000, 2nd is 5001 and so on
+private _screenItemInfoboxCtrl = _uiOnTextureDisplay displayCtrl (5000 + _screenItemIndex);
+
+// get the position of the screen item control and screen item infobox control
+private _screenItemCtrlPos = ctrlPosition _screenItemCtrl;
+private _screenItemInfoboxCtrlPos = ctrlPosition _screenItemInfoboxCtrl;
 
 private _screenItemType = _entity getVariable [format ["WR_screen%1Item%2Type", _screenIndex, _screenItemIndex], ""];
 private _screenItemContent = _entity getVariable [format ["WR_screen%1Item%2Content", _screenIndex, _screenItemIndex], nil];
@@ -24,14 +28,24 @@ if (_screenItemType isEqualTo "IMAGE") exitWith
 	// add a new control
 	// all new controls will be placed on top of the screen items and will be in the 4000 range, which is always free
 	private _imageCtrl = _uiOnTextureDisplay ctrlCreate ["RscPicture", (4000 + _screenItemIndex)];
+	private _imageInfoboxCtrl = _uiOnTextureDisplay ctrlCreate ["RscText", (6000 + _screenItemIndex)];
+
+	_imageInfoboxCtrl ctrlSetBackgroundColor [0.2, 0.2, 0.2, 0.5]; // translucent grey
 
 	// set position of new control to screen items position
 	// ctrlSetPosition for all ctrl except maps
-	_imageCtrl ctrlSetPosition _ctrlPos;
+	_imageCtrl ctrlSetPosition _screenItemCtrlPos;
 	_imageCtrl ctrlCommit 0;
 
+	_imageInfoboxCtrl ctrlSetPosition _screenItemInfoboxCtrlPos;
+	_imageInfoboxCtrl ctrlCommit 0;
+
+	_screenItemContent params ["_imageName", "_path"];
+
 	// set control text to relative image path
-	_imageCtrl ctrlSetText _screenItemContent;
+	_imageCtrl ctrlSetText _path;
+
+	_imageInfoboxCtrl ctrlSetText format ["%1", _imageName];
 };
 
 /* ================================================================================ */
@@ -41,32 +55,53 @@ if (_screenItemType isEqualTo "MAP") exitWith
 	// add a new control
 	// all new controls will be placed on top of the screen items and will be in the 4000 range, which is always free
 	private _mapCtrl = _uiOnTextureDisplay ctrlCreate ["RscMapControl", (4000 + _screenItemIndex)];
+	private _mapInfoboxCtrl = _uiOnTextureDisplay ctrlCreate ["RscText", (6000 + _screenItemIndex)];
+
+	_mapInfoboxCtrl ctrlSetBackgroundColor [0.2, 0.2, 0.2, 0.5]; // translucent grey
 
 	// set position of new control to screen items position
 	// ctrlSetPosition for all ctrl except maps
-	_mapCtrl ctrlMapSetPosition _ctrlPos;
+	_mapCtrl ctrlMapSetPosition _screenItemCtrlPos;
 	_mapCtrl ctrlCommit 0;
 	_mapCtrl ctrlMapSetPosition []; // sync
+
+	_mapInfoboxCtrl ctrlSetPosition _screenItemInfoboxCtrlPos;
+	_mapInfoboxCtrl ctrlCommit 0;
 
 	_screenItemContent params ["_mapCenterWorldPos", "_mapScale"];
 
 	_mapCtrl ctrlMapAnimAdd [0, _mapScale, _mapCenterWorldPos];
 	ctrlMapAnimCommit _mapCtrl;
+
+	_mapInfoboxCtrl ctrlSetText format ["%1 (Pos: %2)", worldName, mapGridPosition _mapCenterWorldPos];
+};
+
+/* ================================================================================ */
+
+if (_screenItemType isEqualTo "CAM") exitWith
+{
+	// add a new control
+	// all new controls will be placed on top of the screen items and will be in the 4000 range, which is always free
+	private _camCtrl = _uiOnTextureDisplay ctrlCreate ["RscPicture", (4000 + _screenItemIndex)];
+	private _camInfoboxCtrl = _uiOnTextureDisplay ctrlCreate ["RscText", (6000 + _screenItemIndex)];
+
+	_camInfoboxCtrl ctrlSetBackgroundColor [0.2, 0.2, 0.2, 0.5]; // translucent grey
+
+	// set position of new control to screen items position
+	// ctrlSetPosition for all ctrl except maps
+	_camCtrl ctrlSetPosition _screenItemCtrlPos;
+	_camCtrl ctrlCommit 0;
+
+	_camInfoboxCtrl ctrlSetPosition _screenItemInfoboxCtrlPos;
+	_camInfoboxCtrl ctrlCommit 0;
+
+	private _camObject = _screenItemContent;
+
+	[_camObject, _camCtrl, _screenItemIndex] call WR_main_fnc_addUavCamToControl;
+
+	_camInfoboxCtrl ctrlSetText format ["%1 (Pos: %2)", _camObject, mapGridPosition _camObject];
 };
 
 /* ================================================================================ */
 
 true;
-
-/*
-        _uav1Target, _uav2Target
-
-        private _uav1HeadlineCtrl = _uiOnTextureDisplay displayCtrl 5002;
-        private _uav2HeadlineCtrl = _uiOnTextureDisplay displayCtrl 5003;
-
-		private _uav1Pos = getPosAsL _uav1Target;
-		private _uav2Pos = getPosAsL _uav2Target;
-		
-		_uav1HeadlineCtrl ctrlSetText format ["UAV 1 (Pos: %1)", mapGridPosition _uav1Pos];
-		_uav2HeadlineCtrl ctrlSetText format ["UAV 2 (Pos: %1)", mapGridPosition _uav2Pos];
-*/
