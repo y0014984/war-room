@@ -97,7 +97,7 @@ if (_screenItemType isEqualTo "CAM") exitWith
 
 	private _camObject = _screenItemContent;
 
-	[_camObject, _camCtrl, _screenItemIndex] call WR_main_fnc_addUavCamToControl;
+	[_camObject, _camCtrl] call WR_main_fnc_addUavCamToControl;
 
 	_camInfoboxCtrl ctrlSetText format ["%1 (Pos: %2)", _camObject, mapGridPosition _camObject];
 };

@@ -92,7 +92,7 @@ if (_event isEqualTo "onLBSelChangedCam") exitWith
 
     private _camCtrl = _dialog displayCtrl 5001;
 
-    [_camObject, _camCtrl, 0] call WR_main_fnc_addUavCamToControl;
+    [_camObject, _camCtrl] call WR_main_fnc_addUavCamToControl;
 
     _dialog setVariable ["WR_screenItemType", "CAM"];
     _dialog setVariable ["WR_screenItemContent", _camObject];

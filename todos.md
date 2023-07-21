@@ -83,7 +83,7 @@ Interaction --> War Room --> Screen 1
 - <http://killzonekid.com/arma-scripting-tutorials-uav-r2t-and-pip/>
 - <https://community.bistudio.com/wiki/Arma_3:_Mission_Event_Handlers>
 
-## Annotations
+## Annotations / known bugs
 
 - möglicherweise stotterndes Bild wenn man sich um aktive Screens herum bewegt
 - the UIonTexture displays are not closeable, but if the texture changes, the resulting display is also changing and is not identical with the first display
