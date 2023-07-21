@@ -37,7 +37,9 @@ params ["_supportedAssetClasses"];
             _entity setVariable ["WR_screens", _screens, true];
         };
 
-        [_entity] call WR_main_fnc_addAce3Interactions;
+        // needs to be 0 (everywhere) instead of -2 (all clients, not server), because of hosted multiplayer
+        // host also needs to be able to use the interactions
+        [_entity] remoteExecCall ["WR_main_fnc_addAce3Interactions", 0, true];
     };
 
     [_x, "init", _eventFunc] call CBA_fnc_addClassEventHandler;

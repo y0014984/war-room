@@ -39,7 +39,7 @@ if (_assetsScope isEqualTo "GLOBAL") then
             private _screens = _entity getVariable ["WR_screens", []];
             {
                 private _hiddenSelection = _x select 0;
-                _entity setObjectTexture [_hiddenSelection, "\y\wr\addons\main\ui\WarRoom_DefaultDisplay_1024x1024.paa"];
+                _entity setObjectTextureGlobal [_hiddenSelection, "\y\wr\addons\main\ui\WarRoom_DefaultDisplay_1024x1024.paa"];
             } forEach _screens;
         };
         private _allowInheritance = true;

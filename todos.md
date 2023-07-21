@@ -12,6 +12,7 @@
 - platz in den screen item ui's besser ausnutzen (links unten)
 - support additional Uavs
 - allow setting up different camera modes for Uavs
+- _target und _entity namentliche zusammenführen
 
 ## Nomenklatur
 

@@ -60,8 +60,8 @@ if (_event isEqualTo "onUnloadDialog") exitWith
 
     if (_screenItemType isEqualTo "") exitWith { _resultCtrl ctrlSetText ""; };
 
-    _target setVariable [format ["WR_screen%1Item%2Type", _screenIndex, _screenItemIndex], _screenItemType];
-    _target setVariable [format ["WR_screen%1Item%2Content", _screenIndex, _screenItemIndex], _screenItemContent];
+    _target setVariable [format ["WR_screen%1Item%2Type", _screenIndex, _screenItemIndex], _screenItemType, true];
+    _target setVariable [format ["WR_screen%1Item%2Content", _screenIndex, _screenItemIndex], _screenItemContent, true];
 
     _resultCtrl ctrlSetText format ["%1 - %2", _screenItemType, _screenItemContent];
 };

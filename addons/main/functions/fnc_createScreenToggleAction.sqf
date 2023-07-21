@@ -33,7 +33,9 @@ private _statement =
             private _defaultUiClass = (_screens select _screenIndex) select 2;
             _uiClass = _allowedUiClasses select _defaultUiClass;
         };
-        [_target, _hiddenSelection, _screenIndex, _horizontalResolution, _verticalResolution, _fps, _uiClass] spawn WR_main_fnc_initUiOnTex;
+        // needs to be 0 (everywhere) instead of -2 (all clients, not server), because of hosted multiplayer
+        // host also needs to be able to use the interactions
+        [_target, _hiddenSelection, _screenIndex, _horizontalResolution, _verticalResolution, _fps, _uiClass] remoteExec ["WR_main_fnc_initUiOnTex", 0, true];
         _target setVariable [format ["WR_screen%1Mutex", _screenIndex], true, true];
 
         systemChat format ["Screen %1 enabled", _screenIndex];

@@ -121,7 +121,7 @@ if (_event isEqualTo "onUnloadDialog") exitWith
 
     private _warRoomName = ctrlText _warRoomNameCtrl;
 
-    _target setVariable [format ["WR_warRoomName%1", _screenIndex], _warRoomName];
+    _target setVariable [format ["WR_warRoomName%1", _screenIndex], _warRoomName, true];
 
     /* ---------------------------------------- */
 
@@ -155,11 +155,13 @@ if (_event isEqualTo "onUnloadDialog") exitWith
 
     private _indexToLayout = createHashMapFromArray [["0", "WarRoom1"], ["1", "WarRoom5"]];
     private _layout = _indexToLayout get (str _layoutIndex);
-    _target setVariable [format ["WR_uiClassScreen%1", _screenIndex], _layout];
+    _target setVariable [format ["WR_uiClassScreen%1", _screenIndex], _layout, true];
 
     /* ---------------------------------------- */
 
-    [_target, _screenIndex, _horizontalResolution, _verticalResolution, _fps, _layout] spawn WR_main_fnc_updateScreen;
+    // needs to be 0 (everywhere) instead of -2 (all clients, not server), because of hosted multiplayer
+    // host also needs to be able to use the interactions
+    [_target, _screenIndex, _horizontalResolution, _verticalResolution, _fps, _layout] remoteExec ["WR_main_fnc_updateScreen", 0, true];
 
     [_screenIndex, _exitCode] call _messageFnc;
 };
@@ -220,8 +222,8 @@ if (_event isEqualTo "onLBSelChangedItem") exitWith
 
     if (_lbCurSel == 0) then 
     {
-        _target setVariable [format ["WR_screen%1Item%2Type", _screenIndex, _screenItemIndex], nil];
-        _target setVariable [format ["WR_screen%1Item%2Content", _screenIndex, _screenItemIndex], nil];
+        _target setVariable [format ["WR_screen%1Item%2Type", _screenIndex, _screenItemIndex], nil, true];
+        _target setVariable [format ["WR_screen%1Item%2Content", _screenIndex, _screenItemIndex], nil, true];
         _resultCtrl ctrlSetText "";
     };
 

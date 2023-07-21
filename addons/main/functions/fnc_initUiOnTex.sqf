@@ -2,6 +2,9 @@ params ["_entity", "_hiddenSelection", "_screenIndex", "_horizontalResolution", 
 
 if (!canSuspend) exitWith { systemChat "calling 'initUiOnTex' unscheduled is forbidden" };
 
+// if dedicated server or headless client
+if (!hasInterface) exitWith {};
+
 private _uiOnTextureDisplayCounter = _entity getVariable [format ["WR_uiOnTextureDisplayCounterScreen%1", _screenIndex], -1];
 _uiOnTextureDisplayCounter = _uiOnTextureDisplayCounter + 1;
 

@@ -2,6 +2,9 @@ params ["_entity", "_screenIndex", "_horizontalResolution", "_verticalResolution
 
 if (!canSuspend) exitWith { systemChat "calling 'updateScreen' unscheduled is forbidden" };
 
+// if dedicated server or headless client
+if (!hasInterface) exitWith {};
+
 private _hiddenSelection = _entity getVariable [format ["WR_hiddenSelectionScreen%1", _screenIndex], -1];
 
 [_entity, _hiddenSelection, _screenIndex] call WR_main_fnc_terminateUiOnTex;
