@@ -103,7 +103,7 @@ class CfgVehicles
     class Land_TripodScreen_01_large_F;
     class Land_TripodScreen_01_large_sand_F: Land_TripodScreen_01_large_F
     {
-        class War_Room 
+        class War_Room
         {
             WR_supported = 1; // 1 == true; 0 == false
 			WR_screenCount = 1;
@@ -148,7 +148,7 @@ class CfgVehicles
 	class Land_MultiScreenComputer_01_base_F;
 	class Land_MultiScreenComputer_01_sand_F: Land_MultiScreenComputer_01_base_F
 	{
-        class War_Room 
+        class War_Room
         {
             WR_supported = 1; // 1 == true; 0 == false
 			WR_screenCount = 3;
@@ -174,6 +174,45 @@ class CfgVehicles
 				WR_defaultUiClass = 0;
 			};
         };
+	};
+
+	/* ================================================================================ */
+
+	class Land_Laptop_03_base_F;
+	class Land_Laptop_03_sand_F: Land_Laptop_03_base_F
+	{
+		class War_Room
+		{
+			WR_supported = 1; // 1 == true; 0 == false
+			WR_screenCount = 1;
+	
+			class Screen0
+			{
+				WR_hiddenSelection = 1;
+				WR_allowedUiClasses[] = {"WarRoom1", "WarRoom2"};
+				WR_defaultUiClass = 0;
+			};
+		};
+	};
+
+	/* ================================================================================ */
+
+	// Jets DLC
+	class Items_base_F;
+	class Land_BriefingRoomScreen_01_F: Items_base_F
+	{
+		class War_Room
+		{
+			WR_supported = 1; // 1 == true; 0 == false
+			WR_screenCount = 1;
+	
+			class Screen0
+			{
+				WR_hiddenSelection = 0;
+				WR_allowedUiClasses[] = {"WarRoom1Mod3", "WarRoom2Mod3", "WarRoom8Mod3"};
+				WR_defaultUiClass = 2;
+			};
+		};
 	};
 
 	/* ================================================================================ */

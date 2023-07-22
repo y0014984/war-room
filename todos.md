@@ -56,7 +56,6 @@ Interaction --> War Room --> Screen 1
 - initDevice funktion anstatt in der module funktion für z.B. Variablen und Texturen setzen
 - was passiert mit setObjectTextureGlobal anstatt setObjectTexture?
 - Sicherstellen, dass allgemeine Update-Funktionen auf dem Server laufen
-- add CBA and ACE to the mod dependencies
 - change mod name (see asset browser; not @wr but real mod name)
 - distinguish between:
   - players/units that are allowed to use War Room
@@ -71,6 +70,7 @@ Interaction --> War Room --> Screen 1
 - model fixes
   - evtl. bei den Whiteboards
 - Schriftgröße etc. für die Map anpassen
+- Auto Populate _supportedClasses From Config
 
 ## Later Enhancements
 
@@ -93,6 +93,7 @@ Interaction --> War Room --> Screen 1
 
 ## Annotations / known bugs
 
+- No entry 'bin\config.bin/CfgVehicles/CLASSNAME'. for some classes. Don't know why.
 - die Extension für die Bilder funktioniert nur, wenn die Mission lokal ungepackt vorliegt, also vermutlich nur, wenn der Server die Mission ungepackt hat oder in einem Hosted Multiplayer ungepackt aus dem Editor heraus
   - vielleicht kann ich etwas bauen, dass die Extension nur während des Missionsbaus verwendet, und dann einfach die Daten irgendwie in die Mission schreibt, die dann später z.B. als config ausgelesen werden kann
 - möglicherweise stotterndes Bild wenn man sich um aktive Screens herum bewegt
