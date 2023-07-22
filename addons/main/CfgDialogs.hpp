@@ -146,6 +146,8 @@ class ConfigureScreenDialog
 			y = 2 * GUI_GRID_H + GUI_GRID_Y;
 			w = 26 * GUI_GRID_W;
 			h = 1 * GUI_GRID_H;
+
+            colorBackground[] = {0.2, 0.2, 0.2, 1}; // opaque dark grey
 		};
 
 		class ResolutionLabel: RscText
