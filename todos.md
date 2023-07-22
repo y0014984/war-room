@@ -5,8 +5,7 @@
 - configure screen, indem der originalscreen angezeigt wird und man auf die einzelnen placeholder klickt
 - wenn item type ausgewählt aber dann dialog mit cancel abgebrochen, bleibt der item type stehen
 - alte settings in screen item detail ui laden, wenn man bereits konfiguriertes erneut öffnet
-- layout Auswahl auch über separate UI --> Platz für alle 8 Placeholder
-- variablennamen layout und uiClass harmonisieren
+- uiclass Auswahl auch über separate UI --> Platz für alle 8 Placeholder
 - add presentation mode
 - modify module with radio button options (allow diffent screen item types)
 - platz in den screen item ui's besser ausnutzen (links unten)
@@ -18,7 +17,8 @@
 - Freitextfeld
 - Video Feld
 - add WarRoom 6 (Wie War Room 4, nur dass 0 und 1 zusammen das erste element bilden)
-- "placeholder" und layout dropdown durch "none" ersetzen
+- Background color für War Roome name
+- image info without file extension
 
 ## Nomenklatur
 
@@ -50,7 +50,7 @@ Interaction --> War Room --> Screen 1
 
 - Dragon wegen der Extension mit bei den Autoren nennen
 - find a way to add all 8 strean items to screen config ui, instead of only 7
-- in UI trennen zwischen localEffect (Auflösung und FPS) und globalEffekt (Layout und Screen Items)
+- in UI trennen zwischen localEffect (Auflösung und FPS) und globalEffekt (uiClass und Screen Items)
 - in GRAD Mod umwandeln?
 - set color of WarRoom Head and Subhead to Background Color of ScreenItem and Dummy Display
 - initDevice funktion anstatt in der module funktion für z.B. Variablen und Texturen setzen
@@ -97,7 +97,7 @@ Interaction --> War Room --> Screen 1
   - vielleicht kann ich etwas bauen, dass die Extension nur während des Missionsbaus verwendet, und dann einfach die Daten irgendwie in die Mission schreibt, die dann später z.B. als config ausgelesen werden kann
 - möglicherweise stotterndes Bild wenn man sich um aktive Screens herum bewegt
 - the UIonTexture displays are not closeable, but if the texture changes, the resulting display is also changing and is not identical with the first display
-  - but I also can't overwrite the existing one, because with changed layout the event handler for updating the content wont work
+  - but I also can't overwrite the existing one, because with changed uiclass the event handler for updating the content wont work
 - only 40x25 Displays are possible; Can't react to different aspect ratios; everything outside of this will be cut off; everything smaller will be left blank
 - perhaps map does not show all textures; Workaround is to open the map manually and completely zoom out; This will fix the issue with the map on war room display
 - bei r2t (für z.B. dronen) kann auch aspect ratio angegeben werden; Könnte das Seitenverhältnis des Placeholders übergeben

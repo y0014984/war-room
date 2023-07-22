@@ -23,7 +23,7 @@ private _updateUiOnTexHandle =
         _date params ["_year", "_month", "_day", "_hours", "_minutes"];
         private _dateString = format ["%1-%2-%3", _year, _month, _day];
 		private _dayTimeString = [dayTime, "HH:MM:SS"] call BIS_fnc_timeToString;
-        _headlineCtrl ctrlSetText format ["Screen %1 (%2) - Date %3 - Time %4", _screenIndex, _warRoomName, _dateString, _dayTimeString];
+        _headlineCtrl ctrlSetText format ["%1 %2 (%3)", _warRoomName, _dayTimeString, _dateString];
 
 		/* ---------------------------------------- */
 
@@ -31,7 +31,8 @@ private _updateUiOnTexHandle =
 		private _subHeadlineCtrl = _uiOnTextureDisplay displayCtrl 7001;
         private _horizontalResolution = _entity getVariable [format ["WR_horizontalResolutionScreen%1", _screenIndex], WR_defaultScreenResolution];
         private _verticalResolution = _entity getVariable [format ["WR_verticalResolutionScreen%1", _screenIndex], WR_defaultScreenResolution];
-		_subHeadlineCtrl ctrlSetText format ["War Room Mod v0.1.0 by y0014984 - %1x%2@%3fps", _horizontalResolution, _verticalResolution, _fps];
+		private _uiClass = _entity getVariable [format ["WR_uiClassScreen%1", _screenIndex], ""];
+		_subHeadlineCtrl ctrlSetText format ["Screen %1 - %2x%3@%4fps (UI Class: %5)", _screenIndex, _horizontalResolution, _verticalResolution, _fps, _uiClass];
 
 		/* ---------------------------------------- */
 

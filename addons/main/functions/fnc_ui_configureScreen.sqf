@@ -53,31 +53,31 @@ if (_event isEqualTo "onInitDialog") exitWith
     private _allowedUiClasses = _screen select 1; // [_hiddenSelection, _allowedUiClasses, _defaultUiClass, _uiScreenItemCount];
     private _defaultUiClass = _screen select 2;
 
-    private _layoutCtrl = _dialog displayCtrl 4004;
+    private _uiClassCtrl = _dialog displayCtrl 4004;
 
-    private _layoutToIndexArray = [];
-    private _indexToLayoutArray = [];
+    private _uiClassToIndexArray = [];
+    private _indexToUiClassArray = [];
     {
-        private _index = _layoutCtrl lbAdd _x;
-        _layoutToIndexArray pushBack [_x, _index];
-        _indexToLayoutArray pushBack [str _index, _x];
+        private _index = _uiClassCtrl lbAdd _x;
+        _uiClassToIndexArray pushBack [_x, _index];
+        _indexToUiClassArray pushBack [str _index, _x];
     } forEach _allowedUiClasses;
 
-    private _layoutToIndex = createHashMapFromArray _layoutToIndexArray;
-    private _indexToLayout = createHashMapFromArray _indexToLayoutArray;
+    private _uiClassToIndex = createHashMapFromArray _uiClassToIndexArray;
+    private _indexToUiClass = createHashMapFromArray _indexToUiClassArray;
 
-    _layoutCtrl setVariable ["WR_indexToLayout", _indexToLayout];
+    _uiClassCtrl setVariable ["WR_indexToUiClass", _indexToUiClass];
 
-    private _layout = _entity getVariable [format ["WR_uiClassScreen%1", _screenIndex], _defaultUiClass];
-    private _layoutIndex = _layoutToIndex get _layout;
+    private _uiClass = _entity getVariable [format ["WR_uiClassScreen%1", _screenIndex], _defaultUiClass];
+    private _uiClassIndex = _uiClassToIndex get _uiClass;
 
-    _layoutCtrl setVariable ["WR_ctrlInitialised", true];
+    _uiClassCtrl setVariable ["WR_ctrlInitialised", true];
 
-    _layoutCtrl lbSetCurSel _layoutIndex;
+    _uiClassCtrl lbSetCurSel _uiClassIndex;
 
     /* ---------------------------------------- */
 
-    private _uiClassCfg = configFile >> _layout;
+    private _uiClassCfg = configFile >> _uiClass;
     private _uiScreenItemCount = (_uiClassCfg >> "WR_uiScreenItemCount") call BIS_fnc_getCfgData;
 
     for [{ private _i = 0 }, { _i < 8 }, { _i = _i + 1 }] do
@@ -168,43 +168,43 @@ if (_event isEqualTo "onUnloadDialog") exitWith
 
     /* ---------------------------------------- */
 
-    private _layoutCtrl = _dialog displayCtrl 4004;
+    private _uiClassCtrl = _dialog displayCtrl 4004;
 
-    private _layoutIndex = lbCurSel _layoutCtrl;
+    private _uiClassIndex = lbCurSel _uiClassCtrl;
 
-    private _indexToLayout = _layoutCtrl getVariable ["WR_indexToLayout", createHashMap];
-    private _layout = _indexToLayout get (str _layoutIndex);
-    _entity setVariable [format ["WR_uiClassScreen%1", _screenIndex], _layout, true];
+    private _indexToUiClass = _uiClassCtrl getVariable ["WR_indexToUiClass", createHashMap];
+    private _uiClass = _indexToUiClass get (str _uiClassIndex);
+    _entity setVariable [format ["WR_uiClassScreen%1", _screenIndex], _uiClass, true];
 
     /* ---------------------------------------- */
 
     // needs to be 0 (everywhere) instead of -2 (all clients, not server), because of hosted multiplayer
     // host also needs to be able to use the interactions
-    [_entity, _screenIndex, _horizontalResolution, _verticalResolution, _fps, _layout] remoteExec ["WR_main_fnc_updateScreen", 0, true];
+    [_entity, _screenIndex, _horizontalResolution, _verticalResolution, _fps, _uiClass] remoteExec ["WR_main_fnc_updateScreen", 0, true];
 
     [_screenIndex, _exitCode] call _messageFnc;
 };
 
 /* ================================================================================ */
 
-if (_event isEqualTo "onLBSelChangedLayout") exitWith
+if (_event isEqualTo "onLBSelChangedUiClass") exitWith
 {
     _params params ["_control", "_lbCurSel", "_lbSelection"];
 
     private _ctrlInitialised = _control getVariable ["WR_ctrlInitialised", false];
     if (!_ctrlInitialised) exitWith {};
 
-    private _layout = _control lbText _lbCurSel;
+    private _uiClass = _control lbText _lbCurSel;
 
-    private _imagePath = format ["\y\wr\addons\main\ui\WarRoom_Layouts_%1_1024x1024.paa", _layout];
+    private _imagePath = format ["\y\wr\addons\main\ui\WarRoom_UiClass_%1_1024x1024.paa", _uiClass];
 
     private _dialog = ctrlParent _control;
 
-    private _layoutImageCtrl = _dialog displayCtrl 5001;
+    private _uiClassImageCtrl = _dialog displayCtrl 5001;
 
-    _layoutImageCtrl ctrlSetText _imagePath;
+    _uiClassImageCtrl ctrlSetText _imagePath;
 
-    private _uiClassCfg = configFile >> _layout;
+    private _uiClassCfg = configFile >> _uiClass;
     private _uiScreenItemCount = (_uiClassCfg >> "WR_uiScreenItemCount") call BIS_fnc_getCfgData;
 
     for [{ private _i = 0 }, { _i < 8 }, { _i = _i + 1 }] do
@@ -221,7 +221,7 @@ if (_event isEqualTo "onLBSelChangedLayout") exitWith
         _itemResultCtrl ctrlShow _state;
     };
 
-    systemChat format ["Changed Layout to image path: %1", _imagePath];
+    systemChat format ["Changed UI class to image path: %1", _imagePath];
 };
 
 /* ================================================================================ */

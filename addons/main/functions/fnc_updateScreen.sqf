@@ -11,4 +11,4 @@ private _hiddenSelection = _entity getVariable [format ["WR_hiddenSelectionScree
 
 [_entity, _hiddenSelection, _screenIndex, _horizontalResolution, _verticalResolution, _fps, _uiClass] call WR_main_fnc_initUiOnTex;
 
-systemChat format ["Set screen %1 resolution to %2x%3@%4fps and layout to %5", _screenIndex, _horizontalResolution, _verticalResolution, _fps, _uiClass];
+systemChat format ["Set screen %1 resolution to %2x%3@%4fps and UI class to %5", _screenIndex, _horizontalResolution, _verticalResolution, _fps, _uiClass];

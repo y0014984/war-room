@@ -130,14 +130,14 @@ class CfgVehicles
 			class Screen0
 			{
 				WR_hiddenSelection = 0;
-				WR_allowedUiClasses[] = {"WarRoom1", "WarRoom5"};
+				WR_allowedUiClasses[] = {"WarRoom1Mod2", "WarRoom2Mod2"};
 				WR_defaultUiClass = 0;
 			};
 
 			class Screen1
 			{
 				WR_hiddenSelection = 1;
-				WR_allowedUiClasses[] = {"WarRoom1"};
+				WR_allowedUiClasses[] = {"WarRoom1Mod1", "WarRoom7Mod1"};
 				WR_defaultUiClass = 0;
 			};
         };
