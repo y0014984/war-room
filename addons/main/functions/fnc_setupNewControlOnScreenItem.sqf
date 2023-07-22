@@ -45,7 +45,9 @@ if (_screenItemType isEqualTo "IMAGE") exitWith
 	// set control text to relative image path
 	_imageCtrl ctrlSetText _path;
 
-	_imageInfoboxCtrl ctrlSetText format ["%1", _imageName];
+	private _imageNameWithoutExtension = [_imageName] call WR_main_fnc_removeFilenameExtension;
+	
+	_imageInfoboxCtrl ctrlSetText format ["%1", _imageNameWithoutExtension];
 };
 
 /* ================================================================================ */
