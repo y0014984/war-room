@@ -2,23 +2,18 @@
 
 ## Continue next time
 
-- configure screen, indem der originalscreen angezeigt wird und man auf die einzelnen placeholder klickt
+- bessere Image Beispiele
 - wenn item type ausgewählt aber dann dialog mit cancel abgebrochen, bleibt der item type stehen
 - alte settings in screen item detail ui laden, wenn man bereits konfiguriertes erneut öffnet
 - uiclass Auswahl auch über separate UI --> Platz für alle 8 Placeholder
 - add presentation mode
 - modify module with radio button options (allow diffent screen item types)
 - platz in den screen item ui's besser ausnutzen (links unten)
-- support additional Uavs
 - allow setting up different camera modes for Uavs
-- getTextureInfo
-- screenshot
 - fps werden nicht gesynct zw. ui und tatsächlichen einstellungen (load der settings) --> nur in MP?
 - Freitextfeld
 - Video Feld
 - add WarRoom 6 (Wie War Room 4, nur dass 0 und 1 zusammen das erste element bilden)
-- Background color für War Roome name
-- image info without file extension
 
 ## Nomenklatur
 
@@ -26,13 +21,42 @@ Eine "Entity" hat ein oder mehrere "Screens". Ein Screen is einer "Hidden Select
 1 beginnt. Die "Textur" des "Screens" wird mit setObjectTexture gesetzt. Ein "Display" ist das UI eines "Screens", dass aus einem oder mehreren "Screen Items" besteht. "Screens" können einzeln
 über die ACE3 Interactions gesteuert werden. Daher werden sie im Menüpunkt "War Room" zusammengefasst.
 
+## Todos
+
+- support all screens
+- support additional Uavs
+- Dragon wegen der Extension mit bei den Autoren nennen
+- find a way to add all 8 strean items to screen config ui, instead of only 7
+- in UI trennen zwischen localEffect (Auflösung und FPS) und globalEffekt (uiClass und Screen Items)
+- in GRAD Mod umwandeln?
+- set color of WarRoom Head and Subhead to Background Color of ScreenItem and Dummy Display
+- initDevice funktion anstatt in der module funktion für z.B. Variablen und Texturen setzen
+- change mod name (see asset browser; not @wr but real mod name)
+- distinguish between:
+  - players/units that are allowed to use War Room
+  - assets (Monitors and so on) that provide War Room
+  - targets (drones, players, maps) that are loadable into the assets
+- Schriftgröße etc. für die Map anpassen oder allgemein bei dem Jets Screen
+- Auto Populate _supportedClasses From Config
+- icon für mod und module
+- command: getTextureInfo --> Zusatzinfos über Bilder
+- command: screenshot --> vielleicht live aufnehmen und auf dem Screen zeigen?
+
+## Later Enhancements
+
+- configure screen, indem der originalscreen angezeigt wird und man auf die einzelnen placeholder klickt
+- hin- und herschwenkende Überwachungskamera aus Tutorial
+- enable module for placing and manipulation in Zeus (Changing settings and syncing live)
+- localization
+- set interaction points to the center of each screen
+
 ## ACE3 Interactions
 
-Interaction --> War Room --> Screen 1
-                         --> Screen 2
-                         --> Screen 3 --> enable/disable (Toggle)
-                                      --> configure
-                                      --> start presentation mode
+Entity Interaction --> War Room --> Screen 1
+                                --> Screen 2
+                                --> Screen 3 --> enable/disable (Toggle)
+                                             --> configure
+                                             --> start presentation mode
 
 ## Screen Item Types
 
@@ -45,41 +69,6 @@ Interaction --> War Room --> Screen 1
 - drone cam (define drone) --> in progress
 - text
 - video
-
-## Todos
-
-- Dragon wegen der Extension mit bei den Autoren nennen
-- find a way to add all 8 strean items to screen config ui, instead of only 7
-- in UI trennen zwischen localEffect (Auflösung und FPS) und globalEffekt (uiClass und Screen Items)
-- in GRAD Mod umwandeln?
-- set color of WarRoom Head and Subhead to Background Color of ScreenItem and Dummy Display
-- initDevice funktion anstatt in der module funktion für z.B. Variablen und Texturen setzen
-- was passiert mit setObjectTextureGlobal anstatt setObjectTexture?
-- Sicherstellen, dass allgemeine Update-Funktionen auf dem Server laufen
-- change mod name (see asset browser; not @wr but real mod name)
-- distinguish between:
-  - players/units that are allowed to use War Room
-  - assets (Monitors and so on) that provide War Room
-  - targets (drones, players, maps) that are loadable into the assets
-- add ACE3 dynamic interactions for manipulating the screens content
-- add dialog templetes for all resolutions
-  - 16:9
-  - 16:10
-  - 4:3
-  - portrait modes?
-- model fixes
-  - evtl. bei den Whiteboards
-- Schriftgröße etc. für die Map anpassen
-- Auto Populate _supportedClasses From Config
-
-## Later Enhancements
-
-- add virtual pointer (real device in inventory) showing with mouse on a separate display
-- hin- und herschwenkende Überwachungskamera aus Tutorial
-- enable module for placing and manipulation in Zeus (Changing settings and syncing live)
-- localization
-- icon für mod und module
-- set interaction points to the center of each screen
 
 ## Links
 

@@ -17,6 +17,10 @@ PREP(ui_configureScreenCamItem);
 
 PREP(addUavCamToControl);
 
+PREP(updateScreen);
+
+PREP(removeFilenameExtension);
+
 // Server
 PREP(module_enableWarRoom);
 PREP(initSupportedAssetClasses);
@@ -26,6 +30,3 @@ PREP(createScreenAction);
 PREP(createScreenToggleAction);
 PREP(createScreenConfigurationAction);
 PREP(createScreenPresentationAction);
-
-// Unknown
-PREP(updateScreen);
