@@ -5,14 +5,21 @@
 - configure screen, indem der originalscreen angezeigt wird und man auf die einzelnen placeholder klickt
 - wenn item type ausgewählt aber dann dialog mit cancel abgebrochen, bleibt der item type stehen
 - alte settings in screen item detail ui laden, wenn man bereits konfiguriertes erneut öffnet
-- layout Auswahl auch über separate UI --> Platz für alle 8 Placeholder und Operation Name
+- layout Auswahl auch über separate UI --> Platz für alle 8 Placeholder
+- variablennamen layout und uiClass harmonisieren
 - add presentation mode
 - modify module with radio button options (allow diffent screen item types)
-- add multiplayer compatibility
 - platz in den screen item ui's besser ausnutzen (links unten)
 - support additional Uavs
 - allow setting up different camera modes for Uavs
-- _target und _entity namentliche zusammenführen
+- "_target" und "_entity" namentliche zusammenführen
+- getTextureInfo
+- screenshot
+- fps werden nicht gesynct zw. ui und tatsächlichen einstellungen (load der settings) --> nur in MP?
+- Freitextfeld
+- Video Feld
+- add WarRoom 6 (Wie War Room 4, nur dass 0 und 1 zusammen das erste element bilden)
+- "placeholder" und layout dropdown durch "none" ersetzen
 
 ## Nomenklatur
 
@@ -37,6 +44,8 @@ Interaction --> War Room --> Screen 1
 - surveillance cam (define cam object, hor. & vert. angle, speed, movement direction)
 - friedly forces cam (define friedly unit)
 - drone cam (define drone) --> in progress
+- text
+- video
 
 ## Todos
 
@@ -85,6 +94,8 @@ Interaction --> War Room --> Screen 1
 
 ## Annotations / known bugs
 
+- die Extension für die Bilder funktioniert nur, wenn die Mission lokal ungepackt vorliegt, also vermutlich nur, wenn der Server die Mission ungepackt hat oder in einem Hosted Multiplayer ungepackt aus dem Editor heraus
+  - vielleicht kann ich etwas bauen, dass die Extension nur während des Missionsbaus verwendet, und dann einfach die Daten irgendwie in die Mission schreibt, die dann später z.B. als config ausgelesen werden kann
 - möglicherweise stotterndes Bild wenn man sich um aktive Screens herum bewegt
 - the UIonTexture displays are not closeable, but if the texture changes, the resulting display is also changing and is not identical with the first display
   - but I also can't overwrite the existing one, because with changed layout the event handler for updating the content wont work

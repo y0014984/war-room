@@ -80,7 +80,6 @@ if (_event isEqualTo "onLBSelChangedCam") exitWith
     _params params ["_control", "_lbCurSel", "_lbSelection"];
 
     private _ctrlInitialised = _control getVariable ["WR_ctrlInitialised", false];
-
     if (!_ctrlInitialised) exitWith {};
 
     private _dialog = ctrlParent _control;

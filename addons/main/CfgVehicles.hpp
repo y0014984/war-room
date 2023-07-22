@@ -111,8 +111,8 @@ class CfgVehicles
 			class Screen0
 			{
 				WR_hiddenSelection = 0;
-				WR_allowedUiClasses[] = {"WarRoom1", "WarRoom5"};
-				WR_defaultUiClass = 1;
+				WR_allowedUiClasses[] = {"WarRoom1", "WarRoom2", "WarRoom3", "WarRoom4", "WarRoom5"};
+				WR_defaultUiClass = 4;
 			};
         };
     };
@@ -156,21 +156,21 @@ class CfgVehicles
 			class Screen0
 			{
 				WR_hiddenSelection = 1;
-				WR_allowedUiClasses[] = {"WarRoom1", "WarRoom5"};
+				WR_allowedUiClasses[] = {"WarRoom1", "WarRoom2"};
 				WR_defaultUiClass = 0;
 			};
 
 			class Screen1
 			{
 				WR_hiddenSelection = 2;
-				WR_allowedUiClasses[] = {"WarRoom1", "WarRoom5"};
+				WR_allowedUiClasses[] = {"WarRoom1", "WarRoom2"};
 				WR_defaultUiClass = 0;
 			};
 
 			class Screen2
 			{
 				WR_hiddenSelection = 3;
-				WR_allowedUiClasses[] = {"WarRoom1", "WarRoom5"};
+				WR_allowedUiClasses[] = {"WarRoom1", "WarRoom2"};
 				WR_defaultUiClass = 0;
 			};
         };

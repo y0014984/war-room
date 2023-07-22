@@ -96,7 +96,7 @@ class ConfigureScreenDialog
 
     onUnload = "['onUnloadDialog', _this] call WR_main_fnc_ui_configureScreen;";
 
-	class controlsBackground
+	class ControlsBackground
 	{
         class Background: RscText
         {
@@ -111,7 +111,7 @@ class ConfigureScreenDialog
         };
 	};
 
-	class controls
+	class Controls
 	{
         class Headline: RscText
         {
@@ -337,21 +337,6 @@ class ConfigureScreenDialog
             w = 8 * GUI_GRID_W;
             h = 1 * GUI_GRID_H;
 
-            class Items
-            {
-                class WarRoom1Item
-                {
-                    text = "War Room 1";
-                    data = "WarRoom1";
-                    default = 1;
-                };
-                class WarRoom5Item
-                {
-                    text = "War Room 5";
-                    data = "WarRoom5";
-                };
-            };
-
             onLBSelChanged = "['onLBSelChangedLayout', _this] call WR_main_fnc_ui_configureScreen;";
         };
 
@@ -531,6 +516,60 @@ class ConfigureScreenDialog
         
         /* ---------------------------------------- */
 
+		class ScreenItem6Label: ScreenItemXLabel
+		{
+			idc = 3011;
+
+			y = 24.5 * GUI_GRID_H + GUI_GRID_Y;     
+
+			text = "Screen Item 6"; //--- ToDo: Localize;
+		};
+
+        class ScreenItem6: ScreenItemX
+        {
+            idc = 4011;
+
+            y = 24.5 * GUI_GRID_H + GUI_GRID_Y;
+
+            WR_screenItemIndex = 6;
+        };
+
+        class ScreenItem6Result: ScreenItemXResult
+        {
+            idc = 5011;
+
+            y = 24.5 * GUI_GRID_H + GUI_GRID_Y;
+        };
+        
+        /* ---------------------------------------- */
+
+		class ScreenItem7Label: ScreenItemXLabel
+		{
+			idc = 3012;
+
+			y = 26 * GUI_GRID_H + GUI_GRID_Y;     
+
+			text = "Screen Item 7"; //--- ToDo: Localize;
+		};
+
+        class ScreenItem7: ScreenItemX
+        {
+            idc = 4012;
+
+            y = 26 * GUI_GRID_H + GUI_GRID_Y;
+
+            WR_screenItemIndex = 7;
+        };
+
+        class ScreenItem7Result: ScreenItemXResult
+        {
+            idc = 5012;
+
+            y = 26 * GUI_GRID_H + GUI_GRID_Y;
+        };
+        
+        /* ---------------------------------------- */
+
         class MyOk: RscButtonMenuOK
         {
             x = 37 * GUI_GRID_W + GUI_GRID_X;
@@ -558,7 +597,7 @@ class ConfigureScreenImageItemDialog
 
     onUnload = "['onUnloadDialog', _this] call WR_main_fnc_ui_configureScreenImageItem;";
 
-	class controlsBackground
+	class ControlsBackground
 	{
         class Background: RscText
         {
@@ -573,7 +612,7 @@ class ConfigureScreenImageItemDialog
         };
 	};
 
-	class controls
+	class Controls
 	{
         class Headline: RscText
         {
@@ -650,7 +689,7 @@ class ConfigureScreenMapItemDialog
 
     onUnload = "['onUnloadDialog', _this] call WR_main_fnc_ui_configureScreenMapItem;";
 
-	class controlsBackground
+	class ControlsBackground
 	{
         class Background: RscText
         {
@@ -665,7 +704,7 @@ class ConfigureScreenMapItemDialog
         };
 	};
 
-	class controls
+	class Controls
 	{
         class Headline: RscText
         {
@@ -784,7 +823,7 @@ class ConfigureScreenCamItemDialog
 
     onUnload = "['onUnloadDialog', _this] call WR_main_fnc_ui_configureScreenCamItem;";
 
-	class controlsBackground
+	class ControlsBackground
 	{
         class Background: RscText
         {
@@ -799,7 +838,7 @@ class ConfigureScreenCamItemDialog
         };
 	};
 
-	class controls
+	class Controls
 	{
         class Headline: RscText
         {
@@ -869,30 +908,28 @@ class ConfigureScreenCamItemDialog
 
 /* ================================================================================ */
 
-class WarRoom1
+class WarRoomTemplate40by25
 {
-	idd = 14641;
+	idd = -1;
+
 	enableSimulation = true;
 
-	WR_uiScreenItemCount = 1;
+	WR_uiScreenItemCount = -1;
 
-	class controlsBackground
-	{
-        class Background: RscText
+    class ControlsBackground
+    {
+        class BackgroundColor: RscText
         {
             idc = 1001;
-
+        
             x = 0 * GUI_GRID_W + GUI_GRID_X;
             y = 0 * GUI_GRID_H + GUI_GRID_Y;
             w = 40 * GUI_GRID_W;
             h = 25 * GUI_GRID_H;
-
+        
             colorBackground[] = {0, 0, 0, 1}; // opaque black
         };
-	};
 
-	class controls
-	{
         class Headline: RscText
         {
             idc = 2001;
@@ -906,31 +943,6 @@ class WarRoom1
             sizeEx = 1.2 * GUI_GRID_H;
             text = "War Room"; //--- ToDo: Localize;
         };
-
-		class ScreenItem0: RscPicture
-		{
-			idc = 3000;
-
-			x = 0 * GUI_GRID_W + GUI_GRID_X;
-			y = 3 * GUI_GRID_H + GUI_GRID_Y;
-			w = 40 * GUI_GRID_W;
-			h = 20 * GUI_GRID_H;
-
-            text = "\y\wr\addons\main\ui\WarRoom_ScreenItem1_1024x1024.paa";
-		};
-
-		class ScreenItem0Infobox: RscText
-		{
-			idc = 5000;
-        
-			x = 0 * GUI_GRID_W + GUI_GRID_X;
-			y = 3 * GUI_GRID_H + GUI_GRID_Y;
-			w = 40 * GUI_GRID_W;
-			h = 1 * GUI_GRID_H;
-        
-        	colorBackground[] = {0.2, 0.2, 0.2, 0.5}; // translucent grey
-			text = "ScreenItem 0 Info";
-		};
 
         class Subheadline: RscText
         {
@@ -992,49 +1004,467 @@ class WarRoom1
 
             colorBackground[] = {1, 0, 0, 1}; // opaque red
         };
+    };
+};
+
+/* ================================================================================ */
+
+class WarRoom1: WarRoomTemplate40by25
+{
+	idd = 14641;
+
+	WR_uiScreenItemCount = 1;
+
+	class Controls
+	{
+		class ScreenItem0: RscPicture
+		{
+			idc = 3000;
+
+			x = 0 * GUI_GRID_W + GUI_GRID_X;
+			y = 3 * GUI_GRID_H + GUI_GRID_Y;
+			w = 40 * GUI_GRID_W;
+			h = 20 * GUI_GRID_H;
+
+            text = "\y\wr\addons\main\ui\WarRoom_ScreenItem1_1024x1024.paa";
+		};
+
+		class ScreenItem0Infobox: RscText
+		{
+			idc = 5000;
+        
+			x = 0 * GUI_GRID_W + GUI_GRID_X;
+			y = 3 * GUI_GRID_H + GUI_GRID_Y;
+			w = 40 * GUI_GRID_W;
+			h = 1 * GUI_GRID_H;
+        
+        	colorBackground[] = {0.2, 0.2, 0.2, 0.5}; // translucent grey
+			text = "ScreenItem 0 Info";
+		};
 	};
 };
 
 /* ================================================================================ */
 
-class WarRoom5
+class WarRoom2: WarRoomTemplate40by25
+{
+	idd = 14642;
+
+	WR_uiScreenItemCount = 2;
+
+	class Controls
+	{
+		class ScreenItem0: RscPicture
+		{
+			idc = 3000;
+
+			x = 0 * GUI_GRID_W + GUI_GRID_X;
+			y = 3 * GUI_GRID_H + GUI_GRID_Y;
+			w = 20 * GUI_GRID_W;
+			h = 20 * GUI_GRID_H;
+
+            text = "\y\wr\addons\main\ui\WarRoom_ScreenItem1_1024x1024.paa";
+		};
+
+		class ScreenItem0Infobox: RscText
+		{
+			idc = 5000;
+        
+			x = 0 * GUI_GRID_W + GUI_GRID_X;
+			y = 3 * GUI_GRID_H + GUI_GRID_Y;
+			w = 20 * GUI_GRID_W;
+			h = 1 * GUI_GRID_H;
+        
+        	colorBackground[] = {0.2, 0.2, 0.2, 0.5}; // translucent grey
+			text = "ScreenItem 0 Info";
+		};
+
+		class ScreenItem1: RscPicture
+		{
+			idc = 3001;
+
+			x = 20 * GUI_GRID_W + GUI_GRID_X;
+			y = 3 * GUI_GRID_H + GUI_GRID_Y;
+			w = 20 * GUI_GRID_W;
+			h = 20 * GUI_GRID_H;
+
+            text = "\y\wr\addons\main\ui\WarRoom_ScreenItem1_1024x1024.paa";
+		};
+
+		class ScreenItem1Infobox: RscText
+		{
+			idc = 5001;
+        
+			x = 20 * GUI_GRID_W + GUI_GRID_X;
+			y = 3 * GUI_GRID_H + GUI_GRID_Y;
+			w = 20 * GUI_GRID_W;
+			h = 1 * GUI_GRID_H;
+        
+        	colorBackground[] = {0.2, 0.2, 0.2, 0.5}; // translucent grey
+			text = "ScreenItem 1 Info";
+		};
+	};
+};
+
+/* ================================================================================ */
+
+class WarRoom3: WarRoomTemplate40by25
+{
+	idd = 14643;
+
+	WR_uiScreenItemCount = 5;
+
+	class Controls
+	{
+		class ScreenItem0: RscPicture
+		{
+			idc = 3000;
+
+			x = 0 * GUI_GRID_W + GUI_GRID_X;
+			y = 3 * GUI_GRID_H + GUI_GRID_Y;
+			w = 20 * GUI_GRID_W;
+			h = 20 * GUI_GRID_H;
+
+            text = "\y\wr\addons\main\ui\WarRoom_ScreenItem1_1024x1024.paa";
+		};
+
+		class ScreenItem0Infobox: RscText
+		{
+			idc = 5000;
+        
+			x = 0 * GUI_GRID_W + GUI_GRID_X;
+			y = 3 * GUI_GRID_H + GUI_GRID_Y;
+			w = 20 * GUI_GRID_W;
+			h = 1 * GUI_GRID_H;
+        
+        	colorBackground[] = {0.2, 0.2, 0.2, 0.5}; // translucent grey
+			text = "ScreenItem 0 Info";
+		};
+
+		class ScreenItem1: RscPicture
+		{
+			idc = 3001;
+
+			x = 20 * GUI_GRID_W + GUI_GRID_X;
+			y = 3 * GUI_GRID_H + GUI_GRID_Y;
+			w = 10 * GUI_GRID_W;
+			h = 10 * GUI_GRID_H;
+
+            text = "\y\wr\addons\main\ui\WarRoom_ScreenItem1_1024x1024.paa";
+		};
+
+		class ScreenItem1Infobox: RscText
+		{
+			idc = 5001;
+        
+			x = 20 * GUI_GRID_W + GUI_GRID_X;
+			y = 3 * GUI_GRID_H + GUI_GRID_Y;
+			w = 10 * GUI_GRID_W;
+			h = 1 * GUI_GRID_H;
+        
+        	colorBackground[] = {0.2, 0.2, 0.2, 0.5}; // translucent grey
+			text = "ScreenItem 1 Info";
+		};
+
+		class ScreenItem2: RscPicture
+		{
+			idc = 3002;
+
+			x = 30 * GUI_GRID_W + GUI_GRID_X;
+			y = 3 * GUI_GRID_H + GUI_GRID_Y;
+			w = 10 * GUI_GRID_W;
+			h = 10 * GUI_GRID_H;
+
+            text = "\y\wr\addons\main\ui\WarRoom_ScreenItem1_1024x1024.paa";
+		};
+
+		class ScreenItem2Infobox: RscText
+		{
+			idc = 5002;
+        
+			x = 30 * GUI_GRID_W + GUI_GRID_X;
+			y = 3 * GUI_GRID_H + GUI_GRID_Y;
+			w = 10 * GUI_GRID_W;
+			h = 1 * GUI_GRID_H;
+        
+        	colorBackground[] = {0.2, 0.2, 0.2, 0.5}; // translucent grey
+			text = "ScreenItem 2 Info";
+		};
+
+		class ScreenItem3: RscPicture
+		{
+			idc = 3003;
+
+			x = 20 * GUI_GRID_W + GUI_GRID_X;
+			y = 13 * GUI_GRID_H + GUI_GRID_Y;
+			w = 10 * GUI_GRID_W;
+			h = 10 * GUI_GRID_H;
+
+            text = "\y\wr\addons\main\ui\WarRoom_ScreenItem1_1024x1024.paa";
+		};
+
+		class ScreenItem3Infobox: RscText
+		{
+			idc = 5003;
+        
+			x = 20 * GUI_GRID_W + GUI_GRID_X;
+			y = 13 * GUI_GRID_H + GUI_GRID_Y;
+			w = 10 * GUI_GRID_W;
+			h = 1 * GUI_GRID_H;
+        
+        	colorBackground[] = {0.2, 0.2, 0.2, 0.5}; // translucent grey
+			text = "ScreenItem 3 Info";
+		};
+
+		class ScreenItem4: RscPicture
+		{
+			idc = 3004;
+
+			x = 30 * GUI_GRID_W + GUI_GRID_X;
+			y = 13 * GUI_GRID_H + GUI_GRID_Y;
+			w = 10 * GUI_GRID_W;
+			h = 10 * GUI_GRID_H;
+
+            text = "\y\wr\addons\main\ui\WarRoom_ScreenItem1_1024x1024.paa";
+		};
+
+		class ScreenItem4Infobox: RscText
+		{
+			idc = 5004;
+        
+			x = 30 * GUI_GRID_W + GUI_GRID_X;
+			y = 13 * GUI_GRID_H + GUI_GRID_Y;
+			w = 10 * GUI_GRID_W;
+			h = 1 * GUI_GRID_H;
+        
+        	colorBackground[] = {0.2, 0.2, 0.2, 0.5}; // translucent grey
+			text = "ScreenItem 4 Info";
+		};
+	};
+};
+
+/* ================================================================================ */
+
+class WarRoom4: WarRoomTemplate40by25
+{
+	idd = 14644;
+
+	WR_uiScreenItemCount = 8;
+
+	class Controls
+	{
+		class ScreenItem0: RscPicture
+		{
+			idc = 3000;
+
+			x = 0 * GUI_GRID_W + GUI_GRID_X;
+			y = 3 * GUI_GRID_H + GUI_GRID_Y;
+			w = 10 * GUI_GRID_W;
+			h = 10 * GUI_GRID_H;
+
+            text = "\y\wr\addons\main\ui\WarRoom_ScreenItem1_1024x1024.paa";
+		};
+
+		class ScreenItem0Infobox: RscText
+		{
+			idc = 5000;
+        
+			x = 0 * GUI_GRID_W + GUI_GRID_X;
+			y = 3 * GUI_GRID_H + GUI_GRID_Y;
+			w = 10 * GUI_GRID_W;
+			h = 1 * GUI_GRID_H;
+        
+        	colorBackground[] = {0.2, 0.2, 0.2, 0.5}; // translucent grey
+			text = "ScreenItem 0 Info";
+		};
+
+		class ScreenItem1: RscPicture
+		{
+			idc = 3001;
+
+			x = 10 * GUI_GRID_W + GUI_GRID_X;
+			y = 3 * GUI_GRID_H + GUI_GRID_Y;
+			w = 10 * GUI_GRID_W;
+			h = 10 * GUI_GRID_H;
+
+            text = "\y\wr\addons\main\ui\WarRoom_ScreenItem1_1024x1024.paa";
+		};
+
+		class ScreenItem1Infobox: RscText
+		{
+			idc = 5001;
+        
+			x = 10 * GUI_GRID_W + GUI_GRID_X;
+			y = 3 * GUI_GRID_H + GUI_GRID_Y;
+			w = 10 * GUI_GRID_W;
+			h = 1 * GUI_GRID_H;
+        
+        	colorBackground[] = {0.2, 0.2, 0.2, 0.5}; // translucent grey
+			text = "ScreenItem 1 Info";
+		};
+
+		class ScreenItem2: RscPicture
+		{
+			idc = 3002;
+
+			x = 20 * GUI_GRID_W + GUI_GRID_X;
+			y = 3 * GUI_GRID_H + GUI_GRID_Y;
+			w = 10 * GUI_GRID_W;
+			h = 10 * GUI_GRID_H;
+
+            text = "\y\wr\addons\main\ui\WarRoom_ScreenItem1_1024x1024.paa";
+		};
+
+		class ScreenItem2Infobox: RscText
+		{
+			idc = 5002;
+        
+			x = 20 * GUI_GRID_W + GUI_GRID_X;
+			y = 3 * GUI_GRID_H + GUI_GRID_Y;
+			w = 10 * GUI_GRID_W;
+			h = 1 * GUI_GRID_H;
+        
+        	colorBackground[] = {0.2, 0.2, 0.2, 0.5}; // translucent grey
+			text = "ScreenItem 2 Info";
+		};
+
+		class ScreenItem3: RscPicture
+		{
+			idc = 3003;
+
+			x = 30 * GUI_GRID_W + GUI_GRID_X;
+			y = 3 * GUI_GRID_H + GUI_GRID_Y;
+			w = 10 * GUI_GRID_W;
+			h = 10 * GUI_GRID_H;
+
+            text = "\y\wr\addons\main\ui\WarRoom_ScreenItem1_1024x1024.paa";
+		};
+
+		class ScreenItem3Infobox: RscText
+		{
+			idc = 5003;
+        
+			x = 30 * GUI_GRID_W + GUI_GRID_X;
+			y = 3 * GUI_GRID_H + GUI_GRID_Y;
+			w = 10 * GUI_GRID_W;
+			h = 1 * GUI_GRID_H;
+        
+        	colorBackground[] = {0.2, 0.2, 0.2, 0.5}; // translucent grey
+			text = "ScreenItem 3 Info";
+		};
+
+		class ScreenItem4: RscPicture
+		{
+			idc = 3004;
+
+			x = 0 * GUI_GRID_W + GUI_GRID_X;
+			y = 13 * GUI_GRID_H + GUI_GRID_Y;
+			w = 10 * GUI_GRID_W;
+			h = 10 * GUI_GRID_H;
+
+            text = "\y\wr\addons\main\ui\WarRoom_ScreenItem1_1024x1024.paa";
+		};
+
+		class ScreenItem4Infobox: RscText
+		{
+			idc = 5004;
+        
+			x = 0 * GUI_GRID_W + GUI_GRID_X;
+			y = 13 * GUI_GRID_H + GUI_GRID_Y;
+			w = 10 * GUI_GRID_W;
+			h = 1 * GUI_GRID_H;
+        
+        	colorBackground[] = {0.2, 0.2, 0.2, 0.5}; // translucent grey
+			text = "ScreenItem 4 Info";
+		};
+
+		class ScreenItem5: RscPicture
+		{
+			idc = 3005;
+
+			x = 10 * GUI_GRID_W + GUI_GRID_X;
+			y = 13 * GUI_GRID_H + GUI_GRID_Y;
+			w = 10 * GUI_GRID_W;
+			h = 10 * GUI_GRID_H;
+
+            text = "\y\wr\addons\main\ui\WarRoom_ScreenItem1_1024x1024.paa";
+		};
+
+		class ScreenItem5Infobox: RscText
+		{
+			idc = 5005;
+        
+			x = 10 * GUI_GRID_W + GUI_GRID_X;
+			y = 13 * GUI_GRID_H + GUI_GRID_Y;
+			w = 10 * GUI_GRID_W;
+			h = 1 * GUI_GRID_H;
+        
+        	colorBackground[] = {0.2, 0.2, 0.2, 0.5}; // translucent grey
+			text = "ScreenItem 5 Info";
+		};
+
+		class ScreenItem6: RscPicture
+		{
+			idc = 3006;
+
+			x = 20 * GUI_GRID_W + GUI_GRID_X;
+			y = 13 * GUI_GRID_H + GUI_GRID_Y;
+			w = 10 * GUI_GRID_W;
+			h = 10 * GUI_GRID_H;
+
+            text = "\y\wr\addons\main\ui\WarRoom_ScreenItem1_1024x1024.paa";
+		};
+
+		class ScreenItem6Infobox: RscText
+		{
+			idc = 5006;
+        
+			x = 20 * GUI_GRID_W + GUI_GRID_X;
+			y = 13 * GUI_GRID_H + GUI_GRID_Y;
+			w = 10 * GUI_GRID_W;
+			h = 1 * GUI_GRID_H;
+        
+        	colorBackground[] = {0.2, 0.2, 0.2, 0.5}; // translucent grey
+			text = "ScreenItem 6 Info";
+		};
+
+		class ScreenItem7: RscPicture
+		{
+			idc = 3007;
+
+			x = 30 * GUI_GRID_W + GUI_GRID_X;
+			y = 13 * GUI_GRID_H + GUI_GRID_Y;
+			w = 10 * GUI_GRID_W;
+			h = 10 * GUI_GRID_H;
+
+            text = "\y\wr\addons\main\ui\WarRoom_ScreenItem1_1024x1024.paa";
+		};
+
+		class ScreenItem7Infobox: RscText
+		{
+			idc = 5007;
+        
+			x = 30 * GUI_GRID_W + GUI_GRID_X;
+			y = 13 * GUI_GRID_H + GUI_GRID_Y;
+			w = 10 * GUI_GRID_W;
+			h = 1 * GUI_GRID_H;
+        
+        	colorBackground[] = {0.2, 0.2, 0.2, 0.5}; // translucent grey
+			text = "ScreenItem 7 Info";
+		};
+	};
+};
+
+/* ================================================================================ */
+
+class WarRoom5: WarRoomTemplate40by25
 {
 	idd = 14645;
-	enableSimulation = true;
 
 	WR_uiScreenItemCount = 3;
 
-	class controlsBackground
+	class Controls
 	{
-        class Background: RscText
-        {
-            idc = 1001;
-
-            x = 0 * GUI_GRID_W + GUI_GRID_X;
-            y = 0 * GUI_GRID_H + GUI_GRID_Y;
-            w = 40 * GUI_GRID_W;
-            h = 25 * GUI_GRID_H;
-
-            colorBackground[] = {0, 0, 0, 1}; // opaque black
-        };
-	};
-
-	class controls
-	{
-        class Headline: RscText
-        {
-            idc = 2001;
-
-            x = 0 * GUI_GRID_W + GUI_GRID_X;
-            y = 0 * GUI_GRID_H + GUI_GRID_Y;
-            w = 40 * GUI_GRID_W;
-            h = 3 * GUI_GRID_H;
-
-            colorBackground[] = {0.2, 0.2, 0.2, 1}; // opaque dark grey
-            sizeEx = 1.2 * GUI_GRID_H;
-            text = "War Room"; //--- ToDo: Localize;
-        };
-
 		class ScreenItem0: RscPicture
 		{
 			idc = 3000;
@@ -1110,67 +1540,6 @@ class WarRoom5
             colorBackground[] = {0.2, 0.2, 0.2, 0.5}; // translucent grey
 			text = "ScreenItem 2 Info";
 		};
-
-        class Subheadline: RscText
-        {
-            idc = 7001;
-
-            x = 0 * GUI_GRID_W + GUI_GRID_X;
-            y = 23 * GUI_GRID_H + GUI_GRID_Y;
-            w = 40 * GUI_GRID_W;
-            h = 2 * GUI_GRID_H;
-
-            colorBackground[] = {0.2, 0.2, 0.2, 1}; // opaque dark grey
-            text = "Mod v0.1.0 by y0014984"; //--- ToDo: Localize;
-        };
-
-        class Pos1: RscText
-        {
-            idc = 9001;
-
-            x = 0 * GUI_GRID_W + GUI_GRID_X;
-            y = 0 * GUI_GRID_H + GUI_GRID_Y;
-            w = 1 * GUI_GRID_W;
-            h = 1 * GUI_GRID_H;
-
-            colorBackground[] = {1, 0, 0, 1}; // opaque red
-        };
-
-        class Pos2: RscText
-        {
-            idc = 9002;
-
-            x = 39 * GUI_GRID_W + GUI_GRID_X;
-            y = 0 * GUI_GRID_H + GUI_GRID_Y;
-            w = 1 * GUI_GRID_W;
-            h = 1 * GUI_GRID_H;
-
-            colorBackground[] = {1, 0, 0, 1}; // opaque red
-        };
-
-        class Pos3: RscText
-        {
-            idc = 9003;
-
-            x = 0 * GUI_GRID_W + GUI_GRID_X;
-            y = 24 * GUI_GRID_H + GUI_GRID_Y;
-            w = 1 * GUI_GRID_W;
-            h = 1 * GUI_GRID_H;
-
-            colorBackground[] = {1, 0, 0, 1}; // opaque red
-        };
-
-        class Pos4: RscText
-        {
-            idc = 9004;
-
-            x = 39 * GUI_GRID_W + GUI_GRID_X;
-            y = 24 * GUI_GRID_H + GUI_GRID_Y;
-            w = 1 * GUI_GRID_W;
-            h = 1 * GUI_GRID_H;
-
-            colorBackground[] = {1, 0, 0, 1}; // opaque red
-        };
 	};
 };
 

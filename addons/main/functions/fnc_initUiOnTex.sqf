@@ -26,7 +26,7 @@ _entity setVariable [format ["WR_hiddenSelectionScreen%1", _screenIndex], _hidde
 _entity setVariable [format ["WR_horizontalResolutionScreen%1", _screenIndex], _horizontalResolution];
 _entity setVariable [format ["WR_verticalResolutionScreen%1", _screenIndex], _verticalResolution];
 
-for [{ private _i = 0 }, { _i < 7 }, { _i = _i + 1 }] do
+for [{ private _i = 0 }, { _i < 8 }, { _i = _i + 1 }] do
 {
     [_entity, _screenIndex, _i] call WR_main_fnc_setupNewControlOnScreenItem;
 };

@@ -48,11 +48,30 @@ if (_event isEqualTo "onInitDialog") exitWith
 
     /* ---------------------------------------- */
 
-    private _layout = _target getVariable [format ["WR_uiClassScreen%1", _screenIndex], 1];
-    private _layoutToIndex = createHashMapFromArray [["WarRoom1", 0], ["WarRoom5", 1]];
-    private _layoutIndex = _layoutToIndex get _layout;
+    private _screens = _target getVariable ["WR_screens", []];
+    private _screen = _screens select _screenIndex;
+    private _allowedUiClasses = _screen select 1; // [_hiddenSelection, _allowedUiClasses, _defaultUiClass, _uiScreenItemCount];
+    private _defaultUiClass = _screen select 2;
 
     private _layoutCtrl = _dialog displayCtrl 4004;
+
+    private _layoutToIndexArray = [];
+    private _indexToLayoutArray = [];
+    {
+        private _index = _layoutCtrl lbAdd _x;
+        _layoutToIndexArray pushBack [_x, _index];
+        _indexToLayoutArray pushBack [str _index, _x];
+    } forEach _allowedUiClasses;
+
+    private _layoutToIndex = createHashMapFromArray _layoutToIndexArray;
+    private _indexToLayout = createHashMapFromArray _indexToLayoutArray;
+
+    _layoutCtrl setVariable ["WR_indexToLayout", _indexToLayout];
+
+    private _layout = _target getVariable [format ["WR_uiClassScreen%1", _screenIndex], _defaultUiClass];
+    private _layoutIndex = _layoutToIndex get _layout;
+
+    _layoutCtrl setVariable ["WR_ctrlInitialised", true];
 
     _layoutCtrl lbSetCurSel _layoutIndex;
 
@@ -61,7 +80,7 @@ if (_event isEqualTo "onInitDialog") exitWith
     private _uiClassCfg = configFile >> _layout;
     private _uiScreenItemCount = (_uiClassCfg >> "WR_uiScreenItemCount") call BIS_fnc_getCfgData;
 
-    for [{ private _i = 0 }, { _i < 7 }, { _i = _i + 1 }] do
+    for [{ private _i = 0 }, { _i < 8 }, { _i = _i + 1 }] do
     {
         private _itemLabelCtrl = _dialog displayCtrl (3005 + _i);
         private _itemCtrl = _dialog displayCtrl (4005 + _i);
@@ -77,7 +96,7 @@ if (_event isEqualTo "onInitDialog") exitWith
 
     /* ---------------------------------------- */
 
-    for [{ private _i = 0 }, { _i < 7 }, { _i = _i + 1 }] do
+    for [{ private _i = 0 }, { _i < 8 }, { _i = _i + 1 }] do
     {
         private _screenItemType = _target getVariable [format ["WR_screen%1Item%2Type", _screenIndex, _i], ""];
         private _screenItemContent = _target getVariable [format ["WR_screen%1Item%2Content", _screenIndex, _i], nil];
@@ -153,7 +172,7 @@ if (_event isEqualTo "onUnloadDialog") exitWith
 
     private _layoutIndex = lbCurSel _layoutCtrl;
 
-    private _indexToLayout = createHashMapFromArray [["0", "WarRoom1"], ["1", "WarRoom5"]];
+    private _indexToLayout = _layoutCtrl getVariable ["WR_indexToLayout", createHashMap];
     private _layout = _indexToLayout get (str _layoutIndex);
     _target setVariable [format ["WR_uiClassScreen%1", _screenIndex], _layout, true];
 
@@ -172,7 +191,10 @@ if (_event isEqualTo "onLBSelChangedLayout") exitWith
 {
     _params params ["_control", "_lbCurSel", "_lbSelection"];
 
-    private _layout = _control lbData _lbCurSel;
+    private _ctrlInitialised = _control getVariable ["WR_ctrlInitialised", false];
+    if (!_ctrlInitialised) exitWith {};
+
+    private _layout = _control lbText _lbCurSel;
 
     private _imagePath = format ["\y\wr\addons\main\ui\WarRoom_Layouts_%1_1024x1024.paa", _layout];
 
@@ -185,7 +207,7 @@ if (_event isEqualTo "onLBSelChangedLayout") exitWith
     private _uiClassCfg = configFile >> _layout;
     private _uiScreenItemCount = (_uiClassCfg >> "WR_uiScreenItemCount") call BIS_fnc_getCfgData;
 
-    for [{ private _i = 0 }, { _i < 7 }, { _i = _i + 1 }] do
+    for [{ private _i = 0 }, { _i < 8 }, { _i = _i + 1 }] do
     {
         private _itemLabelCtrl = _dialog displayCtrl (3005 + _i);
         private _itemCtrl = _dialog displayCtrl (4005 + _i);
@@ -208,6 +230,9 @@ if (_event isEqualTo "onLBSelChangedItem") exitWith
 {
     _params params ["_control", "_lbCurSel", "_lbSelection"];
 
+    private _ctrlInitialised = _control getVariable ["WR_ctrlInitialised", false];
+    if (!_ctrlInitialised) exitWith {};
+
     private _screenItemCfg = configFile >> "ConfigureScreenDialog" >> "controls" >> ctrlClassName _control;
     if (!isClass _screenItemCfg) exitWith {};
 
@@ -227,14 +252,12 @@ if (_event isEqualTo "onLBSelChangedItem") exitWith
         _resultCtrl ctrlSetText "";
     };
 
-    private _ctrlInitialised = _control getVariable ["WR_ctrlInitialised", false];
-
     // 1 == image
-    if (_ctrlInitialised && (_lbCurSel == 1)) then { ["onInitDialog", [_target, _screenIndex, _screenItemIndex, _resultCtrl]] call WR_main_fnc_ui_configureScreenImageItem; };
+    if (_lbCurSel == 1) then { ["onInitDialog", [_target, _screenIndex, _screenItemIndex, _resultCtrl]] call WR_main_fnc_ui_configureScreenImageItem; };
     // 2 == map
-    if (_ctrlInitialised && (_lbCurSel == 2)) then { ["onInitDialog", [_target, _screenIndex, _screenItemIndex, _resultCtrl]] call WR_main_fnc_ui_configureScreenMapItem; };
+    if (_lbCurSel == 2) then { ["onInitDialog", [_target, _screenIndex, _screenItemIndex, _resultCtrl]] call WR_main_fnc_ui_configureScreenMapItem; };
     // 3 == drone cam
-    if (_ctrlInitialised && (_lbCurSel == 3)) then { ["onInitDialog", [_target, _screenIndex, _screenItemIndex, _resultCtrl]] call WR_main_fnc_ui_configureScreenCamItem; };
+    if (_lbCurSel == 3) then { ["onInitDialog", [_target, _screenIndex, _screenItemIndex, _resultCtrl]] call WR_main_fnc_ui_configureScreenCamItem; };
 
     systemChat format ["Changed item %1 to item type: %2", _screenItemIndex, _lbCurSel];
 };
