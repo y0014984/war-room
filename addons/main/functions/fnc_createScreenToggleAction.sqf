@@ -6,37 +6,37 @@ params ["_hiddenSelection", "_screenIndex"];
 
 private _statement =
 {
-    params ["_target", "_player", "_params"];
+    params ["_entity", "_player", "_params"];
     _params params ["_hiddenSelection", "_screenIndex"];
 
-    private _screenMutex = _target getVariable [format ["WR_screen%1Mutex", _screenIndex], false];
+    private _screenMutex = _entity getVariable [format ["WR_screen%1Mutex", _screenIndex], false];
 
     if (_screenMutex) then
     {
         // true means, display is currently enabled, so the display will be disabled
-        [_target, _hiddenSelection, _screenIndex] spawn WR_main_fnc_terminateUiOnTex;
-        _target setVariable [format ["WR_screen%1Mutex", _screenIndex], false, true];
+        [_entity, _hiddenSelection, _screenIndex] spawn WR_main_fnc_terminateUiOnTex;
+        _entity setVariable [format ["WR_screen%1Mutex", _screenIndex], false, true];
 
         systemChat format ["Screen %1 disabled", _screenIndex];
     }
     else 
     {
         // false means, display is currently disabled, so the display will be enabled
-        private _horizontalResolution = _target getVariable [format ["WR_horizontalResolutionScreen%1", _screenIndex], WR_defaultScreenResolution];
-        private _verticalResolution = _target getVariable [format ["WR_verticalResolutionScreen%1", _screenIndex], WR_defaultScreenResolution];
-        private _fps = _target getVariable [format ["WR_fpsScreen%1", _screenIndex], WR_defaultScreenFps];
-        private _uiClass = _target getVariable [format ["WR_uiClassScreen%1", _screenIndex], ""];
+        private _horizontalResolution = _entity getVariable [format ["WR_horizontalResolutionScreen%1", _screenIndex], WR_defaultScreenResolution];
+        private _verticalResolution = _entity getVariable [format ["WR_verticalResolutionScreen%1", _screenIndex], WR_defaultScreenResolution];
+        private _fps = _entity getVariable [format ["WR_fpsScreen%1", _screenIndex], WR_defaultScreenFps];
+        private _uiClass = _entity getVariable [format ["WR_uiClassScreen%1", _screenIndex], ""];
         if (_uiClass isEqualTo "") then
         {
-            private _screens = _target getVariable ["WR_screens", []];
+            private _screens = _entity getVariable ["WR_screens", []];
             private _allowedUiClasses = (_screens select _screenIndex) select 1;
             private _defaultUiClass = (_screens select _screenIndex) select 2;
             _uiClass = _allowedUiClasses select _defaultUiClass;
         };
         // needs to be 0 (everywhere) instead of -2 (all clients, not server), because of hosted multiplayer
         // host also needs to be able to use the interactions
-        [_target, _hiddenSelection, _screenIndex, _horizontalResolution, _verticalResolution, _fps, _uiClass] remoteExec ["WR_main_fnc_initUiOnTex", 0, true];
-        _target setVariable [format ["WR_screen%1Mutex", _screenIndex], true, true];
+        [_entity, _hiddenSelection, _screenIndex, _horizontalResolution, _verticalResolution, _fps, _uiClass] remoteExec ["WR_main_fnc_initUiOnTex", 0, true];
+        _entity setVariable [format ["WR_screen%1Mutex", _screenIndex], true, true];
 
         systemChat format ["Screen %1 enabled", _screenIndex];
     };
@@ -46,10 +46,10 @@ private _statement =
 
 private _modifier =
 {
-    params ["_target", "_player", "_params", "_actionData"];
+    params ["_entity", "_player", "_params", "_actionData"];
     _params params ["_hiddenSelection", "_screenIndex"];
 
-    private _screenMutex = _target getVariable [format ["WR_screen%1Mutex", _screenIndex], false];
+    private _screenMutex = _entity getVariable [format ["WR_screen%1Mutex", _screenIndex], false];
     // Modify the action - index 1 is the display name, 2 is the icon...
     if (_screenMutex) then { _actionData set [1, "disable"]; } else { _actionData set [1, "enable"]; };
 };

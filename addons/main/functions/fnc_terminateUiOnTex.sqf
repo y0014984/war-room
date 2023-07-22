@@ -15,7 +15,7 @@ for "_i" from 1 to _uiScreenItemCount do
     [_entity, _i] call WR_main_fnc_removeNewControlOnScreenItem;
 }; */
 
-//_target setObjectTexture [_x, "#(rgb,1,1,1)color(0,0,0,1)"]; // site 1x1 with 1 mimap; black with no transparency
+//_entity setObjectTexture [_x, "#(rgb,1,1,1)color(0,0,0,1)"]; // site 1x1 with 1 mimap; black with no transparency
 _entity setObjectTexture [_hiddenSelection, "\y\wr\addons\main\ui\WarRoom_DefaultDisplay_1024x1024.paa"];
 
 // close display

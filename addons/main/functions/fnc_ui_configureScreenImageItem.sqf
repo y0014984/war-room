@@ -4,11 +4,11 @@ params ["_event", "_params"];
 
 if (_event isEqualTo "onInitDialog") exitWith
 {
-    _params params ["_target", "_screenIndex", "_screenItemIndex", "_resultCtrl"];
+    _params params ["_entity", "_screenIndex", "_screenItemIndex", "_resultCtrl"];
 
     private _dialog = createDialog ["ConfigureScreenImageItemDialog", true];
 
-    _dialog setVariable ["WR_target", _target];
+    _dialog setVariable ["WR_entity", _entity];
     _dialog setVariable ["WR_screenIndex", _screenIndex];
     _dialog setVariable ["WR_screenItemIndex", _screenItemIndex];
     _dialog setVariable ["WR_resultCtrl", _resultCtrl];
@@ -48,7 +48,7 @@ if (_event isEqualTo "onUnloadDialog") exitWith
 
     if (_exitCode == 2) exitWith {};
 
-    private _target = _dialog getVariable ["WR_target", objNull];
+    private _entity = _dialog getVariable ["WR_entity", objNull];
 
     private _screenIndex = _dialog getVariable ["WR_screenIndex", -1];
     private _screenItemIndex = _dialog getVariable ["WR_screenItemIndex", -1];
@@ -58,8 +58,8 @@ if (_event isEqualTo "onUnloadDialog") exitWith
 
     if (_screenItemType isEqualTo "") exitWith { _resultCtrl ctrlSetText ""; };
 
-    _target setVariable [format ["WR_screen%1Item%2Type", _screenIndex, _screenItemIndex], _screenItemType, true];
-    _target setVariable [format ["WR_screen%1Item%2Content", _screenIndex, _screenItemIndex], _screenItemContent, true];
+    _entity setVariable [format ["WR_screen%1Item%2Type", _screenIndex, _screenItemIndex], _screenItemType, true];
+    _entity setVariable [format ["WR_screen%1Item%2Content", _screenIndex, _screenItemIndex], _screenItemContent, true];
 
     _resultCtrl ctrlSetText format ["%1 - %2", _screenItemType, _screenItemContent];
 };

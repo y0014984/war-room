@@ -4,18 +4,18 @@ params ["_event", "_params"];
 
 if (_event isEqualTo "onInitDialog") exitWith
 {
-    _params params ["_target", "_screenIndex"];
+    _params params ["_entity", "_screenIndex"];
 
     /* ---------------------------------------- */
 
     private _dialog = createDialog ["ConfigureScreenDialog"];
 
-    _dialog setVariable ["WR_target", _target];
+    _dialog setVariable ["WR_entity", _entity];
     _dialog setVariable ["WR_screenIndex", _screenIndex];
 
     /* ---------------------------------------- */
 
-    private _warRoomName = _target getVariable [format ["WR_warRoomName%1", _screenIndex], "Operation Unknown"];
+    private _warRoomName = _entity getVariable [format ["WR_warRoomName%1", _screenIndex], "Operation Unknown"];
 
     private _warRoomNameCtrl = _dialog displayCtrl 4000;
 
@@ -24,8 +24,8 @@ if (_event isEqualTo "onInitDialog") exitWith
     /* ---------------------------------------- */
 
 
-    private _horizontalResolution = _target getVariable [format ["WR_horizontalResolutionScreen%1", _screenIndex], WR_defaultScreenResolution];
-    private _verticalResolution = _target getVariable [format ["WR_verticalResolutionScreen%1", _screenIndex], WR_defaultScreenResolution];
+    private _horizontalResolution = _entity getVariable [format ["WR_horizontalResolutionScreen%1", _screenIndex], WR_defaultScreenResolution];
+    private _verticalResolution = _entity getVariable [format ["WR_verticalResolutionScreen%1", _screenIndex], WR_defaultScreenResolution];
     private _resolutionToIndex = createHashMapFromArray [["256", 0], ["512", 1], ["1024", 2], ["2048", 3], ["4096", 4]];
     private _horiResIndex = _resolutionToIndex get (str _horizontalResolution);
     private _vertResIndex = _resolutionToIndex get (str _verticalResolution);
@@ -38,7 +38,7 @@ if (_event isEqualTo "onInitDialog") exitWith
 
     /* ---------------------------------------- */
 
-    private _fps = _target getVariable [format ["WR_fpsScreen%1", _screenIndex], WR_defaultScreenFps];
+    private _fps = _entity getVariable [format ["WR_fpsScreen%1", _screenIndex], WR_defaultScreenFps];
     private _fpsToIndex = createHashMapFromArray [["1", 0], ["2", 1], ["3", 2], ["4", 3], ["5", 4], ["10", 5], ["20", 6], ["30", 7], ["45", 8], ["60", 9]];
     private _fpsIndex = _fpsToIndex get (str _fps);
 
@@ -48,7 +48,7 @@ if (_event isEqualTo "onInitDialog") exitWith
 
     /* ---------------------------------------- */
 
-    private _screens = _target getVariable ["WR_screens", []];
+    private _screens = _entity getVariable ["WR_screens", []];
     private _screen = _screens select _screenIndex;
     private _allowedUiClasses = _screen select 1; // [_hiddenSelection, _allowedUiClasses, _defaultUiClass, _uiScreenItemCount];
     private _defaultUiClass = _screen select 2;
@@ -68,7 +68,7 @@ if (_event isEqualTo "onInitDialog") exitWith
 
     _layoutCtrl setVariable ["WR_indexToLayout", _indexToLayout];
 
-    private _layout = _target getVariable [format ["WR_uiClassScreen%1", _screenIndex], _defaultUiClass];
+    private _layout = _entity getVariable [format ["WR_uiClassScreen%1", _screenIndex], _defaultUiClass];
     private _layoutIndex = _layoutToIndex get _layout;
 
     _layoutCtrl setVariable ["WR_ctrlInitialised", true];
@@ -98,8 +98,8 @@ if (_event isEqualTo "onInitDialog") exitWith
 
     for [{ private _i = 0 }, { _i < 8 }, { _i = _i + 1 }] do
     {
-        private _screenItemType = _target getVariable [format ["WR_screen%1Item%2Type", _screenIndex, _i], ""];
-        private _screenItemContent = _target getVariable [format ["WR_screen%1Item%2Content", _screenIndex, _i], nil];
+        private _screenItemType = _entity getVariable [format ["WR_screen%1Item%2Type", _screenIndex, _i], ""];
+        private _screenItemContent = _entity getVariable [format ["WR_screen%1Item%2Content", _screenIndex, _i], nil];
 
         private _itemCtrl = _dialog displayCtrl (4005 + _i);
         private _itemResultCtrl = _dialog displayCtrl (5005 + _i);
@@ -131,7 +131,7 @@ if (_event isEqualTo "onUnloadDialog") exitWith
 
     if (_exitCode == 2) exitWith { [_screenIndex, _exitCode] call _messageFnc; };
 
-    private _target = _dialog getVariable ["WR_target", objNull];
+    private _entity = _dialog getVariable ["WR_entity", objNull];
     private _screenIndex = _dialog getVariable ["WR_screenIndex", 0];
 
     /* ---------------------------------------- */
@@ -140,7 +140,7 @@ if (_event isEqualTo "onUnloadDialog") exitWith
 
     private _warRoomName = ctrlText _warRoomNameCtrl;
 
-    _target setVariable [format ["WR_warRoomName%1", _screenIndex], _warRoomName, true];
+    _entity setVariable [format ["WR_warRoomName%1", _screenIndex], _warRoomName, true];
 
     /* ---------------------------------------- */
 
@@ -153,8 +153,8 @@ if (_event isEqualTo "onUnloadDialog") exitWith
     private _indexToResolution = createHashMapFromArray [["0", 256], ["1", 512], ["2", 1024], ["3", 2048], ["4", 4096]];
     private _horizontalResolution = _indexToResolution get (str _horiResIndex);
     private _verticalResolution = _indexToResolution get (str _vertResIndex);
-    _target setVariable [format ["WR_horizontalResolutionScreen%1", _screenIndex], _horizontalResolution];
-    _target setVariable [format ["WR_verticalResolutionScreen%1", _screenIndex], _verticalResolution];
+    _entity setVariable [format ["WR_horizontalResolutionScreen%1", _screenIndex], _horizontalResolution];
+    _entity setVariable [format ["WR_verticalResolutionScreen%1", _screenIndex], _verticalResolution];
 
     /* ---------------------------------------- */
 
@@ -164,7 +164,7 @@ if (_event isEqualTo "onUnloadDialog") exitWith
 
     private _indexToFps = createHashMapFromArray [["0", 1], ["1", 2], ["2", 3], ["3", 4], ["4", 5], ["5", 10], ["6", 20], ["7", 30], ["8", 45], ["9", 60]];
     private _fps = _indexToFps get (str _fpsIndex);
-    _target setVariable [format ["WR_fpsScreen%1", _screenIndex], _fps];
+    _entity setVariable [format ["WR_fpsScreen%1", _screenIndex], _fps];
 
     /* ---------------------------------------- */
 
@@ -174,13 +174,13 @@ if (_event isEqualTo "onUnloadDialog") exitWith
 
     private _indexToLayout = _layoutCtrl getVariable ["WR_indexToLayout", createHashMap];
     private _layout = _indexToLayout get (str _layoutIndex);
-    _target setVariable [format ["WR_uiClassScreen%1", _screenIndex], _layout, true];
+    _entity setVariable [format ["WR_uiClassScreen%1", _screenIndex], _layout, true];
 
     /* ---------------------------------------- */
 
     // needs to be 0 (everywhere) instead of -2 (all clients, not server), because of hosted multiplayer
     // host also needs to be able to use the interactions
-    [_target, _screenIndex, _horizontalResolution, _verticalResolution, _fps, _layout] remoteExec ["WR_main_fnc_updateScreen", 0, true];
+    [_entity, _screenIndex, _horizontalResolution, _verticalResolution, _fps, _layout] remoteExec ["WR_main_fnc_updateScreen", 0, true];
 
     [_screenIndex, _exitCode] call _messageFnc;
 };
@@ -238,7 +238,7 @@ if (_event isEqualTo "onLBSelChangedItem") exitWith
 
     private _dialog = ctrlParent _control;
 
-    private _target = _dialog getVariable ["WR_target", objNull];
+    private _entity = _dialog getVariable ["WR_entity", objNull];
     private _screenIndex = _dialog getVariable ["WR_screenIndex", 0];
 
     private _screenItemIndex = (_screenItemCfg >> "WR_screenItemIndex") call BIS_fnc_getCfgData;
@@ -247,17 +247,17 @@ if (_event isEqualTo "onLBSelChangedItem") exitWith
 
     if (_lbCurSel == 0) then 
     {
-        _target setVariable [format ["WR_screen%1Item%2Type", _screenIndex, _screenItemIndex], nil, true];
-        _target setVariable [format ["WR_screen%1Item%2Content", _screenIndex, _screenItemIndex], nil, true];
+        _entity setVariable [format ["WR_screen%1Item%2Type", _screenIndex, _screenItemIndex], nil, true];
+        _entity setVariable [format ["WR_screen%1Item%2Content", _screenIndex, _screenItemIndex], nil, true];
         _resultCtrl ctrlSetText "";
     };
 
     // 1 == image
-    if (_lbCurSel == 1) then { ["onInitDialog", [_target, _screenIndex, _screenItemIndex, _resultCtrl]] call WR_main_fnc_ui_configureScreenImageItem; };
+    if (_lbCurSel == 1) then { ["onInitDialog", [_entity, _screenIndex, _screenItemIndex, _resultCtrl]] call WR_main_fnc_ui_configureScreenImageItem; };
     // 2 == map
-    if (_lbCurSel == 2) then { ["onInitDialog", [_target, _screenIndex, _screenItemIndex, _resultCtrl]] call WR_main_fnc_ui_configureScreenMapItem; };
+    if (_lbCurSel == 2) then { ["onInitDialog", [_entity, _screenIndex, _screenItemIndex, _resultCtrl]] call WR_main_fnc_ui_configureScreenMapItem; };
     // 3 == drone cam
-    if (_lbCurSel == 3) then { ["onInitDialog", [_target, _screenIndex, _screenItemIndex, _resultCtrl]] call WR_main_fnc_ui_configureScreenCamItem; };
+    if (_lbCurSel == 3) then { ["onInitDialog", [_entity, _screenIndex, _screenItemIndex, _resultCtrl]] call WR_main_fnc_ui_configureScreenCamItem; };
 
     systemChat format ["Changed item %1 to item type: %2", _screenItemIndex, _lbCurSel];
 };

@@ -6,20 +6,20 @@ params ["_screenIndex"];
 
 private _statement =
 {
-    params ["_target", "_player", "_params"];
+    params ["_entity", "_player", "_params"];
     _params params ["_screenIndex"];
 
-    ["onInitDialog", [_target, _screenIndex]] call WR_main_fnc_ui_configureScreen;
+    ["onInitDialog", [_entity, _screenIndex]] call WR_main_fnc_ui_configureScreen;
 };
 
 /* ---------------------------------------- */
 
 private _condition =
 {
-    params ["_target", "_player", "_params"];
+    params ["_entity", "_player", "_params"];
     _params params ["_screenIndex"];
 
-    _target getVariable [format ["WR_screen%1Mutex", _screenIndex], false];
+    _entity getVariable [format ["WR_screen%1Mutex", _screenIndex], false];
 };
 
 /* ---------------------------------------- */

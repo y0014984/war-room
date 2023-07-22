@@ -4,9 +4,9 @@
 
 private _condition = 
 {
-    params ["_target", "_player", "_params"];
+    params ["_entity", "_player", "_params"];
 
-    (alive _target) && (_target getVariable ["WR_interactionAllowedGlobal", false]);
+    (alive _entity) && (_entity getVariable ["WR_interactionAllowedGlobal", false]);
 };
 
 /* ---------------------------------------- */
