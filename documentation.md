@@ -2,7 +2,7 @@
 
 ## High Prio Todos
 
-- set Image in ui configurator to square
+- show content in presentation mode
 - modify module with radio button options (allow diffent screen item types)
 - platz in den screen item ui's besser ausnutzen (links unten)
 - allow setting up different camera modes for Uavs
@@ -18,6 +18,7 @@
 - add buttons to modify current text selection (text size for example) --> show text as structured text (simple text editor)
 - Script Screen Item mit Custom Output
 - Fraktionslogo in Titelleiste
+- kann man bei UIonTexture die AspectRatio verändern?
 
 ## Low Prio Todos
 
