@@ -1,10 +1,6 @@
-params ["_entity", "_screenIndex", "_ScreenItemIndex"];
+params ["_entity", "_screenIndex", "_ScreenItemIndex", "_uiOnTextureDisplay"];
 
 /* ================================================================================ */
-
-// get the display for the ui on texture feature
-private _uiOnTextureDisplay = _entity getVariable [format ["WR_uiOnTextureDisplayScreen%1", _screenIndex], displayNull];
-if (isNull _uiOnTextureDisplay) exitWith {};
 
 // all screen items have an id in the 3000 range; 1st screnn item is always 3000, 2nd is 3001 and so on
 private _screenItemCtrl = _uiOnTextureDisplay displayCtrl (3000 + _screenItemIndex);
@@ -74,6 +70,9 @@ if (_screenItemType isEqualTo "MAP") exitWith
 
 	_mapCtrl ctrlMapAnimAdd [0, _mapScale, _mapCenterWorldPos];
 	ctrlMapAnimCommit _mapCtrl;
+
+	// prevents to use the map interactively, which will bring the map on top of the pointer
+	_mapCtrl ctrlEnable false;
 
 	_mapInfoboxCtrl ctrlSetText format ["%1 (Pos: %2)", worldName, mapGridPosition _mapCenterWorldPos];
 };

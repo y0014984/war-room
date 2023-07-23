@@ -1063,7 +1063,7 @@ class WarRoomTemplate40by25
             h = 3 * GUI_GRID_H;
 
             colorBackground[] = {0.2, 0.2, 0.2, 1}; // opaque dark grey
-            sizeEx = 1.2 * GUI_GRID_H;
+            sizeEx = 1.5 * GUI_GRID_H;
         };
 
         class Subheadline: RscText
@@ -1164,7 +1164,7 @@ class WarRoomTemplate40by25Mod1
             h = 3 * GUI_GRID_H;
 
             colorBackground[] = {0.2, 0.2, 0.2, 1}; // opaque dark grey
-            sizeEx = 1.2 * GUI_GRID_H;
+            sizeEx = 1.5 * GUI_GRID_H;
         };
 
         class Subheadline: RscText
@@ -1265,7 +1265,7 @@ class WarRoomTemplate40by25Mod2
             h = 3 * GUI_GRID_H;
 
             colorBackground[] = {0.2, 0.2, 0.2, 1}; // opaque dark grey
-            sizeEx = 1.2 * GUI_GRID_H;
+            sizeEx = 1.5 * GUI_GRID_H;
         };
 
         class Subheadline: RscText
@@ -1366,7 +1366,7 @@ class WarRoomTemplate40by25Mod3
             h = 3 * GUI_GRID_H;
 
             colorBackground[] = {0.2, 0.2, 0.2, 1}; // opaque dark grey
-            sizeEx = 1.2 * GUI_GRID_H;
+            sizeEx = 1.5 * GUI_GRID_H;
         };
 
         class Subheadline: RscText
@@ -1463,7 +1463,7 @@ class WarRoom1: WarRoomTemplate40by25
 			h = 1 * GUI_GRID_H;
         
         	colorBackground[] = {0.2, 0.2, 0.2, 0.5}; // translucent grey
-			text = "ScreenItem 0 Info";
+			text = "Screen Item 0 Info";
 		};
 	};
 };
@@ -1500,7 +1500,7 @@ class WarRoom1Mod1: WarRoomTemplate40by25Mod1
 			h = 1 * GUI_GRID_H;
         
         	colorBackground[] = {0.2, 0.2, 0.2, 0.5}; // translucent grey
-			text = "ScreenItem 0 Info";
+			text = "Screen Item 0 Info";
 		};
 	};
 };
@@ -1537,7 +1537,7 @@ class WarRoom1Mod2: WarRoomTemplate40by25Mod2
 			h = 1 * GUI_GRID_H;
         
         	colorBackground[] = {0.2, 0.2, 0.2, 0.5}; // translucent grey
-			text = "ScreenItem 0 Info";
+			text = "Screen Item 0 Info";
 		};
 	};
 };
@@ -1574,7 +1574,7 @@ class WarRoom1Mod3: WarRoomTemplate40by25Mod3
 			h = 1 * GUI_GRID_H;
         
         	colorBackground[] = {0.2, 0.2, 0.2, 0.5}; // translucent grey
-			text = "ScreenItem 0 Info";
+			text = "Screen Item 0 Info";
 		};
 	};
 };
@@ -1611,7 +1611,7 @@ class WarRoom2: WarRoomTemplate40by25
 			h = 1 * GUI_GRID_H;
         
         	colorBackground[] = {0.2, 0.2, 0.2, 0.5}; // translucent grey
-			text = "ScreenItem 0 Info";
+			text = "Screen Item 0 Info";
 		};
 
 		class ScreenItem1: RscPicture
@@ -1636,7 +1636,7 @@ class WarRoom2: WarRoomTemplate40by25
 			h = 1 * GUI_GRID_H;
         
         	colorBackground[] = {0.2, 0.2, 0.2, 0.5}; // translucent grey
-			text = "ScreenItem 1 Info";
+			text = "Screen Item 1 Info";
 		};
 	};
 };
@@ -1673,7 +1673,7 @@ class WarRoom2Mod2: WarRoomTemplate40by25Mod2
 			h = 1 * GUI_GRID_H;
         
         	colorBackground[] = {0.2, 0.2, 0.2, 0.5}; // translucent grey
-			text = "ScreenItem 0 Info";
+			text = "Screen Item 0 Info";
 		};
 
 		class ScreenItem1: RscPicture
@@ -1698,7 +1698,7 @@ class WarRoom2Mod2: WarRoomTemplate40by25Mod2
 			h = 1 * GUI_GRID_H;
         
         	colorBackground[] = {0.2, 0.2, 0.2, 0.5}; // translucent grey
-			text = "ScreenItem 1 Info";
+			text = "Screen Item 1 Info";
 		};
 	};
 };
@@ -1735,7 +1735,7 @@ class WarRoom2Mod3: WarRoomTemplate40by25Mod3
 			h = 1 * GUI_GRID_H;
         
         	colorBackground[] = {0.2, 0.2, 0.2, 0.5}; // translucent grey
-			text = "ScreenItem 0 Info";
+			text = "Screen Item 0 Info";
 		};
 
 		class ScreenItem1: RscPicture
@@ -1760,7 +1760,7 @@ class WarRoom2Mod3: WarRoomTemplate40by25Mod3
 			h = 1 * GUI_GRID_H;
         
         	colorBackground[] = {0.2, 0.2, 0.2, 0.5}; // translucent grey
-			text = "ScreenItem 1 Info";
+			text = "Screen Item 1 Info";
 		};
 	};
 };
@@ -1797,7 +1797,7 @@ class WarRoom3: WarRoomTemplate40by25
 			h = 1 * GUI_GRID_H;
         
         	colorBackground[] = {0.2, 0.2, 0.2, 0.5}; // translucent grey
-			text = "ScreenItem 0 Info";
+			text = "Screen Item 0 Info";
 		};
 
 		class ScreenItem1: RscPicture
@@ -1822,7 +1822,7 @@ class WarRoom3: WarRoomTemplate40by25
 			h = 1 * GUI_GRID_H;
         
         	colorBackground[] = {0.2, 0.2, 0.2, 0.5}; // translucent grey
-			text = "ScreenItem 1 Info";
+			text = "Screen Item 1 Info";
 		};
 
 		class ScreenItem2: RscPicture
@@ -1847,7 +1847,7 @@ class WarRoom3: WarRoomTemplate40by25
 			h = 1 * GUI_GRID_H;
         
         	colorBackground[] = {0.2, 0.2, 0.2, 0.5}; // translucent grey
-			text = "ScreenItem 2 Info";
+			text = "Screen Item 2 Info";
 		};
 
 		class ScreenItem3: RscPicture
@@ -1872,7 +1872,7 @@ class WarRoom3: WarRoomTemplate40by25
 			h = 1 * GUI_GRID_H;
         
         	colorBackground[] = {0.2, 0.2, 0.2, 0.5}; // translucent grey
-			text = "ScreenItem 3 Info";
+			text = "Screen Item 3 Info";
 		};
 
 		class ScreenItem4: RscPicture
@@ -1897,7 +1897,7 @@ class WarRoom3: WarRoomTemplate40by25
 			h = 1 * GUI_GRID_H;
         
         	colorBackground[] = {0.2, 0.2, 0.2, 0.5}; // translucent grey
-			text = "ScreenItem 4 Info";
+			text = "Screen Item 4 Info";
 		};
 	};
 };
@@ -1934,7 +1934,7 @@ class WarRoom4: WarRoomTemplate40by25
 			h = 1 * GUI_GRID_H;
         
         	colorBackground[] = {0.2, 0.2, 0.2, 0.5}; // translucent grey
-			text = "ScreenItem 0 Info";
+			text = "Screen Item 0 Info";
 		};
 
 		class ScreenItem1: RscPicture
@@ -1959,7 +1959,7 @@ class WarRoom4: WarRoomTemplate40by25
 			h = 1 * GUI_GRID_H;
         
         	colorBackground[] = {0.2, 0.2, 0.2, 0.5}; // translucent grey
-			text = "ScreenItem 1 Info";
+			text = "Screen Item 1 Info";
 		};
 
 		class ScreenItem2: RscPicture
@@ -1984,7 +1984,7 @@ class WarRoom4: WarRoomTemplate40by25
 			h = 1 * GUI_GRID_H;
         
         	colorBackground[] = {0.2, 0.2, 0.2, 0.5}; // translucent grey
-			text = "ScreenItem 2 Info";
+			text = "Screen Item 2 Info";
 		};
 
 		class ScreenItem3: RscPicture
@@ -2009,7 +2009,7 @@ class WarRoom4: WarRoomTemplate40by25
 			h = 1 * GUI_GRID_H;
         
         	colorBackground[] = {0.2, 0.2, 0.2, 0.5}; // translucent grey
-			text = "ScreenItem 3 Info";
+			text = "Screen Item 3 Info";
 		};
 
 		class ScreenItem4: RscPicture
@@ -2034,7 +2034,7 @@ class WarRoom4: WarRoomTemplate40by25
 			h = 1 * GUI_GRID_H;
         
         	colorBackground[] = {0.2, 0.2, 0.2, 0.5}; // translucent grey
-			text = "ScreenItem 4 Info";
+			text = "Screen Item 4 Info";
 		};
 
 		class ScreenItem5: RscPicture
@@ -2059,7 +2059,7 @@ class WarRoom4: WarRoomTemplate40by25
 			h = 1 * GUI_GRID_H;
         
         	colorBackground[] = {0.2, 0.2, 0.2, 0.5}; // translucent grey
-			text = "ScreenItem 5 Info";
+			text = "Screen Item 5 Info";
 		};
 
 		class ScreenItem6: RscPicture
@@ -2084,7 +2084,7 @@ class WarRoom4: WarRoomTemplate40by25
 			h = 1 * GUI_GRID_H;
         
         	colorBackground[] = {0.2, 0.2, 0.2, 0.5}; // translucent grey
-			text = "ScreenItem 6 Info";
+			text = "Screen Item 6 Info";
 		};
 
 		class ScreenItem7: RscPicture
@@ -2109,7 +2109,7 @@ class WarRoom4: WarRoomTemplate40by25
 			h = 1 * GUI_GRID_H;
         
         	colorBackground[] = {0.2, 0.2, 0.2, 0.5}; // translucent grey
-			text = "ScreenItem 7 Info";
+			text = "Screen Item 7 Info";
 		};
 	};
 };
@@ -2171,7 +2171,7 @@ class WarRoom5: WarRoomTemplate40by25
         
         	colorBackground[] = {0.2, 0.2, 0.2, 0.5}; // translucent grey
         
-			text = "ScreenItem 0 Info";
+			text = "Screen Item 0 Info";
 		};
 
 		class ScreenItem1Infobox: RscText
@@ -2184,7 +2184,7 @@ class WarRoom5: WarRoomTemplate40by25
 			h = 1 * GUI_GRID_H;
 
             colorBackground[] = {0.2, 0.2, 0.2, 0.5}; // translucent grey
-			text = "ScreenItem 1 Info";
+			text = "Screen Item 1 Info";
 		};
 
 		class ScreenItem2Infobox: RscText
@@ -2197,7 +2197,7 @@ class WarRoom5: WarRoomTemplate40by25
 			h = 1 * GUI_GRID_H;
 			
             colorBackground[] = {0.2, 0.2, 0.2, 0.5}; // translucent grey
-			text = "ScreenItem 2 Info";
+			text = "Screen Item 2 Info";
 		};
 	};
 };
@@ -2234,7 +2234,7 @@ class WarRoom7Mod1: WarRoomTemplate40by25Mod1
 			h = 1 * GUI_GRID_H;
         
         	colorBackground[] = {0.2, 0.2, 0.2, 0.5}; // translucent grey
-			text = "ScreenItem 0 Info";
+			text = "Screen Item 0 Info";
 		};
 
 		class ScreenItem1: RscPicture
@@ -2259,7 +2259,7 @@ class WarRoom7Mod1: WarRoomTemplate40by25Mod1
 			h = 1 * GUI_GRID_H;
         
         	colorBackground[] = {0.2, 0.2, 0.2, 0.5}; // translucent grey
-			text = "ScreenItem 1 Info";
+			text = "Screen Item 1 Info";
 		};
 	};
 };
@@ -2296,7 +2296,7 @@ class WarRoom8Mod3: WarRoomTemplate40by25Mod3
 			h = 1 * GUI_GRID_H;
         
         	colorBackground[] = {0.2, 0.2, 0.2, 0.5}; // translucent grey
-			text = "ScreenItem 0 Info";
+			text = "Screen Item 0 Info";
 		};
 
 		class ScreenItem1: RscPicture
@@ -2321,7 +2321,7 @@ class WarRoom8Mod3: WarRoomTemplate40by25Mod3
 			h = 1 * GUI_GRID_H;
         
         	colorBackground[] = {0.2, 0.2, 0.2, 0.5}; // translucent grey
-			text = "ScreenItem 1 Info";
+			text = "Screen Item 1 Info";
 		};
 
 		class ScreenItem2: RscPicture
@@ -2346,7 +2346,7 @@ class WarRoom8Mod3: WarRoomTemplate40by25Mod3
 			h = 1 * GUI_GRID_H;
         
         	colorBackground[] = {0.2, 0.2, 0.2, 0.5}; // translucent grey
-			text = "ScreenItem 2 Info";
+			text = "Screen Item 2 Info";
 		};
 
 		class ScreenItem3: RscPicture
@@ -2371,7 +2371,7 @@ class WarRoom8Mod3: WarRoomTemplate40by25Mod3
 			h = 1 * GUI_GRID_H;
         
         	colorBackground[] = {0.2, 0.2, 0.2, 0.5}; // translucent grey
-			text = "ScreenItem 3 Info";
+			text = "Screen Item 3 Info";
 		};
 	};
 };

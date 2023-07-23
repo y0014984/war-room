@@ -18,6 +18,13 @@ _entity setVariable [format ["WR_presentationDialogScreen%1", _screenIndex], _di
 _dialog setVariable ["WR_entity", _entity];
 _dialog setVariable ["WR_screenIndex", _screenIndex];
 
+for [{ private _i = 0 }, { _i < 8 }, { _i = _i + 1 }] do
+{
+    [_entity, _screenIndex, _i, _dialog] call WR_main_fnc_setupNewControlOnScreenItem;
+};
+
+/* ================================================================================ */
+
 private _pointerCtrl = _dialog ctrlCreate ["RscPicture", 9999];
 
 _pointerCtrl ctrlSetText "\y\wr\addons\main\ui\WarRoom_Pointer_32x32.paa";
@@ -35,6 +42,24 @@ _pointerCtrl ctrlCommit 0;
 _pointerCtrl ctrlShow false;
 
 [_entity, _screenIndex] remoteExec ["WR_main_fnc_addPresentationLayer", 0, true];
+
+/* ================================================================================ */
+
+private _fps = 1;
+private _updateIntervalPresentationUi = 1 / _fps;
+private _updatePresentationUiPerFrameHandler = 
+[
+	{
+        (_this select 0) params ["_entity", "_screenIndex", "_fps", "_dialog"];
+
+		[_entity, _screenIndex, _fps, _dialog] call WR_main_fnc_updateUiElements;
+	}, 
+	_updateIntervalPresentationUi, 
+	[_entity, _screenIndex, _fps, _dialog]
+] call CBA_fnc_addPerFrameHandler;
+
+// save the handle for this per-frame-event-handler in ui namespace for later use
+_entity setVariable [format ["WR_updatePresentationUiPerFrameHandlerScreen%1", _screenIndex], _updatePresentationUiPerFrameHandler];
 
 /* ================================================================================ */
 
@@ -136,7 +161,7 @@ _entity setVariable [format ["WR_mouseMovingEventHandlerScreen%1", _screenIndex]
 /* ================================================================================ */
 
 // add Event Handler to sync pointer position regularly to network clients
-private _updateInterval = 0.2; // 5 times per second
+private _updateIntervalPointerVariables = 0.2; // 5 times per second
 private _pointerVariablesPerFrameHandler = 
     [
         {
@@ -150,7 +175,7 @@ private _pointerVariablesPerFrameHandler =
             _entity setVariable [format ["WR_pointerEnabledScreen%1", _screenIndex], _pointerEnabled, true];
             _entity setVariable [format ["WR_pointerPosScreen%1", _screenIndex], _pointerPos, true];
         }, 
-        _updateInterval, 
+        _updateIntervalPointerVariables, 
         [_entity, _screenIndex]
     ] call CBA_fnc_addPerFrameHandler;
 

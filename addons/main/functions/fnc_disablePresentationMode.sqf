@@ -6,11 +6,13 @@ private _pointerVariablesPerFrameHandler = _entity getVariable [format ["WR_poin
 private _mouseMovingEventHandler = _entity getVariable [format ["WR_mouseMovingEventHandlerScreen%1", _screenIndex], -1];
 private _mouseButtonUpEventHandler = _entity getVariable [format ["WR_mouseButtonUpEventHandlerScreen%1", _screenIndex], -1];
 private _mouseButtonDownEventHandler = _entity getVariable [format ["WR_mouseButtonDownEventHandlerScreen%1", _screenIndex], -1];
+private _updatePresentationUiPerFrameHandler = _entity getVariable [format ["WR_updatePresentationUiPerFrameHandlerScreen%1", _screenIndex], -1];
 
 [_pointerVariablesPerFrameHandler] call CBA_fnc_removePerFrameHandler;
 _dialog displayRemoveEventHandler ["MouseMoving", _mouseMovingEventHandler];
 _dialog displayRemoveEventHandler ["MouseButtonUp", _mouseButtonUpEventHandler];
 _dialog displayRemoveEventHandler ["MouseButtonDown", _mouseButtonDownEventHandler];
+[_updatePresentationUiPerFrameHandler] call CBA_fnc_removePerFrameHandler;
 
 systemChat "_pointerVariablesPerFrameHandler removed";
 systemChat "_mouseMovingEventHandler removed";

@@ -3,6 +3,7 @@
 ## High Prio Todos
 
 - show content in presentation mode
+- Überschrift größer
 - modify module with radio button options (allow diffent screen item types)
 - platz in den screen item ui's besser ausnutzen (links unten)
 - allow setting up different camera modes for Uavs
@@ -19,6 +20,8 @@
 - Script Screen Item mit Custom Output
 - Fraktionslogo in Titelleiste
 - kann man bei UIonTexture die AspectRatio verändern?
+- Alternativtexte als Überschriften anstatt auto-Beschriftung (Optional per zusätzlichem Config-Feld)
+- Während Presentation mode bewegbar?
 
 ## Low Prio Todos
 

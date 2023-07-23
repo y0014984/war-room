@@ -27,6 +27,8 @@ PREP(disablePresentationMode);
 PREP(addPresentationLayer);
 PREP(removePresentationLayer);
 
+PREP(updateUiElements);
+
 // Server
 PREP(module_enableWarRoom);
 PREP(initSupportedAssetClasses);

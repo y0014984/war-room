@@ -28,7 +28,7 @@ _entity setVariable [format ["WR_verticalResolutionScreen%1", _screenIndex], _ve
 
 for [{ private _i = 0 }, { _i < 8 }, { _i = _i + 1 }] do
 {
-    [_entity, _screenIndex, _i] call WR_main_fnc_setupNewControlOnScreenItem;
+    [_entity, _screenIndex, _i, _uiOnTextureDisplay] call WR_main_fnc_setupNewControlOnScreenItem;
 };
 
 [_entity, _screenIndex, _fps] call WR_main_fnc_addUpdateUiOnTexEventHandler;
