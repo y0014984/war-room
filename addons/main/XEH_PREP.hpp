@@ -14,6 +14,7 @@ PREP(ui_configureScreen);
 PREP(ui_configureScreenImageItem);
 PREP(ui_configureScreenMapItem);
 PREP(ui_configureScreenCamItem);
+PREP(ui_configureScreenTextItem);
 
 PREP(addUavCamToControl);
 

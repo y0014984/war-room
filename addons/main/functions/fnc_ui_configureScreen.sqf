@@ -258,6 +258,8 @@ if (_event isEqualTo "onLBSelChangedItem") exitWith
     if (_lbCurSel == 2) then { ["onInitDialog", [_entity, _screenIndex, _screenItemIndex, _resultCtrl]] call WR_main_fnc_ui_configureScreenMapItem; };
     // 3 == drone cam
     if (_lbCurSel == 3) then { ["onInitDialog", [_entity, _screenIndex, _screenItemIndex, _resultCtrl]] call WR_main_fnc_ui_configureScreenCamItem; };
+    // 5 == text
+    if (_lbCurSel == 5) then { ["onInitDialog", [_entity, _screenIndex, _screenItemIndex, _resultCtrl]] call WR_main_fnc_ui_configureScreenTextItem; };
 
     systemChat format ["Changed item %1 to item type: %2", _screenItemIndex, _lbCurSel];
 };

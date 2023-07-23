@@ -106,4 +106,38 @@ if (_screenItemType isEqualTo "CAM") exitWith
 
 /* ================================================================================ */
 
+if (_screenItemType isEqualTo "TEXT") exitWith
+{
+	// add a new control
+	// all new controls will be placed on top of the screen items and will be in the 4000 range, which is always free
+	private _textCtrl = _uiOnTextureDisplay ctrlCreate ["RscStructuredText", (4000 + _screenItemIndex)];
+	private _textInfoboxCtrl = _uiOnTextureDisplay ctrlCreate ["RscText", (6000 + _screenItemIndex)];
+
+	_textInfoboxCtrl ctrlSetBackgroundColor [0.2, 0.2, 0.2, 0.5]; // translucent grey
+
+	// set position of new control to screen items position
+	// ctrlSetPosition for all ctrl except maps
+	_textCtrl ctrlSetPosition _screenItemCtrlPos;
+	_textCtrl ctrlSetBackgroundColor [0.3, 0.3, 0.3, 1]; // opaque dark grey
+	_textCtrl ctrlCommit 0;
+
+	_textInfoboxCtrl ctrlSetPosition _screenItemInfoboxCtrlPos;
+	_textInfoboxCtrl ctrlCommit 0;
+
+	_screenItemContent params ["_headline", "_text"];
+
+	// convert new lines into <br/>
+	_text = _text splitString endl; // "\n";
+	// add leading 2 empty lines to the beginning of the text, so the headline won't interfere with the text
+	_text = ["", ""] + _text;
+	_text = _text joinString "<br/>";
+
+	// set control text to text
+	_textCtrl ctrlSetStructuredText (parseText _text);
+	
+	_textInfoboxCtrl ctrlSetText format ["%1", _headline];
+};
+
+/* ================================================================================ */
+
 true;

@@ -1,27 +1,23 @@
-# TODOS
+# DOCUMENTATION
 
-## Continue next time
+## High Prio Todos
 
-- bessere Image Beispiele
-- wenn item type ausgewählt aber dann dialog mit cancel abgebrochen, bleibt der item type stehen
-- alte settings in screen item detail ui laden, wenn man bereits konfiguriertes erneut öffnet
-- uiclass Auswahl auch über separate UI --> Platz für alle 8 Placeholder
 - add presentation mode
 - modify module with radio button options (allow diffent screen item types)
 - platz in den screen item ui's besser ausnutzen (links unten)
 - allow setting up different camera modes for Uavs
 - fps werden nicht gesynct zw. ui und tatsächlichen einstellungen (load der settings) --> nur in MP?
-- Freitextfeld
-- Video Feld
 - add WarRoom 6 (Wie War Room 4, nur dass 0 und 1 zusammen das erste element bilden)
+- wenn item type ausgewählt aber dann dialog mit cancel abgebrochen, bleibt der item type stehen
+- alte settings in screen item detail ui laden, wenn man bereits konfiguriertes erneut öffnet
+- uiclass Auswahl auch über separate UI --> Platz für alle 8 Placeholder
+- Eine FPS Einstellung für "Keine Updates" hinzufügen, quasi 0 FPS
+- Automatische Einstellung von 0 FPS, wenn keine Screen Items gesetzt sind oder nur Text und Images
+- adjustable text and background color for text item (in ui config)
+- allow text files (structured text)
+- add buttons to modify current text selection (text size for example) --> show text as structured text (simple text editor)
 
-## Nomenklatur
-
-Eine "Entity" hat ein oder mehrere "Screens". Ein Screen is einer "Hidden Selection" zugewiesen. Eine "Hidden Selection" als Nummer ist nicht identisch mit dem "Screen Index", der stets mit
-1 beginnt. Die "Textur" des "Screens" wird mit setObjectTexture gesetzt. Ein "Display" ist das UI eines "Screens", dass aus einem oder mehreren "Screen Items" besteht. "Screens" können einzeln
-über die ACE3 Interactions gesteuert werden. Daher werden sie im Menüpunkt "War Room" zusammengefasst.
-
-## Todos
+## Low Prio Todos
 
 - support all screens
 - support additional Uavs
@@ -41,6 +37,7 @@ Eine "Entity" hat ein oder mehrere "Screens". Ein Screen is einer "Hidden Select
 - icon für mod und module
 - command: getTextureInfo --> Zusatzinfos über Bilder
 - command: screenshot --> vielleicht live aufnehmen und auf dem Screen zeigen?
+- Video Screen Item
 
 ## Later Enhancements
 
@@ -49,6 +46,12 @@ Eine "Entity" hat ein oder mehrere "Screens". Ein Screen is einer "Hidden Select
 - enable module for placing and manipulation in Zeus (Changing settings and syncing live)
 - localization
 - set interaction points to the center of each screen
+
+## Nomenklatur
+
+Eine "Entity" hat ein oder mehrere "Screens". Ein Screen is einer "Hidden Selection" zugewiesen. Eine "Hidden Selection" als Nummer ist nicht identisch mit dem "Screen Index", der stets mit
+1 beginnt. Die "Textur" des "Screens" wird mit setObjectTexture gesetzt. Ein "Display" ist das UI eines "Screens", dass aus einem oder mehreren "Screen Items" besteht. "Screens" können einzeln
+über die ACE3 Interactions gesteuert werden. Daher werden sie im Menüpunkt "War Room" zusammengefasst.
 
 ## ACE3 Interactions
 
@@ -67,7 +70,7 @@ Entity Interaction --> War Room --> Screen 1
 - surveillance cam (define cam object, hor. & vert. angle, speed, movement direction)
 - friedly forces cam (define friedly unit)
 - drone cam (define drone) --> in progress
-- text
+- structured text --> done
 - video
 
 ## Links

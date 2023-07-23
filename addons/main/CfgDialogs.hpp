@@ -71,6 +71,10 @@ class ScreenItemX: RscCombo
         {
             text = "InfantryCam";
         };
+        class TextItem
+        {
+            text = "Text";
+        };
     };
 
     onLBSelChanged = "['onLBSelChangedItem', _this] call WR_main_fnc_ui_configureScreen;";
@@ -679,9 +683,118 @@ class ConfigureScreenImageItemDialog
 
 /* ================================================================================ */
 
-class ConfigureScreenMapItemDialog
+class ConfigureScreenTextItemDialog
 {
 	idd = 14633;
+	enableSimulation = true;
+
+    onUnload = "['onUnloadDialog', _this] call WR_main_fnc_ui_configureScreenTextItem;";
+
+	class ControlsBackground
+	{
+        class Background: RscText
+        {
+            idc = 1001;
+
+            x = 0 * GUI_GRID_W + GUI_GRID_X;
+            y = 0 * GUI_GRID_H + GUI_GRID_Y;
+            w = 40 * GUI_GRID_W;
+            h = 23 * GUI_GRID_H;
+
+            colorBackground[] = {0.3, 0.3, 0.3, 1}; // opaque dark grey
+        };
+	};
+
+	class Controls
+	{
+        class Headline: RscText
+        {
+            idc = 2001;
+
+            x = 0 * GUI_GRID_W + GUI_GRID_X;
+            y = 0 * GUI_GRID_H + GUI_GRID_Y;
+            w = 40 * GUI_GRID_W;
+            h = 1.5 * GUI_GRID_H;
+
+            colorBackground[] = {0, 0, 0, 1}; // opaque black
+            text = "Configure Text Item"; //--- ToDo: Localize;
+        };
+
+		class HeadlineTextLabel: RscText
+		{
+			idc = 3001;
+        
+			x = 0 * GUI_GRID_W + GUI_GRID_X;
+			y = 2 * GUI_GRID_H + GUI_GRID_Y;
+			w = 10 * GUI_GRID_W;
+			h = 1 * GUI_GRID_H;
+        
+			text = "Headline"; //--- ToDo: Localize;
+            style = ST_RIGHT;
+		};
+
+        class HeadlineText: RscEdit
+        {
+            idc = 4001;
+
+            x = 11 * GUI_GRID_W + GUI_GRID_X;
+            y = 2 * GUI_GRID_H + GUI_GRID_Y;
+            w = 28.5 * GUI_GRID_W;
+            h = 1 * GUI_GRID_H;
+
+			colorBackground[] = {0.2, 0.2, 0.2, 1}; // opaque dark grey
+        };
+
+		class TextLabel: RscText
+		{
+			idc = 3002;
+        
+			x = 0 * GUI_GRID_W + GUI_GRID_X;
+			y = 3.5 * GUI_GRID_H + GUI_GRID_Y;
+			w = 10 * GUI_GRID_W;
+			h = 1 * GUI_GRID_H;
+        
+			text = "Structured Text"; //--- ToDo: Localize;
+            style = ST_RIGHT;
+		};
+
+        class Text: RscEdit
+        {
+            idc = 4002;
+
+            x = 11 * GUI_GRID_W + GUI_GRID_X;
+            y = 3.5 * GUI_GRID_H + GUI_GRID_Y;
+            w = 28.5 * GUI_GRID_W;
+            h = 19 * GUI_GRID_H;
+
+			colorBackground[] = {0.2, 0.2, 0.2, 1}; // opaque dark grey
+			style = ST_MULTI;
+			lineSpacing = 1;
+        };
+
+       class MyOk: RscButtonMenuOK
+        {
+            x = 37 * GUI_GRID_W + GUI_GRID_X;
+            y = 23.5 * GUI_GRID_H + GUI_GRID_Y;
+            w = 3 * GUI_GRID_W;
+            h = 1.5 * GUI_GRID_H;
+        };
+
+        class MyCancel: RscButtonMenuCancel
+        {
+            x = 31 * GUI_GRID_W + GUI_GRID_X;
+            y = 23.5 * GUI_GRID_H + GUI_GRID_Y;
+            w = 5 * GUI_GRID_W;
+            h = 1.5 * GUI_GRID_H;
+        };
+	};
+};
+
+/* ================================================================================ */
+
+class ConfigureScreenMapItemDialog
+{
+	idd = 14634;
 	enableSimulation = true;
 
     onUnload = "['onUnloadDialog', _this] call WR_main_fnc_ui_configureScreenMapItem;";
@@ -815,7 +928,7 @@ class ConfigureScreenMapItemDialog
 
 class ConfigureScreenCamItemDialog
 {
-	idd = 14634;
+	idd = 14635;
 	enableSimulation = true;
 
     onUnload = "['onUnloadDialog', _this] call WR_main_fnc_ui_configureScreenCamItem;";
