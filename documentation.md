@@ -2,8 +2,10 @@
 
 ## High Prio Todos
 
-- show content in presentation mode
-- Überschrift größer
+- configure module
+  - mehrere Module (syncted units können nur ihren Monitor verwenden, aber jeweils auf beiden seiten) --> 2 module
+    - --> individual sync key variable zum abgleich zwischen zwischen unit und monitor (müssen gleich sein bzw. die gleiche auf beiden seiten gesetzt sein)
+  - Auf jeder Seite können nur dronen/units der eigenen seite controlliert werden
 - modify module with radio button options (allow diffent screen item types)
 - platz in den screen item ui's besser ausnutzen (links unten)
 - allow setting up different camera modes for Uavs

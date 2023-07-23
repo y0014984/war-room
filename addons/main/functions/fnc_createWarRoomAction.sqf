@@ -6,7 +6,7 @@ private _condition =
 {
     params ["_entity", "_player", "_params"];
 
-    (alive _entity) && (_entity getVariable ["WR_interactionAllowedGlobal", false]);
+    (alive _entity) && (_entity getVariable ["WR_interactionAllowed", false]) && (_player getVariable ["WR_interactionAllowed", false]);
 };
 
 /* ---------------------------------------- */
