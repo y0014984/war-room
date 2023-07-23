@@ -22,6 +22,11 @@ PREP(updateScreen);
 
 PREP(removeFilenameExtension);
 
+PREP(enablePresentationMode);
+PREP(disablePresentationMode);
+PREP(addPresentationLayer);
+PREP(removePresentationLayer);
+
 // Server
 PREP(module_enableWarRoom);
 PREP(initSupportedAssetClasses);

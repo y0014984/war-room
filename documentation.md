@@ -2,7 +2,7 @@
 
 ## High Prio Todos
 
-- add presentation mode
+- set Image in ui configurator to square
 - modify module with radio button options (allow diffent screen item types)
 - platz in den screen item ui's besser ausnutzen (links unten)
 - allow setting up different camera modes for Uavs
@@ -16,6 +16,8 @@
 - adjustable text and background color for text item (in ui config)
 - allow text files (structured text)
 - add buttons to modify current text selection (text size for example) --> show text as structured text (simple text editor)
+- Script Screen Item mit Custom Output
+- Fraktionslogo in Titelleiste
 
 ## Low Prio Todos
 
@@ -85,6 +87,8 @@ Entity Interaction --> War Room --> Screen 1
 
 ## Annotations / known bugs
 
+- presentation mode does not word with JIP (can't see the pointer) but on normal startup;
+  - It's not that big problem, because if the presentator stops presentation and starts it again, everybody can see the pointer
 - No entry 'bin\config.bin/CfgVehicles/CLASSNAME'. for some classes. Don't know why.
 - die Extension für die Bilder funktioniert nur, wenn die Mission lokal ungepackt vorliegt, also vermutlich nur, wenn der Server die Mission ungepackt hat oder in einem Hosted Multiplayer ungepackt aus dem Editor heraus
   - vielleicht kann ich etwas bauen, dass die Extension nur während des Missionsbaus verwendet, und dann einfach die Daten irgendwie in die Mission schreibt, die dann später z.B. als config ausgelesen werden kann

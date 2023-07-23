@@ -9,6 +9,8 @@ private _statement =
     params ["_entity", "_player", "_params"];
     _params params ["_screenIndex"];
 
+    [_entity, _screenIndex] call WR_main_fnc_enablePresentationMode;
+
     systemChat format ["Enter presentation mode for Screen %1", _screenIndex];
 };
 
