@@ -10,6 +10,9 @@ files = [
     "README.md",
     "AUTHORS.txt",
     "LICENSE",
+    "logo_wr_ca.paa",
+    "logo_wr_ca_hover.paa",
+    "logo_wr_ca_font.paa",
     "meta.cpp",
     "ArmaExtensionFolders_x64.dll"
 ]

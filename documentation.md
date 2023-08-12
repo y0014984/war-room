@@ -1,5 +1,15 @@
 # DOCUMENTATION
 
+## Release todos
+
+- Lizenz
+- Authors
+- GitHub Readme
+- Steam Workshop
+- Teaser
+- Howto Video
+- Contribution
+
 ## High Prio Todos
 
 - configure module
@@ -24,6 +34,7 @@
 - kann man bei UIonTexture die AspectRatio verändern?
 - Alternativtexte als Überschriften anstatt auto-Beschriftung (Optional per zusätzlichem Config-Feld)
 - Während Presentation mode bewegbar?
+- Präsentationsmodus nur für spieler im umkreis von x metern?
 
 ## Low Prio Todos
 
@@ -46,6 +57,7 @@
 - command: getTextureInfo --> Zusatzinfos über Bilder
 - command: screenshot --> vielleicht live aufnehmen und auf dem Screen zeigen?
 - Video Screen Item
+- Countown oder Timer Screen Item
 
 ## Later Enhancements
 
