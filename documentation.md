@@ -9,6 +9,9 @@
 - Teaser
 - Howto Video
 - Contribution
+- remove debug messages
+- remove red corners
+- transfer todos in github issues
 
 ## High Prio Todos
 

@@ -36,14 +36,12 @@ if (_screenItemType isEqualTo "IMAGE") exitWith
 	_imageInfoboxCtrl ctrlSetPosition _screenItemInfoboxCtrlPos;
 	_imageInfoboxCtrl ctrlCommit 0;
 
-	_screenItemContent params ["_imageName", "_path"];
+	_screenItemContent params ["_itemInfo", "_path"];
 
 	// set control text to relative image path
 	_imageCtrl ctrlSetText _path;
 
-	private _imageNameWithoutExtension = [_imageName] call WR_main_fnc_removeFilenameExtension;
-	
-	_imageInfoboxCtrl ctrlSetText format ["%1", _imageNameWithoutExtension];
+	_imageInfoboxCtrl ctrlSetText format ["%1", _itemInfo];
 };
 
 /* ================================================================================ */

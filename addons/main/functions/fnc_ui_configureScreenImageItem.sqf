@@ -83,8 +83,20 @@ if (_event isEqualTo "onLBSelChangedImage") exitWith
     {
         _imageCtrl ctrlSetText _path;
 
+        private _itemInfoCtrl = _dialog displayCtrl 4000;
+        private _itemInfoAutoCtrl = _dialog displayCtrl 4002;
+
+        if (cbChecked _itemInfoAutoCtrl) then
+        {
+            private _imageNameWithoutExtension = [_imageName] call WR_main_fnc_removeFilenameExtension;
+            
+            _itemInfoCtrl ctrlSetText format ["%1", _imageNameWithoutExtension];
+        };
+
+        private _itemInfo = ctrlText _itemInfoCtrl;
+
         _dialog setVariable ["WR_screenItemType", "IMAGE"];
-        _dialog setVariable ["WR_screenItemContent", [_imageName, _path]];
+        _dialog setVariable ["WR_screenItemContent", [_itemInfo, _path]];
 
         systemChat format ["Changed image item to image: %1", _imageName];
     }
@@ -92,6 +104,50 @@ if (_event isEqualTo "onLBSelChangedImage") exitWith
     {
         systemChat format ["Image file does not exist anymore: %1", _imageName];
     };
+};
+
+/* ================================================================================ */
+
+if (_event isEqualTo "onCheckedChangedItemInfoAuto") exitWith
+{
+    _params params ["_control", "_checked"];
+
+    private _dialog = ctrlParent _control;
+
+    private _itemInfoCtrl = _dialog displayCtrl 4000;
+
+    if (_checked == 1) then
+    {
+        private _imageSelCtrl = _dialog displayCtrl 4001;
+        private _lbCurSel = lbCurSel _imageSelCtrl;
+        private _imageName = _imageSelCtrl lbText _lbCurSel;
+        private _imageNameWithoutExtension = [_imageName] call WR_main_fnc_removeFilenameExtension;
+        
+        _itemInfoCtrl ctrlSetText format ["%1", _imageNameWithoutExtension];
+
+        _itemInfoCtrl ctrlEnable false;
+    }
+    else
+    {
+        _itemInfoCtrl ctrlEnable true;
+    };
+};
+
+/* ================================================================================ */
+
+if (_event isEqualTo "onKeyUpItemInfo") exitWith
+{
+    _params params ["_control", "_key", "_shift", "_ctrl", "_alt"];
+
+    private _dialog = ctrlParent _control;
+
+    private _screenItemContent = _dialog getVariable ["WR_screenItemContent", nil];
+
+    private _itemInfoCtrl = _dialog displayCtrl 4000;
+    private _itemInfo = ctrlText _itemInfoCtrl;
+    _screenItemContent set [0, _itemInfo];
+
+    _dialog setVariable ["WR_screenItemContent", _screenItemContent];
 };
 
 /* ================================================================================ */

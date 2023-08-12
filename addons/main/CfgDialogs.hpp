@@ -15,6 +15,7 @@ class RscText;
 class RscEdit;
 class RscButton;
 class RscCombo;
+class RscCheckBox;
 class RscMapControl;
 class RscPicture;
 class RscPictureKeepAspect;
@@ -629,12 +630,64 @@ class ConfigureScreenImageItemDialog
             text = "Configure Image Item"; //--- ToDo: Localize;
         };
 
-		class ImageLabel: RscText
+		class ItemInfoLabel: RscText
+		{
+			idc = 3000;
+        
+			x = 0 * GUI_GRID_W + GUI_GRID_X;
+			y = 2 * GUI_GRID_H + GUI_GRID_Y;
+			w = 10 * GUI_GRID_W;
+			h = 1 * GUI_GRID_H;
+        
+			text = "Item Info"; //--- ToDo: Localize;
+            style = ST_RIGHT;
+		};
+
+		class ItemInfo: RscEdit
+		{
+			idc = 4000;
+        
+			x = 11 * GUI_GRID_W + GUI_GRID_X;
+			y = 2 * GUI_GRID_H + GUI_GRID_Y;
+			w = 22.5 * GUI_GRID_W; // 28,5
+			h = 1 * GUI_GRID_H;
+        
+            colorBackground[] = {0.2, 0.2, 0.2, 1}; // opaque dark grey
+			onLoad = "(_this # 0) ctrlEnable false;";
+			onKeyUp = "['onKeyUpItemInfo', _this] call WR_main_fnc_ui_configureScreenImageItem;";
+		};
+
+		class ItemInfoAuto: RscCheckBox
+		{
+			idc = 4002;
+        
+			x = 34 * GUI_GRID_W + GUI_GRID_X;
+			y = 2 * GUI_GRID_H + GUI_GRID_Y;
+			w = 1 * GUI_GRID_W;
+			h = 1 * GUI_GRID_H;
+        
+			checked = 1;
+			onCheckedChanged = "['onCheckedChangedItemInfoAuto', _this] call WR_main_fnc_ui_configureScreenImageItem;";
+		};
+
+		class ItemInfoAutoLabel: RscText
+		{
+			idc = 3000;
+        
+			x = 35.5 * GUI_GRID_W + GUI_GRID_X;
+			y = 2 * GUI_GRID_H + GUI_GRID_Y;
+			w = 4 * GUI_GRID_W;
+			h = 1 * GUI_GRID_H;
+        
+			text = "Auto"; //--- ToDo: Localize;
+		};
+
+		class ImageSelectionLabel: RscText
 		{
 			idc = 3001;
         
 			x = 0 * GUI_GRID_W + GUI_GRID_X;
-			y = 2 * GUI_GRID_H + GUI_GRID_Y;
+			y = 3.5 * GUI_GRID_H + GUI_GRID_Y;
 			w = 10 * GUI_GRID_W;
 			h = 1 * GUI_GRID_H;
         
@@ -642,38 +695,51 @@ class ConfigureScreenImageItemDialog
             style = ST_RIGHT;
 		};
 
-        class Image: RscCombo
+        class ImageSelection: RscCombo
         {
             idc = 4001;
 
             x = 11 * GUI_GRID_W + GUI_GRID_X;
-            y = 2 * GUI_GRID_H + GUI_GRID_Y;
+            y = 3.5 * GUI_GRID_H + GUI_GRID_Y;
             w = 28.5 * GUI_GRID_W;
             h = 1 * GUI_GRID_H;
 
             onLBSelChanged = "['onLBSelChangedImage', _this] call WR_main_fnc_ui_configureScreenImageItem;";
         };
 
-		class ImageDemoBackground: RscText
+		class ImagePreviewLabel: RscText
+		{
+			idc = 3002;
+        
+			x = 0 * GUI_GRID_W + GUI_GRID_X;
+			y = 5 * GUI_GRID_H + GUI_GRID_Y;
+			w = 10 * GUI_GRID_W;
+			h = 1 * GUI_GRID_H;
+        
+			text = "Image Preview"; //--- ToDo: Localize;
+            style = ST_RIGHT;
+		};
+
+		class ImagePreviewBackground: RscText
 		{
 			idc = 5000;
 
             x = 11 * GUI_GRID_W + GUI_GRID_X;
-            y = 3.5 * GUI_GRID_H + GUI_GRID_Y;
+            y = 5 * GUI_GRID_H + GUI_GRID_Y;
             w = 28.5 * GUI_GRID_W;
-            h = 19 * GUI_GRID_H;
+            h = 17.5 * GUI_GRID_H;
 
 			colorBackground[] = {0.2, 0.2, 0.2, 1}; // opaque dark grey
 		};
 
-		class ImageDemo: RscPictureKeepAspect
+		class ImagePreview: RscPictureKeepAspect
 		{
 			idc = 5001;
 
             x = 11 * GUI_GRID_W + GUI_GRID_X;
-            y = 3.5 * GUI_GRID_H + GUI_GRID_Y;
+            y = 5 * GUI_GRID_H + GUI_GRID_Y;
             w = 28.5 * GUI_GRID_W;
-            h = 19 * GUI_GRID_H;
+            h = 17.5 * GUI_GRID_H;
 		};
 
        class MyOk: RscButtonMenuOK
