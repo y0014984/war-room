@@ -97,7 +97,7 @@ class ScreenItemXResult: RscText
 class ConfigureScreenDialog
 {
 	idd = 14631;
-	enableSimulation = true;
+	enableSimulation = "true";
 
     onUnload = "['onUnloadDialog', _this] call WR_main_fnc_ui_configureScreen;";
 
@@ -596,7 +596,7 @@ class ConfigureScreenDialog
 class ConfigureScreenImageItemDialog
 {
 	idd = 14632;
-	enableSimulation = true;
+	enableSimulation = "true";
 
     onUnload = "['onUnloadDialog', _this] call WR_main_fnc_ui_configureScreenImageItem;";
 
@@ -765,7 +765,7 @@ class ConfigureScreenImageItemDialog
 class ConfigureScreenTextItemDialog
 {
 	idd = 14633;
-	enableSimulation = true;
+	enableSimulation = "true";
 
     onUnload = "['onUnloadDialog', _this] call WR_main_fnc_ui_configureScreenTextItem;";
 
@@ -874,7 +874,7 @@ class ConfigureScreenTextItemDialog
 class ConfigureScreenMapItemDialog
 {
 	idd = 14634;
-	enableSimulation = true;
+	enableSimulation = "true";
 
     onUnload = "['onUnloadDialog', _this] call WR_main_fnc_ui_configureScreenMapItem;";
 
@@ -1008,7 +1008,7 @@ class ConfigureScreenMapItemDialog
 class ConfigureScreenCamItemDialog
 {
 	idd = 14635;
-	enableSimulation = true;
+	enableSimulation = "true";
 
     onUnload = "['onUnloadDialog', _this] call WR_main_fnc_ui_configureScreenCamItem;";
 
@@ -1101,7 +1101,7 @@ class WarRoomTemplate40by25
 {
 	idd = -1;
 
-	enableSimulation = true;
+	enableSimulation = "true";
 
 	WR_uiScreenItemCount = -1;
 
@@ -1202,7 +1202,7 @@ class WarRoomTemplate40by25Mod1
 
 	idd = -1;
 
-	enableSimulation = true;
+	enableSimulation = "true";
 
 	WR_uiScreenItemCount = -1;
 
@@ -1303,7 +1303,7 @@ class WarRoomTemplate40by25Mod2
 
 	idd = -1;
 
-	enableSimulation = true;
+	enableSimulation = "true";
 
 	WR_uiScreenItemCount = -1;
 
@@ -1404,7 +1404,7 @@ class WarRoomTemplate40by25Mod3
 
 	idd = -1;
 
-	enableSimulation = true;
+	enableSimulation = "true";
 
 	WR_uiScreenItemCount = -1;
 
